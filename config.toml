@@ -1,6 +1,6 @@
 baseurl = "/"
 languageCode = "en-us"
-title = "Eric's personal COVID tracker"
+title = "Eric's COVID tracker"
 theme = "hugo-lithium"
 googleAnalytics = ""
 disqusShortname = ""
