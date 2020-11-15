@@ -11,9 +11,14 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\
 
 [[menu.main]]
     name = "GitHub"
+    identifier = "github"
+    pre = "fab fa-github"
     url = "https://github.com/ericedwardbryant/covid"
+    weight = 1
+
 
 [params]
+    owner = "Eric Bryant, PhD"
     description = "A website built through Hugo and blogdown."
 
     # options for highlight.js (version, additional languages, and theme)
