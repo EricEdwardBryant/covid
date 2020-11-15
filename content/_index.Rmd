@@ -1,0 +1,24 @@
+---
+title: Homepage
+author: Eric Edward Bryant
+---
+
+```{r include = FALSE}
+# Load R packages, functions, and settings
+source(here::here("requirements.R"))
+
+# Where to save new cases in CA
+csv <- here("data/new-cases-ca.csv")
+
+# Download new cases from https://data.ca.gov
+# Only downloads once a day unless force = TRUE
+download_new_cases_ca(csv)
+```
+
+```{r fig.width = 3.5, fig.height = 3, dpi = 300, out.width = "400px"}
+figure_new_cases(csv, "Los Angeles")
+```
+
+```{r fig.width = 3.5, fig.height = 3, dpi = 300, out.width = "400px"}
+figure_new_cases(csv, "Santa Clara")
+```

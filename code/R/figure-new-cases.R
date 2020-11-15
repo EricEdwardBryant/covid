@@ -1,0 +1,68 @@
+
+figure_new_cases <- function(csv, county, smooth_span = 0.25, date_limits = c(NA, "2021-03-01")) {
+  this_county <- county
+
+  df <-
+    read_csv(csv) %>%
+    filter(county == this_county) %>%
+    arrange(date) %>%
+    mutate(
+      count_new_roll  = slide_dbl(count_new, median, .before = 7L, .after = 7L),
+      count_new_loess = predict_loess(date, count_new, span = smooth_span)
+    )
+
+  # Observations to directly annotate
+  df_text <-
+    filter(df, date == max(date) | count_new_loess == max(count_new_loess))
+
+  df %>%
+    ggplot(aes(date, count_new)) +
+    labs(
+      subtitle = "COVID-19 daily new cases",
+      title = this_county,
+      y = "Count",
+      caption =
+        str_c(
+          str_c('Downloaded from _data.ca.gov_ (', file.mtime(csv), ")"),
+          "<span style='color:red'>Red line</span>: 2 week rolling median",
+          "<span style='color:blue'>Blue line</span>: loess smooth",
+          sep = "<br>"
+        )
+    ) +
+    geom_vline(xintercept = as.Date("2021-01-01", tz = ""), linetype = "dotted") +
+    geom_line(alpha = 0.25) +
+    geom_line(aes(y = count_new_roll), color = "red") +
+    geom_line(aes(y = count_new_loess), color = "blue") +
+    geom_text(
+      aes(
+        y     = round(count_new_loess),
+        # Round the direct annotation to nearest 10
+        label = scales::comma(round(count_new_loess, digits = -1))
+      ),
+      vjust = -0.5, # Place label just above the point on the plot
+      data = df_text
+    ) +
+    scale_y_continuous(labels = scales::comma) +
+    scale_x_date(
+      date_breaks = "2 month",
+      date_labels = "%b",
+      date_minor_breaks = "1 month",
+      limits = as.Date(date_limits, tz = ""),
+      sec.axis =
+        dup_axis(
+          breaks = scales::date_breaks("1 year"),
+          labels = scales::date_format("%Y")
+        )
+    ) +
+    theme(
+      plot.caption = ggtext::element_markdown(hjust = 0, size = 7),
+      aspect.ratio = 0.5,
+      axis.title.x = element_blank(),
+      axis.text.x = element_text(hjust = 0)
+    )
+}
+
+
+predict_loess <- function(x, y, span) {
+  predict(loess(as.numeric(y) ~ as.numeric(x), span = span))
+}
