@@ -16,5 +16,5 @@ knitr::opts_chunk$set(
   fig.width = 3.5,
   fig.height = 3,
   dpi = 300,
-  out.width = "300px"
+  out.width = "350px"
 )
