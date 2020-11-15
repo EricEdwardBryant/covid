@@ -15,10 +15,12 @@ csv <- here("data/new-cases-ca.csv")
 download_new_cases_ca(csv)
 ```
 
-```{r fig.width = 3.5, fig.height = 3, dpi = 300, out.width = "400px"}
-figure_new_cases(csv, "Los Angeles")
+```{r new-cases-los-angeles}
+# Population from: https://worldpopulationreview.com/us-counties/ca/los-angeles-county-population
+figure_new_cases(csv, "Los Angeles", population = 10079000)
 ```
 
-```{r fig.width = 3.5, fig.height = 3, dpi = 300, out.width = "400px"}
-figure_new_cases(csv, "Santa Clara")
+```{r new-cases-santa-clara}
+# Population from: https://worldpopulationreview.com/us-counties/ca/santa-clara-county-population
+figure_new_cases(csv, "Santa Clara", population = 1945940)
 ```

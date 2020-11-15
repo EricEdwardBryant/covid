@@ -1,5 +1,5 @@
 
-figure_new_cases <- function(csv, county, smooth_span = 0.25, date_limits = c(NA, "2021-03-01")) {
+figure_new_cases <- function(csv, county, population, smooth_span = 0.25, date_limits = c(NA, "2021-03-01")) {
   this_county <- county
 
   df <-
@@ -18,9 +18,8 @@ figure_new_cases <- function(csv, county, smooth_span = 0.25, date_limits = c(NA
   df %>%
     ggplot(aes(date, count_new)) +
     labs(
-      subtitle = "COVID-19 daily new cases",
-      title = this_county,
-      y = "Count",
+      title = str_c(this_county, " county"),
+      y = "New cases",
       caption =
         str_c(
           str_c('Downloaded from _data.ca.gov_ (', file.mtime(csv), ")"),
@@ -42,7 +41,14 @@ figure_new_cases <- function(csv, county, smooth_span = 0.25, date_limits = c(NA
       vjust = -0.5, # Place label just above the point on the plot
       data = df_text
     ) +
-    scale_y_continuous(labels = scales::comma) +
+    scale_y_continuous(
+      labels = scales::comma,
+      sec.axis =
+        sec_axis(
+          ~ . / (population / 1e4),
+          name = "Per 10K people"
+        )
+    ) +
     scale_x_date(
       date_breaks = "2 month",
       date_labels = "%b",
