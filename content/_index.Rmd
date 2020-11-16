@@ -1,7 +1,9 @@
 ---
 title: Homepage
-author: Eric Edward Bryant
+author: Eric Bryant, PhD
 ---
+
+First time here? Check out the [FAQ](/faq/)!
 
 ```{r include = FALSE}
 # Load R packages, functions, and settings

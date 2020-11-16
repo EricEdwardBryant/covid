@@ -10,11 +10,18 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\
     post = "/:year/:month/:day/:slug/"
 
 [[menu.main]]
+    name = "FAQ"
+    identifier = "faq"
+    pre = "fa fa-question-circle"
+    url = "/faq/"
+    weight = 1
+
+[[menu.main]]
     name = "GitHub"
     identifier = "github"
     pre = "fab fa-github"
     url = "https://github.com/ericedwardbryant/covid"
-    weight = 1
+    weight = 2
 
 
 [params]

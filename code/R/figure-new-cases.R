@@ -1,6 +1,7 @@
 
 figure_new_cases <- function(csv, county, population, smooth_span = 0.25, date_limits = c(NA, "2021-03-01")) {
   this_county <- county
+  json <- str_c(tools::file_path_sans_ext(csv), ".json")
 
   df <-
     read_csv(csv) %>%
@@ -22,9 +23,9 @@ figure_new_cases <- function(csv, county, population, smooth_span = 0.25, date_l
       y = "New cases",
       caption =
         str_c(
-          str_c('Downloaded from _data.ca.gov_ (', file.mtime(csv), ")"),
+          str_c('Downloaded from _data.ca.gov_ (', file.mtime(json), ")"),
           "<span style='color:red'>Red line</span>: 2 week rolling median",
-          "<span style='color:blue'>Blue line</span>: loess smooth",
+          "<span style='color:blue'>Blue line</span>: loess estimate",
           sep = "<br>"
         )
     ) +

@@ -1,0 +1,91 @@
+---
+title: Frequently asked questions
+author: Eric Bryant, PhD
+---
+
+
+
+<div id="who-made-this-site" class="section level2">
+<h2>Who made this site?</h2>
+<p><a href="https://twitter.com/EricEdwrdBryant">I did</a>! And I am not an epidemiologist,
+nor should I be considered an expert on COVID-19, or infectious disease.</p>
+</div>
+<div id="who-is-this-covid-tracker-for" class="section level2">
+<h2>Who is this COVID tracker for?</h2>
+<p>It’s mostly for me, and a way for me to share what I think is the most relevant
+information that gets presented on the many COVID dashboards that already exist.</p>
+</div>
+<div id="other-dashboards" class="section level2">
+<h2>Other dashboards?</h2>
+<p>There are many other dashboards that exist from official sources. Check them
+out!</p>
+<ul>
+<li><a href="http://publichealth.lacounty.gov/media/coronavirus/data/index.htm">LA county public health</a></li>
+<li><a href="http://dashboard.publichealth.lacounty.gov/covid19_surveillance_dashboard">LA county COVID-19 dashboard</a>
+<ul>
+<li>This one has a regional breakdown in LA. Nice!</li>
+</ul></li>
+<li><a href="https://public.tableau.com/views/COVID-19CasesDashboard_15931020425010/Cases?:embed=y&amp;:showVizHome=no">CA COVID-19 cases dashboard</a></li>
+<li>Any other favorites? Let me know by submitting an issue for this site
+<a href="https://github.com/ericedwardbryant/covid/issues">here</a></li>
+</ul>
+</div>
+<div id="what-do-i-think-is-the-most-relevant-information" class="section level2">
+<h2>What do I think is the most relevant information?</h2>
+<p>For me (and my friends, and my family) I think the most important thing is to be
+aware of COVID-19 prevalence in our communities. Fortunately, CA publishes new
+positive SARS-CoV-2 tests every day with a county level breakdown. This is an
+imperfect metric and should be considered an underestimate of community
+prevalence because it only catches cases that were actually tested. Reporting
+is also a bit off as we can see strong weekly periodicity when we visualize the
+raw data, which is why I include a two week rolling average and a smooth curve
+when plotting daily new cases.</p>
+<p>That said, the smoothed curves are also likely underestimating community
+prevalence as the under-reporting on certain days drags the whole average down.
+The more important thing to pay attention to is whether daily new cases are
+increasing, stable, or decreasing. Increases in daily new cases means that every
+new cases is resulting in more than one additional new case, such that spread is
+no longer being controlled. Decreasing daily new cases indicates that our
+control measures are working.</p>
+</div>
+<div id="why-dont-you-include-daily-new-deaths" class="section level2">
+<h2>Why don’t you include daily new deaths?</h2>
+<p>Want more data? See the dashboards linked above! That said, be careful when
+interpreting daily new deaths. This measure lags by several weeks behind daily
+new cases. While I think it is important to keep in mind that many people have
+died and continue to die from this disease, I do not think monitoring daily new
+deaths helps individuals assess the current prevalence of COVID-19 in their
+communities, and thus does not inform us how to act today to avoid getting
+and/or spreading COVID-19.</p>
+<p>Also, be aware that daily new deaths (i.e. new reported deaths yesterday) is
+<em>not</em> the same thing as infection fatality rate (IFR i.e. rate of death among
+infected persons). IFR is something that you should probably only worry about
+<em>if</em> you get COVID-19 and even then, you would want the IFR for someone of your
+same demographic with the same co-morbidities etc. And, even then, it still is a
+poor indicator for how <em>you</em> will respond to COVID-19. IFR is something more
+relevant to policy makers and people running clinical trials that they use,
+along with many other important factors, to help assess the current standard of
+care and the status of our healthcare system. So, instead of worrying about
+crude death rates, or IFR, listen to public health experts when they say this is
+a serious disease that needs to be managed and not ignored.</p>
+</div>
+<div id="is-this-covid-tracker-updated-automatically" class="section level2">
+<h2>Is this COVID tracker updated automatically?</h2>
+<p>At the moment, no. I have to click a couple buttons to update with the latest
+daily numbers reported in California, which I plan on doing when I have my
+morning coffee. I would like to automate this (possibly using
+<a href="https://docs.travis-ci.com/user/cron-jobs/">Travis</a>), but I can live with a
+couple clicks for now.</p>
+</div>
+<div id="what-is-the-loess-estimate" class="section level2">
+<h2>What is the “loess estimate”?</h2>
+<p>LOESS stands for “LOcally Estimated Scatterplot Smoothing,” and is just the
+algorithm I used to fit smooth curves (i.e. make the line pretty). This
+estimated curve is also used to annotate the numbers directly on the plot that
+provide to tell us the approximate peak and current value for daily new cases.
+The exact numbers should not be taken too seriously, as they are almost
+certainly underestimates of actual COVID-19 prevalence. That said these
+estimates will not fluctuate as wildly as the raw reported daily new cases –
+this is intentional as these fluctuations are almost certainly reporting
+artifacts that should be ignored.</p>
+</div>
