@@ -92,7 +92,7 @@ What is the "loess estimate"?
 LOESS stands for "LOcally Estimated Scatterplot Smoothing," and is just the
 algorithm I used to fit smooth curves (i.e. make the line pretty). This
 estimated curve is also used to annotate the numbers directly on the plot that
-to tell us the approximate peak and current value for daily new cases.
+tell us the approximate peak and current value for daily new cases.
 The exact numbers should not be taken too seriously since they are almost
 certainly underestimates of actual COVID-19 prevalence. That said these
 estimates will not fluctuate as wildly as the raw reported daily new cases --
