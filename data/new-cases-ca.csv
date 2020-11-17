@@ -242,6 +242,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Santa Clara,348,27609,4,444
 2020-11-13,Santa Clara,353,27962,0,444
 2020-11-14,Santa Clara,327,28289,0,444
+2020-11-15,Santa Clara,384,28673,1,445
 2020-03-17,San Mateo,57,57,1,1
 2020-03-18,San Mateo,1,58,0,1
 2020-03-19,San Mateo,13,71,0,1
@@ -265,6 +266,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-06,San Mateo,4,573,2,22
 2020-04-07,San Mateo,35,608,0,22
 2020-04-08,San Mateo,22,630,1,23
+2020-05-19,San Mateo,35,1739,0,75
 2020-04-09,San Mateo,12,642,-2,21
 2020-04-10,San Mateo,20,662,4,25
 2020-04-11,San Mateo,2,664,0,25
@@ -288,7 +290,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-29,San Mateo,24,1194,2,52
 2020-04-30,San Mateo,28,1222,0,52
 2020-05-01,San Mateo,50,1272,0,52
-2020-04-05,Sierra,0,0,0,0
 2020-05-02,San Mateo,5,1277,1,53
 2020-05-03,San Mateo,36,1313,0,53
 2020-05-04,San Mateo,22,1335,3,56
@@ -306,7 +307,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-05-16,San Mateo,28,1680,0,68
 2020-05-17,San Mateo,21,1701,0,68
 2020-05-18,San Mateo,3,1704,7,75
-2020-05-19,San Mateo,35,1739,0,75
+2020-03-18,Tuolumne,0,0,0,0
 2020-05-20,San Mateo,52,1791,0,75
 2020-05-21,San Mateo,56,1847,1,76
 2020-05-22,San Mateo,15,1862,0,76
@@ -347,6 +348,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-06-26,San Mateo,33,3096,0,106
 2020-06-27,San Mateo,66,3162,0,106
 2020-06-28,San Mateo,87,3249,0,106
+2020-03-19,Tuolumne,0,0,0,0
 2020-06-29,San Mateo,57,3306,2,108
 2020-06-30,San Mateo,20,3326,0,108
 2020-07-01,San Mateo,64,3390,0,108
@@ -466,6 +468,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-10-23,San Mateo,70,10942,0,159
 2020-10-24,San Mateo,45,10987,0,159
 2020-10-25,San Mateo,50,11037,0,159
+2020-03-20,Tuolumne,0,0,0,0
 2020-10-26,San Mateo,37,11074,0,159
 2020-10-27,San Mateo,27,11101,0,159
 2020-10-28,San Mateo,44,11145,0,159
@@ -486,6 +489,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,San Mateo,96,12182,3,168
 2020-11-13,San Mateo,111,12293,0,168
 2020-11-14,San Mateo,55,12348,0,168
+2020-11-15,San Mateo,50,12398,0,168
 2020-03-17,Santa Barbara,2,2,0,0
 2020-03-18,Santa Barbara,3,5,0,0
 2020-03-19,Santa Barbara,2,7,0,0
@@ -504,6 +508,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-01,Santa Barbara,22,125,1,1
 2020-04-02,Santa Barbara,29,154,0,1
 2020-04-03,Santa Barbara,13,167,0,1
+2020-03-21,Tuolumne,0,0,0,0
 2020-04-04,Santa Barbara,4,171,0,1
 2020-04-05,Santa Barbara,18,189,1,2
 2020-04-06,Santa Barbara,20,209,0,2
@@ -547,9 +552,9 @@ date,county,count_new,count_total,death_new,death_total
 2020-05-14,Santa Barbara,14,1409,0,11
 2020-05-15,Santa Barbara,13,1422,0,11
 2020-05-16,Santa Barbara,35,1457,0,11
+2020-04-21,Tuolumne,0,2,0,0
 2020-05-17,Santa Barbara,44,1501,0,11
 2020-05-18,Santa Barbara,20,1521,0,11
-2020-04-24,Tuolumne,0,2,0,0
 2020-05-19,Santa Barbara,3,1524,0,11
 2020-05-20,Santa Barbara,17,1541,0,11
 2020-05-21,Santa Barbara,13,1554,1,12
@@ -566,7 +571,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-06-01,Santa Barbara,32,1703,2,14
 2020-06-02,Santa Barbara,19,1722,0,14
 2020-06-03,Santa Barbara,28,1750,0,14
-2020-04-06,Sierra,0,0,0,0
 2020-06-04,Santa Barbara,45,1795,1,15
 2020-06-05,Santa Barbara,20,1815,0,15
 2020-06-06,Santa Barbara,3,1818,0,15
@@ -581,6 +585,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-06-15,Santa Barbara,36,2090,3,21
 2020-06-16,Santa Barbara,57,2147,1,22
 2020-06-17,Santa Barbara,54,2201,0,22
+2020-03-22,Tuolumne,0,0,0,0
 2020-06-18,Santa Barbara,83,2284,0,22
 2020-06-19,Santa Barbara,74,2358,0,22
 2020-06-20,Santa Barbara,72,2430,0,22
@@ -731,12 +736,8 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Santa Barbara,80,10405,0,131
 2020-11-13,Santa Barbara,77,10482,0,131
 2020-11-14,Santa Barbara,34,10516,0,131
+2020-11-15,Santa Barbara,49,10565,2,133
 2020-03-17,Tuolumne,0,0,0,0
-2020-03-18,Tuolumne,0,0,0,0
-2020-03-19,Tuolumne,0,0,0,0
-2020-03-20,Tuolumne,0,0,0,0
-2020-03-21,Tuolumne,0,0,0,0
-2020-03-22,Tuolumne,0,0,0,0
 2020-03-23,Tuolumne,0,0,0,0
 2020-03-24,Tuolumne,0,0,0,0
 2020-03-25,Tuolumne,0,0,0,0
@@ -766,9 +767,9 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-18,Tuolumne,0,2,0,0
 2020-04-19,Tuolumne,0,2,0,0
 2020-04-20,Tuolumne,0,2,0,0
-2020-04-21,Tuolumne,0,2,0,0
 2020-04-22,Tuolumne,0,2,0,0
 2020-04-23,Tuolumne,0,2,0,0
+2020-04-24,Tuolumne,0,2,0,0
 2020-04-25,Tuolumne,1,3,0,0
 2020-04-26,Tuolumne,0,3,0,0
 2020-04-27,Tuolumne,1,4,0,0
@@ -963,6 +964,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-02,Tuolumne,0,302,0,6
 2020-11-03,Tuolumne,8,310,1,7
 2020-11-04,Tuolumne,2,312,0,7
+2020-04-26,Sierra,0,0,0,0
 2020-11-05,Tuolumne,4,316,1,8
 2020-11-06,Tuolumne,-1,315,0,8
 2020-11-07,Tuolumne,26,341,0,8
@@ -973,6 +975,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Tuolumne,74,427,0,8
 2020-11-13,Tuolumne,21,448,0,8
 2020-11-14,Tuolumne,38,486,0,8
+2020-11-15,Tuolumne,57,543,0,8
 2020-03-17,Sierra,0,0,0,0
 2020-03-18,Sierra,0,0,0,0
 2020-03-19,Sierra,0,0,0,0
@@ -991,6 +994,8 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-02,Sierra,0,0,0,0
 2020-04-03,Sierra,0,0,0,0
 2020-04-04,Sierra,0,0,0,0
+2020-04-05,Sierra,0,0,0,0
+2020-04-06,Sierra,0,0,0,0
 2020-04-07,Sierra,0,0,0,0
 2020-04-08,Sierra,0,0,0,0
 2020-04-09,Sierra,0,0,0,0
@@ -1010,7 +1015,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-23,Sierra,0,0,0,0
 2020-04-24,Sierra,0,0,0,0
 2020-04-25,Sierra,0,0,0,0
-2020-04-26,Sierra,0,0,0,0
 2020-04-27,Sierra,0,0,0,0
 2020-04-28,Sierra,0,0,0,0
 2020-04-29,Sierra,0,0,0,0
@@ -1213,6 +1217,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Sierra,0,11,0,0
 2020-11-13,Sierra,0,11,0,0
 2020-11-14,Sierra,0,11,0,0
+2020-11-15,Sierra,0,11,0,0
 2020-03-17,Placer,8,8,1,1
 2020-03-18,Placer,0,8,0,1
 2020-03-19,Placer,1,9,0,1
@@ -1456,6 +1461,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Placer,78,5122,1,63
 2020-11-13,Placer,93,5215,0,63
 2020-11-14,Placer,115,5330,0,63
+2020-11-15,Placer,57,5387,1,64
 2020-03-17,San Luis Obispo,5,5,0,0
 2020-03-18,San Luis Obispo,1,6,0,0
 2020-03-19,San Luis Obispo,5,11,0,0
@@ -1699,6 +1705,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,San Luis Obispo,62,4960,0,33
 2020-11-13,San Luis Obispo,113,5073,0,33
 2020-11-14,San Luis Obispo,47,5120,0,33
+2020-11-15,San Luis Obispo,41,5161,1,34
 2020-03-17,Solano,26,26,0,0
 2020-03-18,Solano,0,26,0,0
 2020-03-19,Solano,3,29,0,0
@@ -1772,6 +1779,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-05-26,Solano,7,477,1,21
 2020-05-27,Solano,12,489,1,22
 2020-05-28,Solano,9,498,0,22
+2020-05-27,Yuba,0,24,0,1
 2020-05-29,Solano,14,512,0,22
 2020-05-30,Solano,0,512,0,22
 2020-05-31,Solano,17,529,0,22
@@ -1893,7 +1901,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-09-24,Solano,42,6179,0,63
 2020-09-25,Solano,30,6209,0,63
 2020-09-26,Solano,2,6211,0,63
-2020-03-30,Yuba,0,5,0,0
 2020-09-27,Solano,43,6254,2,65
 2020-09-28,Solano,49,6303,4,69
 2020-09-29,Solano,12,6315,2,71
@@ -1943,6 +1950,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Solano,108,8525,0,79
 2020-11-13,Solano,130,8655,0,79
 2020-11-14,Solano,58,8713,0,79
+2020-11-15,Solano,114,8827,0,79
 2020-03-17,Monterey,1,1,0,0
 2020-03-18,Monterey,2,3,0,0
 2020-03-19,Monterey,1,4,0,0
@@ -2186,6 +2194,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Monterey,192,12681,4,107
 2020-11-13,Monterey,173,12854,1,108
 2020-11-14,Monterey,145,12999,2,110
+2020-11-15,Monterey,90,13089,0,110
 2020-03-17,Yuba,0,0,0,0
 2020-03-18,Yuba,0,0,0,0
 2020-03-19,Yuba,0,0,0,0
@@ -2199,6 +2208,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-03-27,Yuba,0,3,0,0
 2020-03-28,Yuba,0,3,0,0
 2020-03-29,Yuba,2,5,0,0
+2020-03-30,Yuba,0,5,0,0
 2020-03-31,Yuba,0,5,0,0
 2020-04-01,Yuba,0,5,0,0
 2020-04-02,Yuba,1,6,0,0
@@ -2256,7 +2266,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-05-24,Yuba,0,24,0,1
 2020-05-25,Yuba,0,24,0,1
 2020-05-26,Yuba,0,24,0,1
-2020-05-27,Yuba,0,24,0,1
 2020-05-28,Yuba,1,25,0,1
 2020-05-29,Yuba,0,25,0,1
 2020-05-30,Yuba,1,26,0,1
@@ -2428,6 +2437,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Yuba,25,1435,0,10
 2020-11-13,Yuba,18,1453,0,10
 2020-11-14,Yuba,17,1470,0,10
+2020-11-15,Yuba,30,1500,0,10
 2020-03-17,San Francisco,65,65,0,0
 2020-03-18,San Francisco,15,80,0,0
 2020-03-19,San Francisco,7,87,0,0
@@ -2467,7 +2477,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-22,San Francisco,57,1312,0,21
 2020-04-23,San Francisco,33,1345,1,22
 2020-04-24,San Francisco,-4,1341,0,22
-2020-05-01,Mono,0,25,0,1
 2020-04-25,San Francisco,62,1403,1,23
 2020-04-26,San Francisco,50,1453,0,23
 2020-04-27,San Francisco,18,1471,0,23
@@ -2513,6 +2522,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-06-06,San Francisco,0,2674,0,43
 2020-06-07,San Francisco,41,2715,0,43
 2020-06-08,San Francisco,34,2749,1,44
+2020-03-19,Mono,0,0,0,0
 2020-06-09,San Francisco,25,2774,0,44
 2020-06-10,San Francisco,-8,2766,0,44
 2020-06-11,San Francisco,57,2823,0,44
@@ -2544,7 +2554,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-07-07,San Francisco,48,4093,0,50
 2020-07-08,San Francisco,50,4143,0,50
 2020-07-09,San Francisco,162,4305,0,50
-2020-05-02,Mono,0,25,0,1
 2020-07-10,San Francisco,125,4430,0,50
 2020-07-11,San Francisco,105,4535,0,50
 2020-07-12,San Francisco,60,4595,0,50
@@ -2658,7 +2667,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-10-28,San Francisco,51,12312,0,145
 2020-10-29,San Francisco,72,12384,2,147
 2020-10-30,San Francisco,54,12438,1,148
-2020-04-13,Orange,49,1362,0,21
 2020-10-31,San Francisco,-2,12436,0,148
 2020-11-01,San Francisco,0,12436,0,148
 2020-11-02,San Francisco,149,12585,1,149
@@ -2666,6 +2674,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-04,San Francisco,77,12726,0,149
 2020-11-05,San Francisco,99,12825,2,151
 2020-11-06,San Francisco,155,12980,0,151
+2020-04-19,Orange,88,1679,1,33
 2020-11-07,San Francisco,5,12985,0,151
 2020-11-08,San Francisco,-1,12984,0,151
 2020-11-09,San Francisco,226,13210,0,151
@@ -2674,6 +2683,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,San Francisco,227,13516,0,153
 2020-11-13,San Francisco,145,13661,2,155
 2020-11-14,San Francisco,96,13757,1,156
+2020-11-15,San Francisco,90,13847,0,156
 2020-03-17,Orange,38,38,0,0
 2020-03-18,Orange,21,59,0,0
 2020-03-19,Orange,12,71,0,0
@@ -2701,12 +2711,13 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-10,Orange,100,1267,4,21
 2020-04-11,Orange,16,1283,0,21
 2020-04-12,Orange,30,1313,0,21
+2020-04-13,Orange,49,1362,0,21
 2020-04-14,Orange,15,1377,1,22
 2020-04-15,Orange,62,1439,4,26
 2020-04-16,Orange,57,1496,2,28
 2020-04-17,Orange,73,1569,4,32
 2020-04-18,Orange,22,1591,0,32
-2020-04-19,Orange,88,1679,1,33
+2020-03-18,Mono,0,0,0,0
 2020-04-20,Orange,38,1717,0,33
 2020-04-21,Orange,68,1785,1,34
 2020-04-22,Orange,56,1841,2,36
@@ -2786,7 +2797,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-07-05,Orange,737,20167,0,366
 2020-07-06,Orange,1574,21741,3,369
 2020-07-07,Orange,347,22088,7,376
-2020-04-30,Mono,0,25,0,1
 2020-07-08,Orange,872,22960,26,402
 2020-07-09,Orange,732,23692,10,412
 2020-07-10,Orange,738,24430,9,421
@@ -2917,9 +2927,8 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Orange,572,63804,2,1522
 2020-11-13,Orange,536,64340,2,1524
 2020-11-14,Orange,668,65008,2,1526
+2020-11-15,Orange,388,65396,0,1526
 2020-03-17,Mono,0,0,0,0
-2020-03-18,Mono,0,0,0,0
-2020-03-19,Mono,0,0,0,0
 2020-03-20,Mono,1,1,0,0
 2020-03-21,Mono,0,1,0,0
 2020-03-22,Mono,0,1,0,0
@@ -2961,6 +2970,9 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-27,Mono,2,25,0,1
 2020-04-28,Mono,0,25,0,1
 2020-04-29,Mono,0,25,0,1
+2020-04-30,Mono,0,25,0,1
+2020-05-01,Mono,0,25,0,1
+2020-05-02,Mono,0,25,0,1
 2020-05-03,Mono,0,25,0,1
 2020-05-04,Mono,0,25,0,1
 2020-05-05,Mono,1,26,0,1
@@ -3157,6 +3169,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Mono,6,448,0,2
 2020-11-13,Mono,5,453,0,2
 2020-11-14,Mono,0,453,0,2
+2020-11-15,Mono,0,453,0,2
 2020-03-17,Calaveras,2,2,0,0
 2020-03-18,Calaveras,0,2,0,0
 2020-03-19,Calaveras,0,2,0,0
@@ -3327,9 +3340,9 @@ date,county,count_new,count_total,death_new,death_total
 2020-08-31,Calaveras,16,228,0,2
 2020-09-01,Calaveras,7,235,0,2
 2020-09-02,Calaveras,3,238,0,2
-2020-04-16,Inyo,0,17,0,0
 2020-09-03,Calaveras,-1,237,0,2
 2020-09-04,Calaveras,0,237,0,2
+2020-04-11,Inyo,0,12,0,0
 2020-09-05,Calaveras,-2,235,0,2
 2020-09-06,Calaveras,-1,234,0,2
 2020-09-07,Calaveras,-1,233,0,2
@@ -3401,6 +3414,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Calaveras,5,378,0,21
 2020-11-13,Calaveras,8,386,0,21
 2020-11-14,Calaveras,0,386,0,21
+2020-11-15,Calaveras,16,402,0,21
 2020-03-29,Alpine,1,1,0,0
 2020-03-30,Alpine,0,1,0,0
 2020-03-31,Alpine,0,1,0,0
@@ -3632,6 +3646,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Alpine,0,12,0,0
 2020-11-13,Alpine,0,12,0,0
 2020-11-14,Alpine,0,12,0,0
+2020-11-15,Alpine,0,12,0,0
 2020-03-17,Nevada,2,2,0,0
 2020-03-18,Nevada,0,2,0,0
 2020-03-19,Nevada,0,2,0,0
@@ -3875,6 +3890,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Nevada,18,798,0,9
 2020-11-13,Nevada,37,835,0,9
 2020-11-14,Nevada,24,859,0,9
+2020-11-15,Nevada,30,889,0,9
 2020-03-17,Butte,0,0,0,0
 2020-03-18,Butte,0,0,0,0
 2020-03-19,Butte,0,0,0,0
@@ -3969,6 +3985,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-06-16,Butte,2,81,0,1
 2020-06-17,Butte,7,88,0,1
 2020-06-18,Butte,3,91,0,1
+2020-04-12,Inyo,0,12,0,0
 2020-06-19,Butte,3,94,0,1
 2020-06-20,Butte,3,97,0,1
 2020-06-21,Butte,7,104,0,1
@@ -4058,8 +4075,8 @@ date,county,count_new,count_total,death_new,death_total
 2020-09-13,Butte,2,2642,0,28
 2020-09-14,Butte,53,2695,3,31
 2020-09-15,Butte,9,2704,2,33
+2020-04-13,Inyo,0,12,0,0
 2020-09-16,Butte,16,2720,0,33
-2020-04-17,Inyo,0,17,0,0
 2020-09-17,Butte,18,2738,2,35
 2020-09-18,Butte,10,2748,0,35
 2020-09-19,Butte,16,2764,0,35
@@ -4119,6 +4136,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Butte,55,3402,0,56
 2020-11-13,Butte,32,3434,0,56
 2020-11-14,Butte,18,3452,0,56
+2020-11-15,Butte,38,3490,1,57
 2020-03-17,Santa Cruz,11,11,0,0
 2020-03-18,Santa Cruz,2,13,0,0
 2020-03-19,Santa Cruz,0,13,0,0
@@ -4147,7 +4165,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-11,Santa Cruz,1,80,0,1
 2020-04-12,Santa Cruz,2,82,0,1
 2020-04-13,Santa Cruz,2,84,0,1
-2020-04-18,Inyo,0,17,0,0
 2020-04-14,Santa Cruz,8,92,0,1
 2020-04-15,Santa Cruz,-2,90,1,2
 2020-04-16,Santa Cruz,4,94,0,2
@@ -4312,7 +4329,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-09-22,Santa Cruz,19,2283,1,9
 2020-09-23,Santa Cruz,17,2300,0,9
 2020-09-24,Santa Cruz,9,2309,0,9
-2020-04-19,Inyo,0,17,0,0
 2020-09-25,Santa Cruz,27,2336,0,9
 2020-09-26,Santa Cruz,23,2359,0,9
 2020-09-27,Santa Cruz,0,2359,0,9
@@ -4364,6 +4380,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Santa Cruz,26,3343,0,26
 2020-11-13,Santa Cruz,59,3402,0,26
 2020-11-14,Santa Cruz,37,3439,0,26
+2020-11-15,Santa Cruz,81,3520,0,26
 2020-03-17,Mendocino,0,0,0,0
 2020-03-18,Mendocino,1,1,0,0
 2020-03-19,Mendocino,0,1,0,0
@@ -4607,6 +4624,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Mendocino,31,1173,0,22
 2020-11-13,Mendocino,8,1181,0,22
 2020-11-14,Mendocino,16,1197,0,22
+2020-11-15,Mendocino,12,1209,0,22
 2020-03-17,Fresno,3,3,0,0
 2020-03-18,Fresno,3,6,0,0
 2020-03-19,Fresno,1,7,0,0
@@ -4615,7 +4633,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-03-22,Fresno,2,10,0,0
 2020-03-23,Fresno,8,18,0,0
 2020-03-24,Fresno,3,21,0,0
-2020-06-08,Inyo,0,22,0,1
 2020-03-25,Fresno,4,25,0,0
 2020-03-26,Fresno,4,29,0,0
 2020-03-27,Fresno,2,31,0,0
@@ -4851,6 +4868,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Fresno,234,33693,4,460
 2020-11-13,Fresno,276,33969,0,460
 2020-11-14,Fresno,328,34297,0,460
+2020-11-15,Fresno,296,34593,0,460
 2020-03-17,Inyo,0,0,0,0
 2020-03-18,Inyo,0,0,0,0
 2020-03-19,Inyo,0,0,0,0
@@ -4876,11 +4894,12 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-08,Inyo,0,11,0,0
 2020-04-09,Inyo,0,11,0,0
 2020-04-10,Inyo,1,12,0,0
-2020-04-11,Inyo,0,12,0,0
-2020-04-12,Inyo,0,12,0,0
-2020-04-13,Inyo,0,12,0,0
 2020-04-14,Inyo,0,12,0,0
 2020-04-15,Inyo,5,17,0,0
+2020-04-16,Inyo,0,17,0,0
+2020-04-17,Inyo,0,17,0,0
+2020-04-18,Inyo,0,17,0,0
+2020-04-19,Inyo,0,17,0,0
 2020-04-20,Inyo,1,18,0,0
 2020-04-21,Inyo,0,18,0,0
 2020-04-22,Inyo,1,19,0,0
@@ -4930,6 +4949,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-06-05,Inyo,0,21,0,1
 2020-06-06,Inyo,0,21,0,1
 2020-06-07,Inyo,1,22,0,1
+2020-06-08,Inyo,0,22,0,1
 2020-06-09,Inyo,1,23,0,1
 2020-06-10,Inyo,0,23,0,1
 2020-06-11,Inyo,0,23,0,1
@@ -5089,6 +5109,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Inyo,7,262,1,16
 2020-11-13,Inyo,1,263,0,16
 2020-11-14,Inyo,0,263,0,16
+2020-11-15,Inyo,0,263,0,16
 2020-03-17,San Joaquin,14,14,2,2
 2020-03-18,San Joaquin,1,15,0,2
 2020-03-19,San Joaquin,3,18,0,2
@@ -5098,7 +5119,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-03-23,San Joaquin,15,52,0,2
 2020-03-24,San Joaquin,12,64,0,2
 2020-03-25,San Joaquin,5,69,1,3
-2020-06-22,Ventura,144,2209,0,43
 2020-03-26,San Joaquin,4,73,0,3
 2020-03-27,San Joaquin,10,83,1,4
 2020-03-28,San Joaquin,3,86,0,4
@@ -5187,6 +5207,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-06-19,San Joaquin,77,2046,0,48
 2020-06-20,San Joaquin,142,2188,0,48
 2020-06-21,San Joaquin,144,2332,0,48
+2020-05-31,Ventura,12,1163,1,34
 2020-06-22,San Joaquin,170,2502,0,48
 2020-06-23,San Joaquin,178,2680,1,49
 2020-06-24,San Joaquin,143,2823,0,49
@@ -5333,6 +5354,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,San Joaquin,312,23314,1,501
 2020-11-13,San Joaquin,202,23516,0,501
 2020-11-14,San Joaquin,0,23516,0,501
+2020-11-15,San Joaquin,-1,23515,0,501
 2020-03-17,Ventura,11,11,0,0
 2020-03-18,Ventura,4,15,0,0
 2020-03-19,Ventura,3,18,0,0
@@ -5408,7 +5430,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-05-28,Ventura,10,1093,0,32
 2020-05-29,Ventura,23,1116,1,33
 2020-05-30,Ventura,35,1151,0,33
-2020-05-31,Ventura,12,1163,1,34
 2020-06-01,Ventura,15,1178,0,34
 2020-06-02,Ventura,24,1202,0,34
 2020-06-03,Ventura,34,1236,1,35
@@ -5430,6 +5451,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-06-19,Ventura,81,1946,0,42
 2020-06-20,Ventura,75,2021,0,42
 2020-06-21,Ventura,44,2065,1,43
+2020-06-22,Ventura,144,2209,0,43
 2020-06-23,Ventura,105,2314,1,44
 2020-06-24,Ventura,46,2360,0,44
 2020-06-25,Ventura,107,2467,0,44
@@ -5575,6 +5597,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Ventura,159,16172,1,172
 2020-11-13,Ventura,125,16297,0,172
 2020-11-14,Ventura,267,16564,0,172
+2020-11-15,Ventura,127,16691,0,172
 2020-03-17,Trinity,0,0,0,0
 2020-03-18,Trinity,0,0,0,0
 2020-03-19,Trinity,0,0,0,0
@@ -5818,6 +5841,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Trinity,2,64,0,0
 2020-11-13,Trinity,3,67,0,0
 2020-11-14,Trinity,0,67,0,0
+2020-11-15,Trinity,0,67,0,0
 2020-03-17,Mariposa,0,0,0,0
 2020-03-18,Mariposa,0,0,0,0
 2020-03-19,Mariposa,0,0,0,0
@@ -6061,6 +6085,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Mariposa,2,86,0,2
 2020-11-13,Mariposa,0,86,0,2
 2020-11-14,Mariposa,0,86,0,2
+2020-11-15,Mariposa,0,86,0,2
 2020-03-17,El Dorado,0,0,0,0
 2020-03-18,El Dorado,0,0,0,0
 2020-03-19,El Dorado,1,1,0,0
@@ -6186,6 +6211,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-07-17,El Dorado,17,385,0,0
 2020-07-18,El Dorado,0,385,0,0
 2020-07-19,El Dorado,22,407,0,0
+2020-03-28,Lassen,0,0,0,0
 2020-07-20,El Dorado,33,440,0,0
 2020-07-21,El Dorado,26,466,0,0
 2020-07-22,El Dorado,25,491,1,1
@@ -6238,7 +6264,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-09-07,El Dorado,0,1011,0,2
 2020-09-08,El Dorado,9,1020,0,2
 2020-09-09,El Dorado,0,1020,0,2
-2020-04-14,Lassen,0,0,0,0
 2020-09-10,El Dorado,4,1024,0,2
 2020-09-11,El Dorado,10,1034,0,2
 2020-09-12,El Dorado,1,1035,0,2
@@ -6269,6 +6294,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-10-07,El Dorado,11,1230,0,4
 2020-10-08,El Dorado,4,1234,0,4
 2020-10-09,El Dorado,6,1240,0,4
+2020-03-29,Lassen,0,0,0,0
 2020-10-10,El Dorado,2,1242,0,4
 2020-10-11,El Dorado,12,1254,0,4
 2020-10-12,El Dorado,8,1262,0,4
@@ -6305,6 +6331,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,El Dorado,38,1611,0,4
 2020-11-13,El Dorado,37,1648,0,4
 2020-11-14,El Dorado,35,1683,0,4
+2020-11-15,El Dorado,11,1694,0,4
 2020-03-17,Sonoma,6,6,0,0
 2020-03-18,Sonoma,2,8,0,0
 2020-03-19,Sonoma,-1,7,0,0
@@ -6548,6 +6575,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Sonoma,83,10685,0,149
 2020-11-13,Sonoma,84,10769,0,149
 2020-11-14,Sonoma,64,10833,0,149
+2020-11-15,Sonoma,128,10961,0,149
 2020-03-17,Shasta,1,1,0,0
 2020-03-18,Shasta,0,1,0,0
 2020-03-19,Shasta,0,1,0,0
@@ -6791,6 +6819,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Shasta,158,2983,0,36
 2020-11-13,Shasta,212,3195,0,36
 2020-11-14,Shasta,95,3290,0,36
+2020-11-15,Shasta,-6,3284,0,36
 2020-03-17,Lassen,0,0,0,0
 2020-03-18,Lassen,0,0,0,0
 2020-03-19,Lassen,0,0,0,0
@@ -6802,8 +6831,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-03-25,Lassen,0,0,0,0
 2020-03-26,Lassen,0,0,0,0
 2020-03-27,Lassen,0,0,0,0
-2020-03-28,Lassen,0,0,0,0
-2020-03-29,Lassen,0,0,0,0
 2020-03-30,Lassen,0,0,0,0
 2020-03-31,Lassen,0,0,0,0
 2020-04-01,Lassen,0,0,0,0
@@ -6819,6 +6846,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-11,Lassen,0,0,0,0
 2020-04-12,Lassen,0,0,0,0
 2020-04-13,Lassen,0,0,0,0
+2020-04-14,Lassen,0,0,0,0
 2020-04-15,Lassen,0,0,0,0
 2020-04-16,Lassen,0,0,0,0
 2020-04-17,Lassen,0,0,0,0
@@ -7033,6 +7061,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Lassen,0,832,0,1
 2020-11-13,Lassen,1,833,0,1
 2020-11-14,Lassen,291,1124,0,1
+2020-11-15,Lassen,0,1124,0,1
 2020-03-17,Colusa,0,0,0,0
 2020-03-18,Colusa,0,0,0,0
 2020-03-19,Colusa,0,0,0,0
@@ -7238,7 +7267,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-10-05,Colusa,1,538,0,6
 2020-10-06,Colusa,1,539,0,6
 2020-10-07,Colusa,0,539,0,6
-2020-03-26,Lake,0,0,0,0
 2020-10-08,Colusa,2,541,0,6
 2020-10-09,Colusa,0,541,0,6
 2020-10-10,Colusa,0,541,0,6
@@ -7277,6 +7305,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Colusa,7,598,0,6
 2020-11-13,Colusa,3,601,0,6
 2020-11-14,Colusa,0,601,0,6
+2020-11-15,Colusa,0,601,0,6
 2020-03-17,Lake,0,0,0,0
 2020-03-18,Lake,0,0,0,0
 2020-03-19,Lake,0,0,0,0
@@ -7286,6 +7315,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-03-23,Lake,0,0,0,0
 2020-03-24,Lake,0,0,0,0
 2020-03-25,Lake,0,0,0,0
+2020-03-26,Lake,0,0,0,0
 2020-03-27,Lake,0,0,0,0
 2020-03-28,Lake,0,NA,0,NA
 2020-03-30,Lake,0,0,0,0
@@ -7518,6 +7548,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Lake,6,770,0,17
 2020-11-13,Lake,3,773,0,17
 2020-11-14,Lake,4,777,0,17
+2020-11-15,Lake,7,784,1,18
 2020-04-02,Modoc,0,0,0,0
 2020-04-03,Modoc,0,0,0,0
 2020-04-04,Modoc,0,0,0,0
@@ -7745,6 +7776,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Modoc,0,63,0,0
 2020-11-13,Modoc,1,64,0,0
 2020-11-14,Modoc,4,68,0,0
+2020-11-15,Modoc,3,71,0,0
 2020-03-17,Tulare,3,3,0,0
 2020-03-18,Tulare,0,3,0,0
 2020-03-19,Tulare,1,4,0,0
@@ -7790,6 +7822,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-28,Tulare,36,615,1,36
 2020-04-29,Tulare,22,637,4,40
 2020-04-30,Tulare,48,685,0,40
+2020-04-18,Tehama,0,1,0,1
 2020-05-01,Tulare,26,711,0,40
 2020-05-02,Tulare,25,736,0,40
 2020-05-03,Tulare,24,760,0,40
@@ -7988,6 +8021,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Tulare,169,18714,1,300
 2020-11-13,Tulare,139,18853,0,300
 2020-11-14,Tulare,38,18891,0,300
+2020-11-15,Tulare,0,18891,0,300
 2020-03-17,San Benito,3,3,0,0
 2020-03-18,San Benito,0,3,0,0
 2020-03-19,San Benito,1,4,1,1
@@ -8106,7 +8140,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-07-10,San Benito,12,314,0,2
 2020-07-11,San Benito,10,324,0,2
 2020-07-12,San Benito,19,343,0,2
-2020-03-17,Siskiyou,0,0,0,0
 2020-07-13,San Benito,17,360,0,2
 2020-07-14,San Benito,28,388,0,2
 2020-07-15,San Benito,1,389,0,2
@@ -8174,6 +8207,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-09-15,San Benito,7,1244,0,10
 2020-09-16,San Benito,8,1252,0,10
 2020-09-17,San Benito,5,1257,1,11
+2020-05-10,Alameda,56,2103,0,75
 2020-09-18,San Benito,19,1276,0,11
 2020-09-19,San Benito,15,1291,0,11
 2020-09-20,San Benito,7,1298,0,11
@@ -8232,6 +8266,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,San Benito,28,1553,0,15
 2020-11-13,San Benito,20,1573,0,15
 2020-11-14,San Benito,16,1589,0,15
+2020-11-15,San Benito,14,1603,0,15
 2020-03-17,Alameda,29,29,0,0
 2020-03-18,Alameda,7,36,0,0
 2020-03-19,Alameda,6,42,0,0
@@ -8286,7 +8321,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-05-07,Alameda,41,1955,3,72
 2020-05-08,Alameda,56,2011,3,75
 2020-05-09,Alameda,36,2047,0,75
-2020-05-10,Alameda,56,2103,0,75
 2020-05-11,Alameda,43,2146,5,80
 2020-05-12,Alameda,35,2181,0,80
 2020-05-13,Alameda,74,2255,4,84
@@ -8403,6 +8437,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-09-01,Alameda,140,18522,17,274
 2020-09-02,Alameda,165,18687,21,295
 2020-09-03,Alameda,156,18843,1,296
+2020-04-28,Marin,6,234,1,13
 2020-09-04,Alameda,130,18973,3,299
 2020-09-05,Alameda,56,19029,0,299
 2020-09-06,Alameda,159,19188,1,300
@@ -8475,6 +8510,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Alameda,170,25515,3,486
 2020-11-13,Alameda,199,25714,3,489
 2020-11-14,Alameda,165,25879,1,490
+2020-11-15,Alameda,184,26063,0,490
 2020-03-17,Marin,10,10,0,0
 2020-03-18,Marin,9,19,0,0
 2020-03-19,Marin,11,30,0,0
@@ -8517,7 +8553,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-25,Marin,10,225,0,12
 2020-04-26,Marin,2,227,0,12
 2020-04-27,Marin,1,228,0,12
-2020-04-28,Marin,6,234,1,13
 2020-04-29,Marin,6,240,0,13
 2020-04-30,Marin,2,242,0,13
 2020-05-01,Marin,1,243,0,13
@@ -8718,6 +8753,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Marin,39,7307,0,127
 2020-11-13,Marin,18,7325,0,127
 2020-11-14,Marin,22,7347,0,127
+2020-11-15,Marin,12,7359,1,128
 2020-03-17,San Diego,40,40,0,0
 2020-03-18,San Diego,28,68,0,0
 2020-03-19,San Diego,30,98,0,0
@@ -8744,7 +8780,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-09,San Diego,65,1695,14,54
 2020-04-10,San Diego,68,1763,0,54
 2020-04-11,San Diego,43,1806,1,55
-2020-03-18,Siskiyou,0,0,0,0
 2020-04-12,San Diego,43,1849,11,66
 2020-04-13,San Diego,83,1932,1,67
 2020-04-14,San Diego,82,2014,0,67
@@ -8962,6 +8997,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,San Diego,642,62978,3,921
 2020-11-13,San Diego,737,63715,5,926
 2020-11-14,San Diego,1055,64770,0,926
+2020-11-15,San Diego,833,65603,0,926
 2020-03-29,Out Of Country,0,0,0,0
 2020-04-12,Out Of Country,0,0,0,0
 2020-04-13,Out Of Country,0,0,0,0
@@ -9000,6 +9036,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-05-16,Out Of Country,0,0,0,0
 2020-05-17,Out Of Country,0,0,0,0
 2020-05-18,Out Of Country,0,0,0,0
+2020-04-19,Tehama,0,1,0,1
 2020-05-19,Out Of Country,0,0,0,0
 2020-05-20,Out Of Country,0,0,0,0
 2020-05-21,Out Of Country,0,0,0,0
@@ -9180,6 +9217,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Out Of Country,0,0,0,0
 2020-11-13,Out Of Country,0,0,0,0
 2020-11-14,Out Of Country,0,0,0,0
+2020-11-15,Out Of Country,0,0,0,0
 2020-03-17,Glenn,0,0,0,0
 2020-03-18,Glenn,0,0,0,0
 2020-03-19,Glenn,0,0,0,0
@@ -9264,6 +9302,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-06-06,Glenn,0,16,0,0
 2020-06-07,Glenn,1,17,0,0
 2020-06-08,Glenn,2,19,0,0
+2020-04-20,Tehama,0,1,0,1
 2020-06-09,Glenn,2,21,0,0
 2020-06-10,Glenn,0,21,0,0
 2020-06-11,Glenn,0,21,0,0
@@ -9378,7 +9417,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-09-28,Glenn,4,589,0,3
 2020-09-29,Glenn,3,592,0,3
 2020-09-30,Glenn,1,593,0,3
-2020-03-19,Siskiyou,0,0,0,0
 2020-10-01,Glenn,1,594,0,3
 2020-10-02,Glenn,7,601,0,3
 2020-10-03,Glenn,0,601,0,3
@@ -9424,6 +9462,10 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Glenn,28,755,1,6
 2020-11-13,Glenn,17,772,0,6
 2020-11-14,Glenn,11,783,0,6
+2020-11-15,Glenn,3,786,0,6
+2020-03-17,Siskiyou,0,0,0,0
+2020-03-18,Siskiyou,0,0,0,0
+2020-03-19,Siskiyou,0,0,0,0
 2020-03-20,Siskiyou,0,0,0,0
 2020-03-21,Siskiyou,2,2,0,0
 2020-03-22,Siskiyou,0,2,0,0
@@ -9664,6 +9706,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Siskiyou,5,280,0,1
 2020-11-13,Siskiyou,12,292,0,1
 2020-11-14,Siskiyou,2,294,0,1
+2020-11-15,Siskiyou,0,294,0,1
 2020-03-17,Madera,2,2,0,0
 2020-03-18,Madera,1,3,0,0
 2020-03-19,Madera,1,4,0,0
@@ -9907,6 +9950,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Madera,67,5340,0,76
 2020-11-13,Madera,31,5371,0,76
 2020-11-14,Madera,20,5391,0,76
+2020-11-15,Madera,42,5433,0,76
 2020-03-17,Tehama,0,0,0,0
 2020-03-18,Tehama,0,0,0,0
 2020-03-19,Tehama,0,0,0,0
@@ -9939,9 +9983,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-15,Tehama,0,1,0,1
 2020-04-16,Tehama,0,1,0,1
 2020-04-17,Tehama,0,1,0,1
-2020-04-18,Tehama,0,1,0,1
-2020-04-19,Tehama,0,1,0,1
-2020-04-20,Tehama,0,1,0,1
 2020-04-21,Tehama,0,1,0,1
 2020-04-22,Tehama,0,1,0,1
 2020-04-23,Tehama,0,1,0,1
@@ -10150,6 +10191,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Tehama,50,1167,0,19
 2020-11-13,Tehama,39,1206,0,19
 2020-11-14,Tehama,16,1222,0,19
+2020-11-15,Tehama,39,1261,0,19
 2020-03-17,Sutter,0,0,0,0
 2020-03-18,Sutter,0,0,0,0
 2020-03-19,Sutter,0,0,0,0
@@ -10393,6 +10435,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Sutter,46,2121,0,12
 2020-11-13,Sutter,61,2182,0,12
 2020-11-14,Sutter,48,2230,0,12
+2020-11-15,Sutter,92,2322,0,12
 2020-03-17,Napa,0,0,0,0
 2020-03-18,Napa,0,0,0,0
 2020-03-19,Napa,0,0,0,0
@@ -10636,6 +10679,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Napa,42,2440,0,17
 2020-11-13,Napa,33,2473,0,17
 2020-11-14,Napa,36,2509,0,17
+2020-11-15,Napa,27,2536,0,17
 2020-03-17,Los Angeles,47,47,0,0
 2020-03-18,Los Angeles,186,233,0,0
 2020-03-19,Los Angeles,34,267,1,1
@@ -10651,7 +10695,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-03-29,Los Angeles,348,2467,7,44
 2020-03-30,Los Angeles,534,3001,9,53
 2020-03-31,Los Angeles,501,3502,13,66
-2020-04-27,Sacramento,9,1044,0,41
 2020-04-01,Los Angeles,538,4040,13,79
 2020-04-02,Los Angeles,526,4566,12,91
 2020-04-03,Los Angeles,709,5275,26,117
@@ -10691,7 +10734,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-05-07,Los Angeles,813,30357,50,1468
 2020-05-08,Los Angeles,911,31268,44,1512
 2020-05-09,Los Angeles,443,31711,18,1530
-2020-07-11,Merced,57,1908,0,12
 2020-05-10,Los Angeles,568,32279,39,1569
 2020-05-11,Los Angeles,1002,33281,44,1613
 2020-05-12,Los Angeles,1293,34574,46,1659
@@ -10881,6 +10923,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Los Angeles,2363,329364,25,7246
 2020-11-13,Los Angeles,3657,333021,20,7266
 2020-11-14,Los Angeles,3014,336035,3,7269
+2020-11-15,Los Angeles,2743,338778,6,7275
 2020-03-17,Sacramento,46,46,3,3
 2020-03-18,Sacramento,6,52,0,3
 2020-03-19,Sacramento,4,56,1,4
@@ -10922,6 +10965,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-24,Sacramento,6,1015,0,41
 2020-04-25,Sacramento,12,1027,0,41
 2020-04-26,Sacramento,8,1035,0,41
+2020-04-27,Sacramento,9,1044,0,41
 2020-04-28,Sacramento,11,1055,1,42
 2020-04-29,Sacramento,16,1071,1,43
 2020-04-30,Sacramento,10,1081,0,43
@@ -10964,7 +11008,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-06-06,Sacramento,35,1568,0,59
 2020-06-07,Sacramento,23,1591,2,61
 2020-06-08,Sacramento,34,1625,0,61
-2020-03-24,Merced,0,0,0,0
 2020-06-09,Sacramento,18,1643,1,62
 2020-06-10,Sacramento,26,1669,1,63
 2020-06-11,Sacramento,33,1702,0,63
@@ -11099,6 +11142,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-10-18,Sacramento,117,24542,3,471
 2020-10-19,Sacramento,225,24767,3,474
 2020-10-20,Sacramento,141,24908,6,480
+2020-04-03,Merced,2,11,0,0
 2020-10-21,Sacramento,146,25054,2,482
 2020-10-22,Sacramento,170,25224,2,484
 2020-10-23,Sacramento,148,25372,0,484
@@ -11124,6 +11168,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Sacramento,328,29787,0,517
 2020-11-13,Sacramento,511,30298,3,520
 2020-11-14,Sacramento,303,30601,0,520
+2020-11-15,Sacramento,353,30954,7,527
 2020-03-17,Merced,0,0,0,0
 2020-03-18,Merced,0,0,0,0
 2020-03-19,Merced,0,0,0,0
@@ -11131,6 +11176,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-03-21,Merced,0,0,0,0
 2020-03-22,Merced,0,0,0,0
 2020-03-23,Merced,0,0,0,0
+2020-03-24,Merced,0,0,0,0
 2020-03-25,Merced,1,1,0,0
 2020-03-26,Merced,2,3,0,0
 2020-03-27,Merced,1,4,0,0
@@ -11140,7 +11186,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-03-31,Merced,1,7,0,0
 2020-04-01,Merced,2,9,0,0
 2020-04-02,Merced,0,9,0,0
-2020-04-03,Merced,2,11,0,0
 2020-04-04,Merced,5,16,0,0
 2020-04-05,Merced,9,25,1,1
 2020-04-06,Merced,2,27,0,1
@@ -11239,6 +11284,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-07-08,Merced,150,1728,0,12
 2020-07-09,Merced,74,1802,0,12
 2020-07-10,Merced,49,1851,0,12
+2020-07-11,Merced,57,1908,0,12
 2020-07-12,Merced,99,2007,0,12
 2020-07-13,Merced,77,2084,1,13
 2020-07-14,Merced,72,2156,2,15
@@ -11365,6 +11411,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Merced,78,10185,3,169
 2020-11-13,Merced,101,10286,0,169
 2020-11-14,Merced,64,10350,0,169
+2020-11-15,Merced,49,10399,3,172
 2020-03-17,Kings,0,0,0,0
 2020-03-18,Kings,0,0,0,0
 2020-03-19,Kings,0,0,0,0
@@ -11574,7 +11621,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-10-09,Kings,85,8078,0,82
 2020-10-10,Kings,16,8094,0,82
 2020-10-11,Kings,12,8106,0,82
-2020-03-28,Kern,0,20,0,0
 2020-10-12,Kings,5,8111,0,82
 2020-10-13,Kings,7,8118,0,82
 2020-10-14,Kings,16,8134,0,82
@@ -11609,6 +11655,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Kings,93,9428,0,87
 2020-11-13,Kings,62,9490,-1,86
 2020-11-14,Kings,43,9533,1,87
+2020-11-15,Kings,36,9569,0,87
 2020-03-17,Kern,1,1,0,0
 2020-03-18,Kern,2,3,0,0
 2020-03-19,Kern,0,3,0,0
@@ -11620,6 +11667,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-03-25,Kern,7,20,0,0
 2020-03-26,Kern,0,20,0,0
 2020-03-27,Kern,0,20,0,0
+2020-03-28,Kern,0,20,0,0
 2020-03-29,Kern,10,30,0,0
 2020-03-30,Kern,17,47,0,0
 2020-03-31,Kern,6,53,0,0
@@ -11851,6 +11899,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Kern,224,35431,2,432
 2020-11-13,Kern,195,35626,0,432
 2020-11-14,Kern,285,35911,0,432
+2020-11-15,Kern,138,36049,0,432
 2020-03-17,Riverside,11,11,2,2
 2020-03-18,Riverside,3,14,1,3
 2020-03-19,Riverside,5,19,0,3
@@ -12094,6 +12143,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Riverside,757,74138,12,1367
 2020-11-13,Riverside,772,74910,0,1367
 2020-11-14,Riverside,621,75531,0,1367
+2020-11-15,Riverside,918,76449,7,1374
 2020-03-17,Unassigned,21,21,0,0
 2020-03-18,Unassigned,-8,13,0,0
 2020-03-19,Unassigned,3,16,0,0
@@ -12263,6 +12313,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-08-30,Unassigned,1,2,0,0
 2020-08-31,Unassigned,-1,1,0,0
 2020-09-01,Unassigned,0,1,0,0
+2020-03-29,Plumas,0,0,0,0
 2020-09-02,Unassigned,0,1,0,0
 2020-09-03,Unassigned,0,1,0,0
 2020-09-04,Unassigned,0,1,0,0
@@ -12337,6 +12388,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Unassigned,1,6,0,0
 2020-11-13,Unassigned,-1,5,0,0
 2020-11-14,Unassigned,2,7,0,0
+2020-11-15,Unassigned,1,8,0,0
 2020-03-17,Contra Costa,44,44,0,0
 2020-03-18,Contra Costa,2,46,0,0
 2020-03-19,Contra Costa,6,52,1,1
@@ -12348,6 +12400,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-03-25,Contra Costa,16,147,1,2
 2020-03-26,Contra Costa,14,161,0,2
 2020-03-27,Contra Costa,14,175,0,2
+2020-03-30,Plumas,0,0,0,0
 2020-03-28,Contra Costa,12,187,1,3
 2020-03-29,Contra Costa,25,212,0,3
 2020-03-30,Contra Costa,34,246,0,3
@@ -12460,11 +12513,11 @@ date,county,count_new,count_total,death_new,death_total
 2020-07-15,Contra Costa,92,5338,1,93
 2020-07-16,Contra Costa,145,5483,3,96
 2020-07-17,Contra Costa,134,5617,2,98
-2020-04-24,Del Norte,0,2,0,0
 2020-07-18,Contra Costa,74,5691,0,98
 2020-07-19,Contra Costa,132,5823,1,99
 2020-07-20,Contra Costa,387,6210,3,102
 2020-07-21,Contra Costa,191,6401,0,102
+2020-03-19,Yolo,0,5,0,0
 2020-07-22,Contra Costa,218,6619,0,102
 2020-07-23,Contra Costa,195,6814,1,103
 2020-07-24,Contra Costa,106,6920,1,104
@@ -12581,6 +12634,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Contra Costa,180,20799,1,253
 2020-11-13,Contra Costa,176,20975,0,253
 2020-11-14,Contra Costa,204,21179,0,253
+2020-11-15,Contra Costa,207,21386,0,253
 2020-03-17,Del Norte,0,0,0,0
 2020-03-18,Del Norte,0,0,0,0
 2020-03-19,Del Norte,0,0,0,0
@@ -12619,6 +12673,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-21,Del Norte,0,2,0,0
 2020-04-22,Del Norte,0,2,0,0
 2020-04-23,Del Norte,0,2,0,0
+2020-04-24,Del Norte,0,2,0,0
 2020-04-25,Del Norte,1,3,0,0
 2020-04-26,Del Norte,0,3,0,0
 2020-04-27,Del Norte,0,3,0,0
@@ -12823,6 +12878,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Del Norte,5,208,0,1
 2020-11-13,Del Norte,11,219,0,1
 2020-11-14,Del Norte,5,224,0,1
+2020-11-15,Del Norte,1,225,0,1
 2020-03-17,San Bernardino,3,3,0,0
 2020-03-18,San Bernardino,4,7,0,0
 2020-03-19,San Bernardino,2,9,0,0
@@ -12830,7 +12886,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-03-21,San Bernardino,3,16,0,0
 2020-03-22,San Bernardino,1,17,0,0
 2020-03-23,San Bernardino,10,27,0,0
-2020-04-13,Stanislaus,4,136,2,4
 2020-03-24,San Bernardino,19,46,1,1
 2020-03-25,San Bernardino,11,57,0,1
 2020-03-26,San Bernardino,20,77,1,2
@@ -12859,7 +12914,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-18,San Bernardino,7,1262,1,58
 2020-04-19,San Bernardino,82,1344,2,60
 2020-04-20,San Bernardino,155,1499,7,67
-2020-06-10,Humboldt,1,113,0,4
 2020-04-21,San Bernardino,65,1564,5,72
 2020-04-22,San Bernardino,40,1604,5,77
 2020-04-23,San Bernardino,63,1667,3,80
@@ -13064,11 +13118,11 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-08,San Bernardino,603,69015,0,1096
 2020-11-09,San Bernardino,651,69666,0,1096
 2020-11-10,San Bernardino,708,70374,0,1096
-2020-06-11,Humboldt,-8,105,0,4
 2020-11-11,San Bernardino,384,70758,0,1096
 2020-11-12,San Bernardino,1137,71895,1,1097
 2020-11-13,San Bernardino,973,72868,0,1097
 2020-11-14,San Bernardino,901,73769,0,1097
+2020-11-15,San Bernardino,632,74401,1,1098
 2020-03-17,Stanislaus,5,5,0,0
 2020-03-18,Stanislaus,2,7,0,0
 2020-03-19,Stanislaus,0,7,0,0
@@ -13096,6 +13150,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-04-10,Stanislaus,18,119,1,1
 2020-04-11,Stanislaus,-2,117,0,1
 2020-04-12,Stanislaus,15,132,1,2
+2020-04-13,Stanislaus,4,136,2,4
 2020-04-14,Stanislaus,38,174,0,4
 2020-04-15,Stanislaus,11,185,0,4
 2020-04-16,Stanislaus,16,201,0,4
@@ -13173,7 +13228,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-06-27,Stanislaus,172,2434,0,41
 2020-06-28,Stanislaus,84,2518,1,42
 2020-06-29,Stanislaus,87,2605,2,44
-2020-06-12,Humboldt,-1,104,0,4
 2020-06-30,Stanislaus,236,2841,0,44
 2020-07-01,Stanislaus,9,2850,0,44
 2020-07-02,Stanislaus,171,3021,0,44
@@ -13312,6 +13366,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Stanislaus,149,18936,1,411
 2020-11-13,Stanislaus,132,19068,0,411
 2020-11-14,Stanislaus,160,19228,0,411
+2020-11-15,Stanislaus,105,19333,1,412
 2020-03-17,Humboldt,1,1,0,0
 2020-03-18,Humboldt,0,1,0,0
 2020-03-19,Humboldt,0,1,0,0
@@ -13397,6 +13452,9 @@ date,county,count_new,count_total,death_new,death_total
 2020-06-07,Humboldt,0,112,0,4
 2020-06-08,Humboldt,1,113,0,4
 2020-06-09,Humboldt,-1,112,0,4
+2020-06-10,Humboldt,1,113,0,4
+2020-06-11,Humboldt,-8,105,0,4
+2020-06-12,Humboldt,-1,104,0,4
 2020-06-13,Humboldt,1,105,0,4
 2020-06-14,Humboldt,0,105,0,4
 2020-06-15,Humboldt,0,105,0,4
@@ -13437,7 +13495,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-07-20,Humboldt,4,198,0,4
 2020-07-21,Humboldt,3,201,0,4
 2020-07-22,Humboldt,7,208,0,4
-2020-04-03,Plumas,0,2,0,0
 2020-07-23,Humboldt,2,210,0,4
 2020-07-24,Humboldt,2,212,0,4
 2020-07-25,Humboldt,2,214,0,4
@@ -13553,6 +13610,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Humboldt,13,638,0,10
 2020-11-13,Humboldt,5,643,0,10
 2020-11-14,Humboldt,10,653,0,10
+2020-11-15,Humboldt,7,660,0,10
 2020-03-17,Plumas,0,0,0,0
 2020-03-18,Plumas,0,0,0,0
 2020-03-19,Plumas,0,0,0,0
@@ -13565,11 +13623,10 @@ date,county,count_new,count_total,death_new,death_total
 2020-03-26,Plumas,0,0,0,0
 2020-03-27,Plumas,0,0,0,0
 2020-03-28,Plumas,0,0,0,0
-2020-03-29,Plumas,0,0,0,0
-2020-03-30,Plumas,0,0,0,0
 2020-03-31,Plumas,1,1,0,0
 2020-04-01,Plumas,0,1,0,0
 2020-04-02,Plumas,1,2,0,0
+2020-04-03,Plumas,0,2,0,0
 2020-04-04,Plumas,0,2,0,0
 2020-04-05,Plumas,0,2,0,0
 2020-04-06,Plumas,1,3,0,0
@@ -13795,6 +13852,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Plumas,4,125,0,0
 2020-11-13,Plumas,3,128,0,0
 2020-11-14,Plumas,-1,127,0,0
+2020-11-15,Plumas,0,127,0,0
 2020-03-17,Amador,0,0,0,0
 2020-03-18,Amador,0,0,0,0
 2020-03-19,Amador,0,0,0,0
@@ -14038,6 +14096,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Amador,5,397,0,16
 2020-11-13,Amador,7,404,0,16
 2020-11-14,Amador,5,409,0,16
+2020-11-15,Amador,5,414,0,16
 2020-03-17,Imperial,2,2,0,0
 2020-03-18,Imperial,0,2,0,0
 2020-03-19,Imperial,0,2,0,0
@@ -14167,6 +14226,7 @@ date,county,count_new,count_total,death_new,death_total
 2020-07-21,Imperial,75,7533,2,165
 2020-07-22,Imperial,71,7604,5,170
 2020-07-23,Imperial,82,7686,3,173
+2020-07-08,Yolo,37,764,2,28
 2020-07-24,Imperial,41,7727,8,181
 2020-07-25,Imperial,54,7781,0,181
 2020-07-26,Imperial,8,7789,0,181
@@ -14281,9 +14341,9 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Imperial,171,13790,5,348
 2020-11-13,Imperial,142,13932,0,348
 2020-11-14,Imperial,8,13940,0,348
+2020-11-15,Imperial,171,14111,3,351
 2020-03-17,Yolo,4,4,0,0
 2020-03-18,Yolo,1,5,0,0
-2020-03-19,Yolo,0,5,0,0
 2020-03-20,Yolo,1,6,0,0
 2020-03-21,Yolo,0,6,0,0
 2020-03-22,Yolo,2,8,0,0
@@ -14394,7 +14454,6 @@ date,county,count_new,count_total,death_new,death_total
 2020-07-05,Yolo,41,685,0,26
 2020-07-06,Yolo,21,706,0,26
 2020-07-07,Yolo,21,727,0,26
-2020-07-08,Yolo,37,764,2,28
 2020-07-09,Yolo,30,794,0,28
 2020-07-10,Yolo,39,833,0,28
 2020-07-11,Yolo,56,889,0,28
@@ -14524,3 +14583,4 @@ date,county,count_new,count_total,death_new,death_total
 2020-11-12,Yolo,70,3716,2,66
 2020-11-13,Yolo,49,3765,0,66
 2020-11-14,Yolo,54,3819,0,66
+2020-11-15,Yolo,39,3858,0,66
