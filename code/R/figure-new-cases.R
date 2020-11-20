@@ -18,7 +18,6 @@ figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-
       y = "New cases",
       caption =
         str_c(
-          str_c('Downloaded from _data.ca.gov_ (', file.mtime(json), ")"),
           "<span style='color:red'>Red line</span>: 2 week rolling median",
           "<span style='color:blue'>Blue line</span>: loess estimate",
           sep = "<br>"
