@@ -1,16 +1,11 @@
 
-figure_new_cases <- function(csv, county, population, smooth_span = 0.25, date_limits = c(NA, "2021-03-01")) {
+figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-03-01")) {
   this_county <- county
   json <- str_c(tools::file_path_sans_ext(csv), ".json")
 
   df <-
     read_csv(csv) %>%
-    filter(county == this_county) %>%
-    arrange(date) %>%
-    mutate(
-      count_new_roll  = slide_dbl(count_new, median, .before = 7L, .after = 7L),
-      count_new_loess = predict_loess(date, count_new, span = smooth_span)
-    )
+    filter(county == this_county)
 
   # Observations to directly annotate
   df_text <-
@@ -23,7 +18,6 @@ figure_new_cases <- function(csv, county, population, smooth_span = 0.25, date_l
       y = "New cases",
       caption =
         str_c(
-          str_c('Downloaded from _data.ca.gov_ (', file.mtime(json), ")"),
           "<span style='color:red'>Red line</span>: 2 week rolling median",
           "<span style='color:blue'>Blue line</span>: loess estimate",
           sep = "<br>"

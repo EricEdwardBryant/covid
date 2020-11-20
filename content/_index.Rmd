@@ -12,17 +12,23 @@ source(here::here("requirements.R"))
 # Where to save new cases in CA
 csv <- here("data/new-cases-ca.csv")
 
+# Population from: https://worldpopulationreview.com/us-counties/ca/los-angeles-county-population
+la_population <- 10079000
+
+# Population from: https://worldpopulationreview.com/us-counties/ca/santa-clara-county-population
+sc_population <- 1945940
+
 # Download new cases from https://data.ca.gov
 # Only downloads once a day unless force = TRUE
 download_new_cases_ca(csv)
 ```
 
 ```{r new-cases-los-angeles}
-# Population from: https://worldpopulationreview.com/us-counties/ca/los-angeles-county-population
-figure_new_cases(csv, "Los Angeles", population = 10079000)
+figure_new_cases(csv, "Los Angeles", population = la_population) /
+  figure_new_cases_change(csv, "Los Angeles")
 ```
 
 ```{r new-cases-santa-clara}
-# Population from: https://worldpopulationreview.com/us-counties/ca/santa-clara-county-population
-figure_new_cases(csv, "Santa Clara", population = 1945940)
+figure_new_cases(csv, "Santa Clara", population = sc_population) /
+  figure_new_cases_change(csv, "Santa Clara")
 ```
