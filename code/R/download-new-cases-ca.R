@@ -61,19 +61,9 @@ download_new_cases_ca <- function(save_as,
     group_by(county) %>%
     mutate(
       count_new_roll  = slide_dbl(count_new, median, .before = 7L, .after = 7L),
-      count_new_loess = predict_loess(date, count_new, span = smooth_span)
+      count_new_loess = predict_loess(date, count_new, span = smooth_span),
+      count_new_loess_diff = count_new_loess - lag(count_new_loess)
     )
 
   write_csv(df, csv)
-}
-
-
-download_new_cases_ca_la <- function(save_to = ".",
-                                     file_name = "new-cases-ca-la",
-                                     force = FALSE,
-                                     api = "https://data.ca.gov/api/3/action/datastore_search_sql?sql=",
-                                     sql_select = "*",
-                                     dataset = "926fd08f-cc91-4828-af38-bd45de97f8c3",
-                                     sql_where = "\"county\" = 'Los Angeles'") {
-  download_new_cases_ca(save_to, file_name, force, api, sql_select, dataset, sql_where)
 }
