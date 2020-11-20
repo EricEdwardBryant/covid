@@ -41,7 +41,14 @@ download_new_cases_ca <- function(save_as,
     type_convert(
       col_types = cols(date = col_datetime(), county = "c", .default = "i")
     ) %>%
-    mutate(date = as.Date(date, tz = ""))
+    mutate(date = as.Date(date, tz = "")) %>%
+    # Calculate estimates for each county
+    arrange(county, date) %>%
+    group_by(county) %>%
+    mutate(
+      count_new_roll  = slide_dbl(count_new, median, .before = 7L, .after = 7L),
+      count_new_loess = predict_loess(date, count_new, span = smooth_span)
+    )
 
   write_csv(df, csv)
 }

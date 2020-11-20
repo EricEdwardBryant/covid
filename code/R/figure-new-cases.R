@@ -5,12 +5,7 @@ figure_new_cases <- function(csv, county, population, smooth_span = 0.25, date_l
 
   df <-
     read_csv(csv) %>%
-    filter(county == this_county) %>%
-    arrange(date) %>%
-    mutate(
-      count_new_roll  = slide_dbl(count_new, median, .before = 7L, .after = 7L),
-      count_new_loess = predict_loess(date, count_new, span = smooth_span)
-    )
+    filter(county == this_county)
 
   # Observations to directly annotate
   df_text <-
