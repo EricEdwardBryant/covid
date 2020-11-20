@@ -1,5 +1,5 @@
 
-figure_new_cases <- function(csv, county, population, smooth_span = 0.25, date_limits = c(NA, "2021-03-01")) {
+figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-03-01")) {
   this_county <- county
   json <- str_c(tools::file_path_sans_ext(csv), ".json")
 

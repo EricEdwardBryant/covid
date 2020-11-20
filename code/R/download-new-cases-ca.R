@@ -10,6 +10,8 @@
 #' @param sql_where Rows to retrieve as an SQL "WHERE" clause. Defaults to rows
 #' without a missing date i.e. `'"date" IS NOT NULL'`. To get e.g. just LA
 #' county, you can use `"\"county\" = 'Los Angeles'"`.
+#' @param smooth_span The smoothing parameter passed to the [stats::loess]
+#' `span` argument.
 #'
 #' @details Constructs a URL with an SQL query to request data covid data from
 #' [https://data.ca.gov]. By default, data will only be downloaded if the
@@ -21,7 +23,8 @@ download_new_cases_ca <- function(save_as,
                                   api = "https://data.ca.gov/api/3/action/datastore_search_sql?sql=",
                                   dataset = "926fd08f-cc91-4828-af38-bd45de97f8c3",
                                   sql_select = "*",
-                                  sql_where = '"date" IS NOT NULL') {
+                                  sql_where = '"date" IS NOT NULL',
+                                  smooth_span = 0.25) {
   # Where to download the data
   json <- str_c(tools::file_path_sans_ext(save_as), ".json")
   csv  <- save_as
