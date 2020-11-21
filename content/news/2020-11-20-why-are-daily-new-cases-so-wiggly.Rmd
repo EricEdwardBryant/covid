@@ -21,7 +21,7 @@ I begin by loading all the R packages I intend to use (really just the
 [gtsummary](http://www.danieldsjoberg.com/gtsummary/) -- Hi Margie!). Then I
 read in the daily new case data for Los Angeles.
 
-```{r}
+```{r message = FALSE}
 # Load R packages and project settings (go to GitHub for contents of this file)
 source(here::here("requirements.R"))
 
