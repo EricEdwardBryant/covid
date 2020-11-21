@@ -1,0 +1,467 @@
+---
+title: Why are daily new cases so wiggly?
+author: Eric Bryant, PhD
+date: '2020-11-20'
+slug: why-are-daily-new-cases-so-wiggly
+categories: []
+tags: []
+---
+
+
+
+<p>What’s the deal with all the wiggliness in daily new cases? In the FAQ I say
+this is a reporting artifact because it looks like it happens at a regular
+interval approximately once a week, but I have never really checked this
+closely.</p>
+<p>Do the dips that we see in daily new cases happen on particular days of the
+week? Let’s have a look! (BTW I’m leaving the code with lots of comments so you
+can follow along if that kind of thing is interesting to you).</p>
+<p>I begin by loading all the R packages I intend to use (really just the
+<a href="https://www.tidyverse.org">tidyverse</a> for this analysis, plus
+<a href="http://www.danieldsjoberg.com/gtsummary/">gtsummary</a> – Hi Margie!). Then I
+read in the daily new case data for Los Angeles.</p>
+<pre class="r"><code># Load R packages and project settings (go to GitHub for contents of this file)
+source(here::here(&quot;requirements.R&quot;))
+
+df &lt;-
+  read_csv(here(&quot;data/new-cases-ca.csv&quot;)) %&gt;% # Read the data
+  filter(county == &quot;Los Angeles&quot;) %&gt;%         # We&#39;ll focus on LA
+  mutate(
+    # Get the day of the week given the date
+    weekday = lubridate::wday(date, label = TRUE, week_start = 1),
+    # Label weekends for color in our plot
+    Weekend = weekday %in% c(&quot;Sat&quot;, &quot;Sun&quot;),
+    # Calculate the deviation from expected new cases
+    count_new_diff = count_new - count_new_roll
+  )</code></pre>
+<p>Now that we have our data, I make a boxplot to get an idea for how the deviation
+of expected new cases is distributed on each week day.</p>
+<p><img src="/news/2020-11-20-why-are-daily-new-cases-so-wiggly_files/figure-html/unnamed-chunk-2-1.png" width="350px" /></p>
+<p>Looks like numbers drop on weekends! Why? I don’t know, but I assume there is
+just limited reporting capacity when people take the weekend off?</p>
+<p>OK, how big is this effect? Well, let’s compare the average deviation from
+expected new cases for each day of the week to Wednesday (since it’s in the
+middle of the week I figure it should be furthest away from the weekend drop)</p>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#acfsijcjjc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#acfsijcjjc .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#acfsijcjjc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#acfsijcjjc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#acfsijcjjc .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#acfsijcjjc .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#acfsijcjjc .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#acfsijcjjc .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#acfsijcjjc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#acfsijcjjc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#acfsijcjjc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#acfsijcjjc .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#acfsijcjjc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#acfsijcjjc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#acfsijcjjc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#acfsijcjjc .gt_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#acfsijcjjc .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#acfsijcjjc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#acfsijcjjc .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#acfsijcjjc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#acfsijcjjc .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#acfsijcjjc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#acfsijcjjc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#acfsijcjjc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#acfsijcjjc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#acfsijcjjc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#acfsijcjjc .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#acfsijcjjc .gt_left {
+  text-align: left;
+}
+
+#acfsijcjjc .gt_center {
+  text-align: center;
+}
+
+#acfsijcjjc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#acfsijcjjc .gt_font_normal {
+  font-weight: normal;
+}
+
+#acfsijcjjc .gt_font_bold {
+  font-weight: bold;
+}
+
+#acfsijcjjc .gt_font_italic {
+  font-style: italic;
+}
+
+#acfsijcjjc .gt_super {
+  font-size: 65%;
+}
+
+#acfsijcjjc .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="acfsijcjjc" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1"><strong>Beta</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1"><strong>95% CI</strong><sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1"><strong>p-value</strong></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_left">Weekday</td>
+      <td class="gt_row gt_center"></td>
+      <td class="gt_row gt_center"></td>
+      <td class="gt_row gt_center"></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Wed</td>
+      <td class="gt_row gt_center">&mdash;</td>
+      <td class="gt_row gt_center">&mdash;</td>
+      <td class="gt_row gt_center"></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Mon</td>
+      <td class="gt_row gt_center">-130</td>
+      <td class="gt_row gt_center">-358, 98</td>
+      <td class="gt_row gt_center">0.3</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Tue</td>
+      <td class="gt_row gt_center">-72</td>
+      <td class="gt_row gt_center">-298, 154</td>
+      <td class="gt_row gt_center">0.5</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Thu</td>
+      <td class="gt_row gt_center">-113</td>
+      <td class="gt_row gt_center">-341, 115</td>
+      <td class="gt_row gt_center">0.3</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Fri</td>
+      <td class="gt_row gt_center">-16</td>
+      <td class="gt_row gt_center">-243, 212</td>
+      <td class="gt_row gt_center">0.9</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Sat</td>
+      <td class="gt_row gt_center">-348</td>
+      <td class="gt_row gt_center">-575, -120</td>
+      <td class="gt_row gt_center">0.003</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Sun</td>
+      <td class="gt_row gt_center">-381</td>
+      <td class="gt_row gt_center">-609, -153</td>
+      <td class="gt_row gt_center">0.001</td>
+    </tr>
+  </tbody>
+  
+  <tfoot>
+    <tr class="gt_footnotes">
+      <td colspan="4">
+        <p class="gt_footnote">
+          <sup class="gt_footnote_marks">
+            <em>1</em>
+          </sup>
+           
+          CI = Confidence Interval
+          <br />
+        </p>
+      </td>
+    </tr>
+  </tfoot>
+</table></div>
+<p>And there it is, on average we see roughly 300 to 400 fewer cases on Saturdays
+and Sundays relative to Wednesdays. That means we under-report cases on weekends
+to the tune of roughly 700 new cases. I would guess these cases get reported
+later in the week, but I don’t really know.</p>
+<p><strong>ONE MORE IMPORTANT THING!</strong> I look at the data every day when it comes in and
+I don’t remember the drops happening on weekends. It turns out that the numbers
+I download from <a href="https://data.ca.gov">data.ca.gov</a> are not for that day, or even
+the day before. Rather, Saturday’s numbers become available in this database
+around 12pm on Monday, and Sunday’s numbers show up on Tuesday – a 2 day delay.</p>
+<p>All that said, you should expect the <strong>daily updates on this site to be two days
+old and artificially low on Mondays and Tuesdays.</strong></p>

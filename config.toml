@@ -17,11 +17,18 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\
     weight = 1
 
 [[menu.main]]
+    name = "News"
+    identifier = "news"
+    pre = "fas fa-list"
+    url = "/news/"
+    weight = 2
+
+[[menu.main]]
     name = "GitHub"
     identifier = "github"
     pre = "fab fa-github"
     url = "https://github.com/ericedwardbryant/covid"
-    weight = 2
+    weight = 3
 
 
 [params]
