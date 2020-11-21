@@ -36,17 +36,36 @@ df &lt;-
   )</code></pre>
 <p>Now that we have our data, I make a boxplot to get an idea for how the deviation
 of expected new cases is distributed on each week day.</p>
+<pre class="r"><code># Given our data
+df %&gt;%
+  # Plot weekday vs. expected new cases. Color by weekend (yes/no)
+  ggplot(aes(x = weekday, y = count_new_diff, color = Weekend)) +
+  labs(y = &quot;Deviation from expected new cases&quot;) +
+  geom_boxplot(outlier.shape = NA) +       # don&#39;t worry about outliers
+  scale_color_brewer(palette = &quot;Dark2&quot;) +  # use pretty colors
+  theme(aspect.ratio = 1) +                # make plot region a square
+  coord_cartesian(ylim = c(-1000, 1000)) + # Set limits on Y-axis
+  theme(
+    legend.position = &quot;none&quot;,              # no need for color legend
+    axis.title.x = element_blank()         # no need for X axis title
+  )</code></pre>
 <p><img src="/news/2020-11-20-why-are-daily-new-cases-so-wiggly_files/figure-html/unnamed-chunk-2-1.png" width="350px" /></p>
 <p>Looks like numbers drop on weekends! Why? I don’t know, but I assume there is
 just limited reporting capacity when people take the weekend off?</p>
 <p>OK, how big is this effect? Well, let’s compare the average deviation from
 expected new cases for each day of the week to Wednesday (since it’s in the
 middle of the week I figure it should be furthest away from the weekend drop)</p>
+<pre class="r"><code># Given our data
+df %&gt;%
+  # Set Wednesday as the &quot;reference&quot; since it&#39;s in the middle of the week
+  mutate(Weekday = relevel(factor(weekday, ordered = FALSE), ref = &quot;Wed&quot;)) %&gt;%
+  lm(count_new_diff ~ Weekday, data = .) %&gt;% # fit a linear model
+  gtsummary::tbl_regression()                # make a pretty table</code></pre>
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#acfsijcjjc .gt_table {
+#xuncukzpqm .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -71,7 +90,7 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   border-left-color: #D3D3D3;
 }
 
-#acfsijcjjc .gt_heading {
+#xuncukzpqm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -83,7 +102,7 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   border-right-color: #D3D3D3;
 }
 
-#acfsijcjjc .gt_title {
+#xuncukzpqm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -93,7 +112,7 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   border-bottom-width: 0;
 }
 
-#acfsijcjjc .gt_subtitle {
+#xuncukzpqm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -103,13 +122,13 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   border-top-width: 0;
 }
 
-#acfsijcjjc .gt_bottom_border {
+#xuncukzpqm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#acfsijcjjc .gt_col_headings {
+#xuncukzpqm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -124,7 +143,7 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   border-right-color: #D3D3D3;
 }
 
-#acfsijcjjc .gt_col_heading {
+#xuncukzpqm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -144,7 +163,7 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   overflow-x: hidden;
 }
 
-#acfsijcjjc .gt_column_spanner_outer {
+#xuncukzpqm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -156,15 +175,15 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   padding-right: 4px;
 }
 
-#acfsijcjjc .gt_column_spanner_outer:first-child {
+#xuncukzpqm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#acfsijcjjc .gt_column_spanner_outer:last-child {
+#xuncukzpqm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#acfsijcjjc .gt_column_spanner {
+#xuncukzpqm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -176,7 +195,7 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   width: 100%;
 }
 
-#acfsijcjjc .gt_group_heading {
+#xuncukzpqm .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -198,7 +217,7 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   vertical-align: middle;
 }
 
-#acfsijcjjc .gt_empty_group_heading {
+#xuncukzpqm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -213,15 +232,15 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   vertical-align: middle;
 }
 
-#acfsijcjjc .gt_from_md > :first-child {
+#xuncukzpqm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#acfsijcjjc .gt_from_md > :last-child {
+#xuncukzpqm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#acfsijcjjc .gt_row {
+#xuncukzpqm .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -240,7 +259,7 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   overflow-x: hidden;
 }
 
-#acfsijcjjc .gt_stub {
+#xuncukzpqm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -252,7 +271,7 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   padding-left: 12px;
 }
 
-#acfsijcjjc .gt_summary_row {
+#xuncukzpqm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -262,7 +281,7 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   padding-right: 5px;
 }
 
-#acfsijcjjc .gt_first_summary_row {
+#xuncukzpqm .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -272,7 +291,7 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   border-top-color: #D3D3D3;
 }
 
-#acfsijcjjc .gt_grand_summary_row {
+#xuncukzpqm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -282,7 +301,7 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   padding-right: 5px;
 }
 
-#acfsijcjjc .gt_first_grand_summary_row {
+#xuncukzpqm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -292,11 +311,11 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   border-top-color: #D3D3D3;
 }
 
-#acfsijcjjc .gt_striped {
+#xuncukzpqm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#acfsijcjjc .gt_table_body {
+#xuncukzpqm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -305,7 +324,7 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   border-bottom-color: #D3D3D3;
 }
 
-#acfsijcjjc .gt_footnotes {
+#xuncukzpqm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -319,13 +338,13 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   border-right-color: #D3D3D3;
 }
 
-#acfsijcjjc .gt_footnote {
+#xuncukzpqm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#acfsijcjjc .gt_sourcenotes {
+#xuncukzpqm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -339,46 +358,46 @@ middle of the week I figure it should be furthest away from the weekend drop)</p
   border-right-color: #D3D3D3;
 }
 
-#acfsijcjjc .gt_sourcenote {
+#xuncukzpqm .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#acfsijcjjc .gt_left {
+#xuncukzpqm .gt_left {
   text-align: left;
 }
 
-#acfsijcjjc .gt_center {
+#xuncukzpqm .gt_center {
   text-align: center;
 }
 
-#acfsijcjjc .gt_right {
+#xuncukzpqm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#acfsijcjjc .gt_font_normal {
+#xuncukzpqm .gt_font_normal {
   font-weight: normal;
 }
 
-#acfsijcjjc .gt_font_bold {
+#xuncukzpqm .gt_font_bold {
   font-weight: bold;
 }
 
-#acfsijcjjc .gt_font_italic {
+#xuncukzpqm .gt_font_italic {
   font-style: italic;
 }
 
-#acfsijcjjc .gt_super {
+#xuncukzpqm .gt_super {
   font-size: 65%;
 }
 
-#acfsijcjjc .gt_footnote_marks {
+#xuncukzpqm .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="acfsijcjjc" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="xuncukzpqm" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
