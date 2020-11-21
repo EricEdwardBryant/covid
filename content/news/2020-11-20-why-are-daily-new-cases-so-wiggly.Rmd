@@ -1,0 +1,90 @@
+---
+title: Why are daily new cases so wiggly?
+author: Eric Bryant, PhD
+date: '2020-11-20'
+slug: why-are-daily-new-cases-so-wiggly
+categories: []
+tags: []
+---
+
+What's the deal with all the wiggliness in daily new cases? In the FAQ I say
+this is a reporting artifact because it looks like it happens at a regular
+interval approximately once a week, but I have never really checked this
+closely. 
+
+Do the dips that we see in daily new cases happen on particular days of the
+week? Let's have a look! (BTW I'm leaving the code with lots of comments so you
+can follow along if that kind of thing is interesting to you).
+
+I begin by loading all the R packages I intend to use (really just the
+[tidyverse](https://www.tidyverse.org) for this analysis, plus
+[gtsummary](http://www.danieldsjoberg.com/gtsummary/) -- Hi Margie!). Then I
+read in the daily new case data for Los Angeles.
+
+```{r}
+# Load R packages and project settings (go to GitHub for contents of this file)
+source(here::here("requirements.R"))
+
+df <-
+  read_csv(here("data/new-cases-ca.csv")) %>% # Read the data
+  filter(county == "Los Angeles") %>%         # We'll focus on LA
+  mutate(
+    # Get the day of the week given the date
+    weekday = lubridate::wday(date, label = TRUE, week_start = 1),
+    # Label weekends for color in our plot
+    Weekend = weekday %in% c("Sat", "Sun"),
+    # Calculate the deviation from expected new cases
+    count_new_diff = count_new - count_new_roll
+  )
+```
+
+
+Now that we have our data, I make a boxplot to get an idea for how the deviation
+of expected new cases is distributed on each week day.
+
+```{r}
+# Given our data
+df %>%
+  # Plot weekday vs. expected new cases. Color by weekend (yes/no)
+  ggplot(aes(x = weekday, y = count_new_diff, color = Weekend)) +
+  labs(y = "Deviation from expected new cases") +
+  geom_boxplot(outlier.shape = NA) +       # don't worry about outliers
+  scale_color_brewer(palette = "Dark2") +  # use pretty colors
+  theme(aspect.ratio = 1) +                # make plot region a square
+  coord_cartesian(ylim = c(-1000, 1000)) + # Set limits on Y-axis
+  theme(
+    legend.position = "none",              # no need for color legend
+    axis.title.x = element_blank()         # no need for X axis title
+  )
+```
+
+
+Looks like numbers drop on weekends! Why? I don't know, but I assume there is
+just limited reporting capacity when people take the weekend off?
+
+OK, how big is this effect? Well, let's compare the average deviation from
+expected new cases for each day of the week to Wednesday (since it's in the
+middle of the week I figure it should be furthest away from the weekend drop)
+
+```{r}
+# Given our data
+df %>%
+  # Set Wednesday as the "reference" since it's in the middle of the week
+  mutate(Weekday = relevel(factor(weekday, ordered = FALSE), ref = "Wed")) %>%
+  lm(count_new_diff ~ Weekday, data = .) %>% # fit a linear model
+  gtsummary::tbl_regression()                # make a pretty table
+```
+
+And there it is, on average we see roughly 300 to 400 fewer cases on Saturdays
+and Sundays relative to Wednesdays. That means we under-report cases on weekends
+to the tune of roughly 700 new cases. I would guess these cases get reported
+later in the week, but I don't really know.
+
+**ONE MORE IMPORTANT THING!** I look at the data every day when it comes in and
+I don't remember the drops happening on weekends. It turns out that the numbers
+I download from [data.ca.gov](https://data.ca.gov) are not for that day, or even
+the day before. Rather, Saturday's numbers become available in this database
+around 12pm on Monday, and Sunday's numbers show up on Tuesday -- a 2 day delay.
+
+All that said, you should expect the **daily updates on this site to be two days
+old and artificially low on Mondays and Tuesdays.**

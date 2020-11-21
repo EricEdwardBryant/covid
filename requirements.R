@@ -19,3 +19,8 @@ knitr::opts_chunk$set(
   dpi = 300,
   out.width = "350px"
 )
+
+options(
+  gtsummary.as_gt.addl_cmds =
+    "gt::tab_options(table.font.size = 'small', data_row.padding = gt::px(1))"
+)
