@@ -31,7 +31,8 @@ figure_new_cases_change <- function(csv, county, date_limits = c(NA, "2021-03-01
     ) +
     scale_color_steps2(
       n.breaks = 5,
-      labels = c("Improving", "", "Steady", "", "Worsening"),
+      nice.breaks = FALSE, # to always respect n.breaks for manual labeling
+      labels = c("← Improving", "", "", "", "Worsening →"),
       limits = c(-1, 1) * max(df$count_new_loess_diff),
       oob = scales::squish,
       low = "green", mid = "black", high = "#fe0099", midpoint = 0
