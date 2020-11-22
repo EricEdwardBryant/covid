@@ -33,7 +33,10 @@ Applies to:
 
 - All files within `static/webfonts`
 - `static/css/fontawesome.css`
-- `staic/favicon.svg` which has been modified to include the above attribution.
+- `staic/favicon.ico`
+    - Created by converting icon from SVG to 16x16, 32x32, 256x256 PNGs using 
+      Inkscape, then converting from PNG to ICO with imagemagick via:
+      `convert favicon16.png favicon32.png favicon256.png favicon.ico`
 
 
 Hugo Lithium theme
