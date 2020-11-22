@@ -46,6 +46,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\
 
     # path to the favicon, under "static"
     favicon = "favicon.ico"
+    iosIcon = "ios.png"
 
     [params.logo]
     url = "landscape.png"

@@ -14,6 +14,10 @@
   <link href='{{ . | absURL }}' rel='icon'/>
 {{ end }}
 
+{{ with .Site.Params.iosIcon }}
+<link href='{{. | absURL }}' rel="apple-touch-icon"/>
+{{ end }}
+
 {{ if eq .RelPermalink "/" }}
 <meta property="description" content="{{ .Site.Params.description }}">
 {{ else }}
