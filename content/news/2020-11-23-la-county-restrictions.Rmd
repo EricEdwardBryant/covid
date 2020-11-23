@@ -1,0 +1,108 @@
+---
+title: LA county restrictions
+author: Eric Bryant, PhD
+date: '2020-11-23'
+slug: la-county-restrictions
+categories: []
+tags: []
+---
+
+Due to recent increases in daily new cases in Los Angeles,
+[LA county has issued a heads-up](https://covid19.lacounty.gov/covid19-news/los-angeles-county-to-implement-tighter-safeguards-and-restrictions-to-curb-covid-19-spread/)
+that new restrictions may be put into place in the coming days/weeks.
+
+I'll summarize some relevant new measures here, but do look at the press release
+for complete details (and in-case I make a typo here). And for that matter,
+it's not a bad idea to check in on the latest
+[LA county news releases](https://covid19.lacounty.gov/covid19-news).
+
+As of last Friday:
+
+- Non-essential indoor work spaces limited to 25% capacity.
+- Restaurants etc. are limited to 50% outdoor capacity, must close 10pm to 6am.
+- Indoor services by appointment only, mask required (so no facials or shaves).
+- 15 person, 3 household maximum for outdoor gatherings (no indoor gatherings). 
+
+If the **5 day** average of new cases is **>4,000**, or hospitalizations is
+**>1,750**:
+
+- Take out dining only.
+
+If the **5 day** average of new cases is **>4,500** or hospitalizations is
+**>2,000**:
+
+- ***Stay at home!*** Essential work and services only. 10pm to 6am curfew.
+
+
+## Where are we now?
+
+First I would like to note that data from LA county public health, which is
+linked at the bottom of the press-release has some discrepancies
+(generally small) with county level data reported to the state. I don't know why
+this is, but just be aware that official decision makers are probably using
+LACPH data rather than the CA state data that most trackers use -- including
+this site.
+
+Our current numbers for the last 5 days from CA state are:
+
+```{r message = FALSE}
+source(here::here("requirements.R"))
+
+la_5_day <-
+  read_csv(here("data/new-cases-ca.csv")) %>%
+  filter(county == "Los Angeles") %>%
+  mutate(weekday = lubridate::wday(date, label = TRUE)) %>%
+  select(date, weekday, count_new, count_new_roll, count_new_loess) %>%
+  top_n(5, date) %>%
+  print()
+```
+
+The average for these last 5 days is
+`r format(round(mean(la_5_day$count_new)), big.mark = ",")`. Note that the latest
+reported number is from a Saturday where we see the expected artificial drop.
+
+Will a stay-at-home order be issued? Depends on how bad things are on Monday and
+Tuesday. For stay-at-home to be issued on Wednesday night, we need to know what
+the numbers will have to average out to on Monday and Tuesday. We don't have
+Sunday's numbers but we can sort of guess that it will be artificially low like
+Saturday (big uncertainty here though).
+
+```{r echo = TRUE, comment = ""}
+# I'm going to just guess that Sunday will be artificially low to the same
+# degree as Saturday
+#             Threshold     Fri    Sat    Sun
+mt_thresh <- ((4500 * 5) - (4200 + 2587 + 2600)) / 2
+cat(mt_thresh)
+```
+
+If we take last Friday's numbers and we assume the daily rate of change:
+
+```{r echo = TRUE, comment = ""}
+mt_guess <- mean(c(4200 + (120 + 240 + 360), 4200 + (120 + 240 + 360 + 480)))
+cat(mt_guess)
+```
+
+That would still leave us about
+`r format(round(mt_thresh - mt_guess, digits = -2), big.mark = ",")` cases under
+what would be required to call a lockdown.
+
+**Important caveats:**
+
+1. This is dumb napkin math that doesn't really take into consideration daily
+   variability. A single big spike could easily take us over the edge.
+2. I'm working with numbers that are a bit off from the county numbers (I think).
+3. You don't need to wait until the county enacts policy to act. There is no
+   doubt that daily new cases are increasing at the fastest rate since the start
+   of this pandemic.
+
+**Even more importantly:**
+
+1. Under the **CURRENT** restrictions, gatherings of multiple households must be
+  **outside**, with no more than **15 people**, from a maximum of
+  **3 households**.
+2. Be careful after Thanksgiving because many families will not follow these
+   restrictions, which means in the immediate days/weeks following Thanksgiving
+   there will likely be big increases in rates of spread and this will not be
+   immediately obvious in reported numbers.
+
+Stay safe out there!

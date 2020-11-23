@@ -1,0 +1,103 @@
+---
+title: LA county restrictions
+author: Eric Bryant, PhD
+date: '2020-11-23'
+slug: la-county-restrictions
+categories: []
+tags: []
+---
+
+
+
+<p>Due to recent increases in daily new cases in Los Angeles,
+<a href="https://covid19.lacounty.gov/covid19-news/los-angeles-county-to-implement-tighter-safeguards-and-restrictions-to-curb-covid-19-spread/">LA county has issued a heads-up</a>
+that new restrictions may be put into place in the coming days/weeks.</p>
+<p>I’ll summarize some relevant new measures here, but do look at the press release
+for complete details (and in-case I make a typo here). And for that matter,
+it’s not a bad idea to check in on the latest
+<a href="https://covid19.lacounty.gov/covid19-news">LA county news releases</a>.</p>
+<p>As of last Friday:</p>
+<ul>
+<li>Non-essential indoor work spaces limited to 25% capacity.</li>
+<li>Restaurants etc. are limited to 50% outdoor capacity, must close 10pm to 6am.</li>
+<li>Indoor services by appointment only, mask required (so no facials or shaves).</li>
+<li>15 person, 3 household maximum for outdoor gatherings (no indoor gatherings).</li>
+</ul>
+<p>If the <strong>5 day</strong> average of new cases is <strong>&gt;4,000</strong>, or hospitalizations is
+<strong>&gt;1,750</strong>:</p>
+<ul>
+<li>Take out dining only.</li>
+</ul>
+<p>If the <strong>5 day</strong> average of new cases is <strong>&gt;4,500</strong> or hospitalizations is
+<strong>&gt;2,000</strong>:</p>
+<ul>
+<li><strong><em>Stay at home!</em></strong> Essential work and services only. 10pm to 6am curfew.</li>
+</ul>
+<div id="where-are-we-now" class="section level2">
+<h2>Where are we now?</h2>
+<p>First I would like to note that data from LA county public health, which is
+linked at the bottom of the press-release has some discrepancies
+(generally small) with county level data reported to the state. I don’t know why
+this is, but just be aware that official decision makers are probably using
+LACPH data rather than the CA state data that most trackers use – including
+this site.</p>
+<p>Our current numbers for the last 5 days from CA state are:</p>
+<pre class="r"><code>source(here::here(&quot;requirements.R&quot;))
+
+la_5_day &lt;-
+  read_csv(here(&quot;data/new-cases-ca.csv&quot;)) %&gt;%
+  filter(county == &quot;Los Angeles&quot;) %&gt;%
+  mutate(weekday = lubridate::wday(date, label = TRUE)) %&gt;%
+  select(date, weekday, count_new, count_new_roll, count_new_loess) %&gt;%
+  top_n(5, date) %&gt;%
+  print()</code></pre>
+<pre><code>## # A tibble: 5 x 5
+##   date       weekday count_new count_new_roll count_new_loess
+##   &lt;date&gt;     &lt;ord&gt;       &lt;dbl&gt;          &lt;dbl&gt;           &lt;dbl&gt;
+## 1 2020-11-17 Tue          3742          2878.           3268.
+## 2 2020-11-18 Wed          4818          3014            3401.
+## 3 2020-11-19 Thu          4061          3336.           3538.
+## 4 2020-11-20 Fri          4200          3657            3679.
+## 5 2020-11-21 Sat          2587          3378            3824.</code></pre>
+<p>The average for these last 5 days is
+3,882. Note that the latest
+reported number is from a Saturday where we see the expected artificial drop.</p>
+<p>Will a stay-at-home order be issued? Depends on how bad things are on Monday and
+Tuesday. For stay-at-home to be issued on Wednesday night, we need to know what
+the numbers will have to average out to on Monday and Tuesday. We don’t have
+Sunday’s numbers but we can sort of guess that it will be artificially low like
+Saturday (big uncertainty here though).</p>
+<pre class="r"><code># I&#39;m going to just guess that Sunday will be artificially low to the same
+# degree as Saturday
+#             Threshold     Fri    Sat    Sun
+mt_thresh &lt;- ((4500 * 5) - (4200 + 2587 + 2600)) / 2
+cat(mt_thresh)</code></pre>
+<pre><code>6556.5</code></pre>
+<p>If we take last Friday’s numbers and we assume the daily rate of change:</p>
+<pre class="r"><code>mt_guess &lt;- mean(c(4200 + (120 + 240 + 360), 4200 + (120 + 240 + 360 + 480)))
+cat(mt_guess)</code></pre>
+<pre><code>5160</code></pre>
+<p>That would still leave us about
+1,400 cases under
+what would be required to call a lockdown.</p>
+<p><strong>Important caveats:</strong></p>
+<ol style="list-style-type: decimal">
+<li>This is dumb napkin math that doesn’t really take into consideration daily
+variability. A single big spike could easily take us over the edge.</li>
+<li>I’m working with numbers that are a bit off from the county numbers (I think).</li>
+<li>You don’t need to wait until the county enacts policy to act. There is no
+doubt that daily new cases are increasing at the fastest rate since the start
+of this pandemic.</li>
+</ol>
+<p><strong>Even more importantly:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Under the <strong>CURRENT</strong> restrictions, gatherings of multiple households must be
+<strong>outside</strong>, with no more than <strong>15 people</strong>, from a maximum of
+<strong>3 households</strong>.</li>
+<li>Be careful after Thanksgiving because many families will not follow these
+restrictions, which means in the immediate days/weeks following Thanksgiving
+there will likely be big increases in rates of spread and this will not be
+immediately obvious in reported numbers.</li>
+</ol>
+<p>Stay safe out there!</p>
+</div>
