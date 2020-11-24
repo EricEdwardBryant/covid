@@ -7,6 +7,18 @@ categories: []
 tags: []
 ---
 
+**Update as of 5pm Mon, Nov 23 2020:**
+_[Some reports](https://laist.com/latest/post/20201123/la-county-covid-stay-at-home-curfew-order)
+have indicated that Monday's numbers hit 6,124 and that this is triggering a
+three week stay-at-home. This is sort of surprising to me since, if these are
+Monday's numbers, then Sunday would have to be over 5,500. Or, perhaps these
+"Monday" numbers are Sunday's numbers (which would make sense, since Monday is
+not over yet). This would make the five day average 4,358. While this is not
+over the 4,500 threshold, this could be explained away by the small
+discrepancies I see between LACPH and my data source
+[data.ca.gov](https://data.ca.gov)). Either way, looks like stay-at-home might
+be called much sooner than expected?_
+
 Due to recent increases in daily new cases in Los Angeles,
 [LA county has issued a heads-up](https://covid19.lacounty.gov/covid19-news/los-angeles-county-to-implement-tighter-safeguards-and-restrictions-to-curb-covid-19-spread/)
 that new restrictions may be put into place in the coming days/weeks.
