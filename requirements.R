@@ -3,6 +3,7 @@ library(patchwork)
 library(here)
 library(slider)
 
+source(here("code/R/download-data-ca.R"))
 source(here("code/R/download-new-cases-ca.R"))
 source(here("code/R/figure-new-cases.R"))
 source(here("code/R/figure-daily-change.R"))
