@@ -91,7 +91,7 @@ code {
 }
 
 .nav-link {
-  transition: transform 150ms ease-out;  
+  transition: transform 150ms ease-out;
 }
 
 .nav-link:hover {
@@ -107,7 +107,7 @@ code {
 
 .nav-links li {
   display: inline-block;
-  margin: 0 0 0 15px;
+  margin: 0 0 0 7px;
 }
 
 .nav-links li:first-child {
@@ -298,7 +298,7 @@ code {
   .nav-logo img {
     max-height: 50px;
   }
-  
+
   .nav-logo-text {
     font-size: 17px;
     margin-top: -34px;
