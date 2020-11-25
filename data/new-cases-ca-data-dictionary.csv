@@ -1,0 +1,7 @@
+column,type,label,description
+county,text,County,County for which case statistics were reported.
+totalcountconfirmed,numeric,Total Positive Cases,"Cumulative number of laboratory-confirmed positive COVID-19 cases as reported by local health departments , beginning March 19, 2020."
+totalcountdeaths,numeric,Total Deaths,"Cumulative number of COVID-related deaths as reported by local health department, beginning March 19, 2020. This determination is made by local health departments based on the cause of death reported on death certificates. It is expected that, to be counted, COVID is the cause of death or at least a contributing factor to the death. COVID-related deaths are also counted in “Positive Cases”."
+newcountconfirmed,numeric,New Cases,Number of new lab-confirmed positive COVID-19 cases reported by local health departments each day.
+newcountdeaths,numeric,New Deaths,Number of new COVID-19 related deaths reported by local health departments to each day.
+date,timestamp,Date,Date reported.
