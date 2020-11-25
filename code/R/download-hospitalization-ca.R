@@ -1,0 +1,74 @@
+#' Download COVID hospitalization data for CA
+#'
+#' @param save_as Where to save the resulting CSV.
+#' @param force Whether to force a download even if the data were downloaded
+#' today. Defaults to `FALSE` to prevent from accidentally spamming the API.
+#' @param smooth_span The smoothing parameter passed to the [stats::loess]
+#' `span` argument.
+
+download_hospitalization_ca <- function(save_as = "data/hospitalization-ca.csv",
+                                        force = FALSE) {
+  # Download if not yet downloaded today, unless force = TRUE
+  json_file <-
+    download_data_ca(
+      save_as, force,
+      dataset    = "42d33765-20fd-44b8-a978-b083b7542225",
+      sql_select = "*",
+      sql_where  = '"todays_date" IS NOT NULL'
+    )
+
+  # Convert JSON to dataframe
+  df <-
+    # Combine records into a dataframe
+    jsonlite::read_json(json_file, simplifyVector = TRUE)$result$records %>%
+    as_tibble() %>%
+    select(
+      date = todays_date,
+      county,
+      icu_covid_confirmed = icu_covid_confirmed_patients,
+      icu_covid_suspected = icu_suspected_covid_patients,
+      hsp_covid_confirmed = hospitalized_covid_confirmed_patients,   # Includes ICU patients
+      hsp_covid_suspected = hospitalized_suspected_covid_patients,
+      icu_available_beds,
+      hsp_available_beds = all_hospital_beds # all beds ore all available??
+    ) %>%
+    # Remove trailing ".0" (causes warning when converting counts to integer)
+    mutate_all(~str_replace(., "[.]0$", "")) %>%
+    # Convert columns to appropriate type
+    type_convert(
+      col_types = cols(date = col_datetime(), county = "c", .default = "i")
+    ) %>%
+    mutate(date = as.Date(date, tz = "")) %>%
+    # Calculate estimates for each county
+    arrange(county, date)
+
+  df %>%
+    filter(county == "Los Angeles") %>%
+    gtsummary::tbl_summary()
+
+  gg1 <-
+    df %>%
+    filter(county == "Los Angeles") %>%
+    ggplot(aes(date, icu_covid_confirmed + icu_covid_suspected)) +
+    geom_line()
+
+  gg2 <-
+    df %>%
+    filter(county == "Los Angeles") %>%
+    ggplot(aes(date, hsp_covid_confirmed + hsp_covid_suspected)) +
+    geom_line()
+
+  gg3 <-
+    df %>%
+    filter(county == "Los Angeles") %>%
+    ggplot(aes(date, icu_available_beds)) +
+    geom_line()
+
+  gg4 <-
+    df %>%
+    filter(county == "Los Angeles") %>%
+    ggplot(aes(date, hsp_available_beds)) +
+    geom_line()
+
+  gg1 / gg2 / gg3 / gg4
+}
