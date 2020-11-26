@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
   echo = FALSE,
   message = FALSE,
   fig.width = 3.5,
+  fig.align = "center",
   dpi = 300,
   out.width = "350px"
 )
