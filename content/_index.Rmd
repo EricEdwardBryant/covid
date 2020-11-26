@@ -26,6 +26,7 @@ sc_population <- 1945940
 download_new_cases_ca(csv)
 ```
 
+
 Los Angeles
 --------------------------------------------------------------------------------
 
@@ -40,6 +41,9 @@ figure_new_cases(csv, "Los Angeles", population = la_population) /
 
 Santa Clara
 --------------------------------------------------------------------------------
+
+For the most recent information, I recommend reading the
+[Santa Clara county public health press releases](https://www.sccgov.org/sites/covid19/Pages/archives.aspx)
 
 ```{r new-cases-santa-clara}
 figure_new_cases(csv, "Santa Clara", population = sc_population) /
