@@ -13,7 +13,8 @@ output:
 source(here::here("requirements.R"))
 
 # Where to save new cases in CA
-csv <- here("data/new-cases-ca.csv")
+csv_cases <- here("data/new-cases-ca.csv")
+csv_hsp   <- here("data/hospitalization-ca.csv")
 
 # Population from: https://worldpopulationreview.com/us-counties/ca/los-angeles-county-population
 la_population <- 10079000
@@ -21,9 +22,10 @@ la_population <- 10079000
 # Population from: https://worldpopulationreview.com/us-counties/ca/santa-clara-county-population
 sc_population <- 1945940
 
-# Download new cases from https://data.ca.gov
+# Download data from https://data.ca.gov
 # Only downloads once a day unless force = TRUE
-download_new_cases_ca(csv)
+download_new_cases_ca(csv_cases)
+download_hospitalization_ca(csv_hsp)
 ```
 
 
@@ -33,9 +35,12 @@ Los Angeles
 For the most recent information, I recommend reading the
 [LA county public health press releases](http://publichealth.lacounty.gov/media/coronavirus/#news).
 
-```{r new-cases-los-angeles}
-figure_new_cases(csv, "Los Angeles", population = la_population) /
-  figure_new_cases_change(csv, "Los Angeles")
+```{r new-cases-los-angeles, fig.height = 7}
+county <- "Los Angeles"
+
+figure_new_cases(csv_cases, county, population = la_population) /
+  figure_new_cases_change(csv_cases, county) /
+  figure_hospitalization(csv_hsp, county)
 ```
 
 
@@ -45,7 +50,10 @@ Santa Clara
 For the most recent information, I recommend reading the
 [Santa Clara county public health press releases](https://www.sccgov.org/sites/covid19/Pages/archives.aspx)
 
-```{r new-cases-santa-clara}
-figure_new_cases(csv, "Santa Clara", population = sc_population) /
-  figure_new_cases_change(csv, "Santa Clara")
+```{r new-cases-santa-clara, fig.height = 7}
+county <- "Santa Clara"
+
+figure_new_cases(csv_cases, county, population = sc_population) /
+  figure_new_cases_change(csv_cases, county) / 
+  figure_hospitalization(csv_hsp, county)
 ```

@@ -1,0 +1,180 @@
+---
+title: Hospitalizations
+author: Eric Bryant, PhD
+date: '2020-11-25'
+slug: hospitalizations
+categories: []
+tags: []
+---
+
+
+With cases rapidly rising in California, I have decided to add daily
+hospitalization updates to the homepage. This post outlines the "making of"
+the hospitalization figure.
+
+The data are described in detail
+[here](https://data.ca.gov/dataset/covid-19-hospital-data/resource/42d33765-20fd-44b8-a978-b083b7542225).
+If you really want to understand the data, this is where you should start.
+
+I begin by reading the data and focusing on Los Angeles. I am only going to look
+at data starting in May, since there is a note on
+[data.ca.gov](https://data.ca.gov/dataset/covid-19-hospital-data/resource/42d33765-20fd-44b8-a978-b083b7542225)
+saying that there was a change in reporting at the end of April (namely that
+emergency departments are no longer included in these figures). Also note that
+I changed the column names during download to be a little be more consistent
+(just me being persnickety).
+
+```{r message = FALSE}
+source(here::here("requirements.R"))
+
+df <-
+  read_csv(here("data/hospitalization-ca.csv")) %>%
+  filter(county == "Los Angeles", date >= as.Date("2020-05-01"))
+```
+
+
+First I just want to get a sense of the data, so I make a table with the median
+and range of data points found in each column.
+
+```{r echo = TRUE}
+df %>%
+  select(-county) %>% # drop the county column (it's all just "Los Angeles")
+  gtsummary::tbl_summary(
+    # Report the range instead of the default IQR
+    statistic = list(gtsummary::all_continuous() ~ "{median} [{min} - {max}]")
+  )
+```
+
+Here we see that we have daily numbers for ICU and hospitalized patients that
+are either confirmed or suspected to have COVID-19. I think these numbers are
+pretty self-explanatory, but there are a couple of important details:
+
+1. Hospitalized patients are occupying inpatient beds which **includes** ICU and
+   surgical units, but does **not** include overflow and emergency department
+   beds.
+2. All ICU numbers **include** NICU (neonatal) and PICU (pediatric) beds.
+3. Reported available beds are not necessarily staffed.
+
+So, what do these numbers look like over time?
+
+```{r hospitalizations, echo = TRUE, fig.height = 3.5}
+# Prepare the data for plotting
+plot_data <-
+  df %>%
+  # Combine confirmed and suspected counts (at this point most are confirmed)
+  # In the spring there were more "suspected" probably due to testing backlogs?
+  mutate(
+    hsp = hsp_covid_confirmed + hsp_covid_suspected,
+    icu = icu_covid_confirmed + icu_covid_suspected,
+    hsp = hsp - icu # remove ICU cases from inpatient (the figure will stack)
+  ) %>%
+  # Reshape into a long table to make plotting easier
+  select(date, hsp, icu) %>%
+  pivot_longer(c("hsp", "icu"), names_to = "type", values_to = "count") %>%
+  mutate(
+    type =
+      factor(type, levels = c("hsp", "icu"), labels = c("Inpatient", "ICU"))
+  )
+
+# Plot date vs count and color by ICU/inpatient
+gg_hsp_icu <-
+  ggplot(plot_data, aes(date, count, color = type, fill = type)) +
+  geom_area(alpha = 0.5) # Numbers get stacked
+
+gg_hsp_icu
+```
+
+
+This is our basic plot without any customization. It is good enough for casual
+inspection -- we can see our peak COVID hospitalizations happened in July,
+during the last peak of new cases and is currently rising rapidly.
+
+Before adding this figure to the site, I need to clean it up to make it more
+readable and consistent with the format of the other timeline figures. As you
+can see, making things pretty takes a lot more effort.
+
+```{r hospitalizations-pretty, echo = TRUE, fig.height = 3.5}
+# Match the date range of our other figures
+date_limits <- c("2020-03-17", "2021-03-01")
+
+# All this just makes the plot pretty
+gg_hsp_icu +
+  # Add a line to mark the new year
+  geom_vline(xintercept = as.Date("2021-01-01", tz = ""), linetype = "dotted") +
+  labs(
+    # be clear about the numbers in the figure caption
+    caption = str_c(
+      "COVID confirmed + suspected",
+      "Numbers do not include ER, overflow, or outpatient",
+      sep = "<br>"
+    ),
+    y = "Patients"
+  ) + 
+  scale_fill_brewer(palette = "Dark2") +       # Pick different colors
+  scale_color_brewer(palette = "Dark2") +
+  scale_y_continuous(labels = scales::comma) + # Add commas to the numbers
+  scale_x_date(
+    date_breaks = "2 month",       # Label the date every two months
+    date_labels = "%b",            # Label with just the month abbreviation
+    date_minor_breaks = "1 month", # add vertical lines for every month
+    limits = as.Date(date_limits, tz = ""),     # set the date limits
+    sec.axis =
+      dup_axis(
+        breaks = scales::date_breaks("1 year"), # Add a 1 year marker
+        labels = scales::date_format("%Y")      # Label the year
+      )
+  ) +
+  theme(
+    # Ugh, legends are annoying
+    legend.title = element_blank(),
+    legend.key.height = unit(3, "points"),
+    legend.key.width  = unit(25, "points"),
+    legend.text = element_text(size = 6),
+    legend.direction = "horizontal",
+    legend.position = "bottom",
+    legend.box.spacing = unit(1, "points"),
+    plot.caption = ggtext::element_markdown(hjust = 0, size = 7),
+    aspect.ratio = 0.5,
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(hjust = 0)
+  )
+```
+
+
+Ok, that looks good to my eye (well actually it looks bad, that rise in patients
+is very steep).
+
+Now, what about those available bed numbers?
+
+```{r hospitalizations-beds, echo = TRUE, fig.height = 3.5}
+gg_beds <-
+  df %>%
+  ggplot(aes(date, hsp_all_beds)) +
+  geom_line() +
+  coord_cartesian(ylim = c(0, NA))
+
+gg_icu_beds <-
+  df %>%
+  ggplot(aes(date, icu_available_beds)) +
+  geom_line() +
+  coord_cartesian(ylim = c(0, NA))
+
+gg_beds / gg_icu_beds
+```
+
+The reported number of beds doesn't seem to change much, and there is a big drop
+in August that I can't find details about. The take-home here for "all beds" is
+that there are roughly 20,000 hospital beds in LA county.
+
+As for the ICU available beds, I think this number reports how many beds are
+unoccupied? Unfortunately I can't really confirm this and the number of
+"available" beds doesn't track well with the ICU patient numbers, so I am not
+sure what to make of this other than there are roughly 1,000 ICU beds in LA
+county (including NICU and PICU). If I am reading this right though, we are at
+our current lowest available ICU bed capacity.
+
+These numbers are weird enough that I don't feel confident adding them to the
+tracker -- I have too many questions about the random drops and rises.
+
+Thoughts, questions, concerns, suggestions? Message me on Twitter
+[@ericedwrdbryant](https://twitter.com/ericedwrdbryant).

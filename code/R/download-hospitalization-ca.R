@@ -30,7 +30,7 @@ download_hospitalization_ca <- function(save_as = "data/hospitalization-ca.csv",
       hsp_covid_confirmed = hospitalized_covid_confirmed_patients,   # Includes ICU patients
       hsp_covid_suspected = hospitalized_suspected_covid_patients,
       icu_available_beds,
-      hsp_available_beds = all_hospital_beds # all beds ore all available??
+      hsp_all_beds = all_hospital_beds
     ) %>%
     # Remove trailing ".0" (causes warning when converting counts to integer)
     mutate_all(~str_replace(., "[.]0$", "")) %>%
@@ -42,33 +42,6 @@ download_hospitalization_ca <- function(save_as = "data/hospitalization-ca.csv",
     # Calculate estimates for each county
     arrange(county, date)
 
-  df %>%
-    filter(county == "Los Angeles") %>%
-    gtsummary::tbl_summary()
+  write_csv(df, save_as)
 
-  gg1 <-
-    df %>%
-    filter(county == "Los Angeles") %>%
-    ggplot(aes(date, icu_covid_confirmed + icu_covid_suspected)) +
-    geom_line()
-
-  gg2 <-
-    df %>%
-    filter(county == "Los Angeles") %>%
-    ggplot(aes(date, hsp_covid_confirmed + hsp_covid_suspected)) +
-    geom_line()
-
-  gg3 <-
-    df %>%
-    filter(county == "Los Angeles") %>%
-    ggplot(aes(date, icu_available_beds)) +
-    geom_line()
-
-  gg4 <-
-    df %>%
-    filter(county == "Los Angeles") %>%
-    ggplot(aes(date, hsp_available_beds)) +
-    geom_line()
-
-  gg1 / gg2 / gg3 / gg4
 }

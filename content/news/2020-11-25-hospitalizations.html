@@ -1,0 +1,540 @@
+---
+title: Hospitalizations
+author: Eric Bryant, PhD
+date: '2020-11-25'
+slug: hospitalizations
+categories: []
+tags: []
+---
+
+
+
+<p>With cases rapidly rising in California, I have decided to add daily
+hospitalization updates to the homepage. This post outlines the “making of”
+the hospitalization figure.</p>
+<p>The data are described in detail
+<a href="https://data.ca.gov/dataset/covid-19-hospital-data/resource/42d33765-20fd-44b8-a978-b083b7542225">here</a>.
+If you really want to understand the data, this is where you should start.</p>
+<p>I begin by reading the data and focusing on Los Angeles. I am only going to look
+at data starting in May, since there is a note on
+<a href="https://data.ca.gov/dataset/covid-19-hospital-data/resource/42d33765-20fd-44b8-a978-b083b7542225">data.ca.gov</a>
+saying that there was a change in reporting at the end of April (namely that
+emergency departments are no longer included in these figures). Also note that
+I changed the column names during download to be a little be more consistent
+(just me being persnickety).</p>
+<pre class="r"><code>source(here::here(&quot;requirements.R&quot;))
+
+df &lt;-
+  read_csv(here(&quot;data/hospitalization-ca.csv&quot;)) %&gt;%
+  filter(county == &quot;Los Angeles&quot;, date &gt;= as.Date(&quot;2020-05-01&quot;))</code></pre>
+<p>First I just want to get a sense of the data, so I make a table with the median
+and range of data points found in each column.</p>
+<pre class="r"><code>df %&gt;%
+  select(-county) %&gt;% # drop the county column (it&#39;s all just &quot;Los Angeles&quot;)
+  gtsummary::tbl_summary(
+    # Report the range instead of the default IQR
+    statistic = list(gtsummary::all_continuous() ~ &quot;{median} [{min} - {max}]&quot;)
+  )</code></pre>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#nudwpiarfm .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#nudwpiarfm .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nudwpiarfm .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#nudwpiarfm .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#nudwpiarfm .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nudwpiarfm .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nudwpiarfm .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#nudwpiarfm .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nudwpiarfm .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#nudwpiarfm .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#nudwpiarfm .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#nudwpiarfm .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nudwpiarfm .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nudwpiarfm .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#nudwpiarfm .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#nudwpiarfm .gt_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#nudwpiarfm .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#nudwpiarfm .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nudwpiarfm .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#nudwpiarfm .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nudwpiarfm .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#nudwpiarfm .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#nudwpiarfm .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nudwpiarfm .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nudwpiarfm .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#nudwpiarfm .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nudwpiarfm .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#nudwpiarfm .gt_left {
+  text-align: left;
+}
+
+#nudwpiarfm .gt_center {
+  text-align: center;
+}
+
+#nudwpiarfm .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#nudwpiarfm .gt_font_normal {
+  font-weight: normal;
+}
+
+#nudwpiarfm .gt_font_bold {
+  font-weight: bold;
+}
+
+#nudwpiarfm .gt_font_italic {
+  font-style: italic;
+}
+
+#nudwpiarfm .gt_super {
+  font-size: 65%;
+}
+
+#nudwpiarfm .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="nudwpiarfm" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1"><strong>N = 207</strong><sup class="gt_footnote_marks">1</sup></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_left">icu_covid_confirmed</td>
+      <td class="gt_row gt_center">412 [180 - 623]</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">icu_covid_suspected</td>
+      <td class="gt_row gt_center">62 [24 - 112]</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">hsp_covid_confirmed</td>
+      <td class="gt_row gt_center">1,391 [673 - 2,232]</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">hsp_covid_suspected</td>
+      <td class="gt_row gt_center">494 [229 - 822]</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">icu_available_beds</td>
+      <td class="gt_row gt_center">971 [584 - 1,502]</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">hsp_all_beds</td>
+      <td class="gt_row gt_center">20,130 [16,107 - 23,989]</td>
+    </tr>
+  </tbody>
+  
+  <tfoot>
+    <tr class="gt_footnotes">
+      <td colspan="2">
+        <p class="gt_footnote">
+          <sup class="gt_footnote_marks">
+            <em>1</em>
+          </sup>
+           
+          Statistics presented: Median [Range]
+          <br />
+        </p>
+      </td>
+    </tr>
+  </tfoot>
+</table></div>
+<p>Here we see that we have daily numbers for ICU and hospitalized patients that
+are either confirmed or suspected to have COVID-19. I think these numbers are
+pretty self-explanatory, but there are a couple of important details:</p>
+<ol style="list-style-type: decimal">
+<li>Hospitalized patients are occupying inpatient beds which <strong>includes</strong> ICU and
+surgical units, but does <strong>not</strong> include overflow and emergency department
+beds.</li>
+<li>All ICU numbers <strong>include</strong> NICU (neonatal) and PICU (pediatric) beds.</li>
+<li>Reported available beds are not necessarily staffed.</li>
+</ol>
+<p>So, what do these numbers look like over time?</p>
+<pre class="r"><code># Prepare the data for plotting
+plot_data &lt;-
+  df %&gt;%
+  # Combine confirmed and suspected counts (at this point most are confirmed)
+  # In the spring there were more &quot;suspected&quot; probably due to testing backlogs?
+  mutate(
+    hsp = hsp_covid_confirmed + hsp_covid_suspected,
+    icu = icu_covid_confirmed + icu_covid_suspected,
+    hsp = hsp - icu # remove ICU cases from inpatient (the figure will stack)
+  ) %&gt;%
+  # Reshape into a long table to make plotting easier
+  select(date, hsp, icu) %&gt;%
+  pivot_longer(c(&quot;hsp&quot;, &quot;icu&quot;), names_to = &quot;type&quot;, values_to = &quot;count&quot;) %&gt;%
+  mutate(
+    type =
+      factor(type, levels = c(&quot;hsp&quot;, &quot;icu&quot;), labels = c(&quot;Inpatient&quot;, &quot;ICU&quot;))
+  )
+
+# Plot date vs count and color by ICU/inpatient
+gg_hsp_icu &lt;-
+  ggplot(plot_data, aes(date, count, color = type, fill = type)) +
+  geom_area(alpha = 0.5) # Numbers get stacked
+
+gg_hsp_icu</code></pre>
+<p><img src="/news/2020-11-25-hospitalizations_files/figure-html/hospitalizations-1.png" width="350px" style="display: block; margin: auto;" /></p>
+<p>This is our basic plot without any customization. It is good enough for casual
+inspection – we can see our peak COVID hospitalizations happened in July,
+during the last peak of new cases and is currently rising rapidly.</p>
+<p>Before adding this figure to the site, I need to clean it up to make it more
+readable and consistent with the format of the other timeline figures. As you
+can see, making things pretty takes a lot more effort.</p>
+<pre class="r"><code># Match the date range of our other figures
+date_limits &lt;- c(&quot;2020-03-17&quot;, &quot;2021-03-01&quot;)
+
+# All this just makes the plot pretty
+gg_hsp_icu +
+  # Add a line to mark the new year
+  geom_vline(xintercept = as.Date(&quot;2021-01-01&quot;, tz = &quot;&quot;), linetype = &quot;dotted&quot;) +
+  labs(
+    # be clear about the numbers in the figure caption
+    caption = str_c(
+      &quot;COVID confirmed + suspected&quot;,
+      &quot;Numbers do not include ER, overflow, or outpatient&quot;,
+      sep = &quot;&lt;br&gt;&quot;
+    ),
+    y = &quot;Patients&quot;
+  ) + 
+  scale_fill_brewer(palette = &quot;Dark2&quot;) +       # Pick different colors
+  scale_color_brewer(palette = &quot;Dark2&quot;) +
+  scale_y_continuous(labels = scales::comma) + # Add commas to the numbers
+  scale_x_date(
+    date_breaks = &quot;2 month&quot;,       # Label the date every two months
+    date_labels = &quot;%b&quot;,            # Label with just the month abbreviation
+    date_minor_breaks = &quot;1 month&quot;, # add vertical lines for every month
+    limits = as.Date(date_limits, tz = &quot;&quot;),     # set the date limits
+    sec.axis =
+      dup_axis(
+        breaks = scales::date_breaks(&quot;1 year&quot;), # Add a 1 year marker
+        labels = scales::date_format(&quot;%Y&quot;)      # Label the year
+      )
+  ) +
+  theme(
+    # Ugh, legends are annoying
+    legend.title = element_blank(),
+    legend.key.height = unit(3, &quot;points&quot;),
+    legend.key.width  = unit(25, &quot;points&quot;),
+    legend.text = element_text(size = 6),
+    legend.direction = &quot;horizontal&quot;,
+    legend.position = &quot;bottom&quot;,
+    legend.box.spacing = unit(1, &quot;points&quot;),
+    plot.caption = ggtext::element_markdown(hjust = 0, size = 7),
+    aspect.ratio = 0.5,
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(hjust = 0)
+  )</code></pre>
+<p><img src="/news/2020-11-25-hospitalizations_files/figure-html/hospitalizations-pretty-1.png" width="350px" style="display: block; margin: auto;" /></p>
+<p>Ok, that looks good to my eye (well actually it looks bad, that rise in patients
+is very steep).</p>
+<p>Now, what about those available bed numbers?</p>
+<pre class="r"><code>gg_beds &lt;-
+  df %&gt;%
+  ggplot(aes(date, hsp_all_beds)) +
+  geom_line() +
+  coord_cartesian(ylim = c(0, NA))
+
+gg_icu_beds &lt;-
+  df %&gt;%
+  ggplot(aes(date, icu_available_beds)) +
+  geom_line() +
+  coord_cartesian(ylim = c(0, NA))
+
+gg_beds / gg_icu_beds</code></pre>
+<p><img src="/news/2020-11-25-hospitalizations_files/figure-html/hospitalizations-beds-1.png" width="350px" style="display: block; margin: auto;" /></p>
+<p>The reported number of beds doesn’t seem to change much, and there is a big drop
+in August that I can’t find details about. The take-home here for “all beds” is
+that there are roughly 20,000 hospital beds in LA county.</p>
+<p>As for the ICU available beds, I think this number reports how many beds are
+unoccupied? Unfortunately I can’t really confirm this and the number of
+“available” beds doesn’t track well with the ICU patient numbers, so I am not
+sure what to make of this other than there are roughly 1,000 ICU beds in LA
+county (including NICU and PICU). If I am reading this right though, we are at
+our current lowest available ICU bed capacity.</p>
+<p>These numbers are weird enough that I don’t feel confident adding them to the
+tracker – I have too many questions about the random drops and rises.</p>
+<p>Thoughts, questions, concerns, suggestions? Message me on Twitter
+<span class="citation">[@ericedwrdbryant]</span>(<a href="https://twitter.com/ericedwrdbryant" class="uri">https://twitter.com/ericedwrdbryant</a>).</p>
