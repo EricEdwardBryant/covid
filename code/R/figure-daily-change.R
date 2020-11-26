@@ -3,7 +3,7 @@ figure_new_cases_change <- function(csv, county, date_limits = c(NA, "2021-03-01
   json <- str_c(tools::file_path_sans_ext(csv), ".json")
 
   df <-
-    read_csv(csv) %>%
+    read_csv(csv, col_types = cols()) %>%
     filter(county == this_county, !is.na(count_new_loess_diff))
 
   df %>%
