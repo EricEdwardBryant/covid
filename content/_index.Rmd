@@ -35,7 +35,7 @@ Los Angeles
 For the most recent information, I recommend reading the
 [LA county public health press releases](http://publichealth.lacounty.gov/media/coronavirus/#news).
 
-```{r new-cases-los-angeles, fig.height = 7}
+```{r covid-los-angeles, fig.height = 7}
 county <- "Los Angeles"
 
 figure_new_cases(csv_cases, county, population = la_population) /
@@ -50,7 +50,7 @@ Santa Clara
 For the most recent information, I recommend reading the
 [Santa Clara county public health press releases](https://www.sccgov.org/sites/covid19/Pages/archives.aspx)
 
-```{r new-cases-santa-clara, fig.height = 7}
+```{r covid-santa-clara, fig.height = 7}
 county <- "Santa Clara"
 
 figure_new_cases(csv_cases, county, population = sc_population) /
