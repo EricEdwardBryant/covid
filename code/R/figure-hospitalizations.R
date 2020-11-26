@@ -1,8 +1,9 @@
 figure_hospitalization <- function(csv, county, date_limits = c("2020-03-17", "2021-03-01")) {
   this_county <- county
+  json <- str_c(tools::file_path_sans_ext(csv), ".json")
 
   # Prepare the data for plotting
-  plot_data <-
+  df <-
     read_csv(csv, col_types = cols()) %>%
     # Date hard censored due to change in reporting criteria
     filter(county == this_county, date >= as.Date("2020-05-01")) %>%
@@ -23,7 +24,7 @@ figure_hospitalization <- function(csv, county, date_limits = c("2020-03-17", "2
 
   # Plot date vs count and color by ICU/inpatient
   gg_hsp_icu <-
-    ggplot(plot_data, aes(date, count, color = type, fill = type)) +
+    ggplot(df, aes(date, count, color = type, fill = type)) +
     geom_area(alpha = 0.5)
 
   # All this just makes the plot pretty
@@ -35,6 +36,8 @@ figure_hospitalization <- function(csv, county, date_limits = c("2020-03-17", "2
       caption = str_c(
         "COVID confirmed + suspected",
         "Numbers do not include ER, overflow, or outpatient",
+        str_c('Data from _data.ca.gov_ (', file.mtime(json), ")"),
+        str_c("Latest numbers are from ", format(max(df$date), "%A, %b %e %Y")),
         sep = "<br>"
       ),
       y = "Patients"
@@ -46,12 +49,7 @@ figure_hospitalization <- function(csv, county, date_limits = c("2020-03-17", "2
       date_breaks = "2 month",       # Label the date every two months
       date_labels = "%b",            # Label with just the month abbreviation
       date_minor_breaks = "1 month", # add vertical lines for every month
-      limits = as.Date(date_limits, tz = ""),     # set the date limits
-      sec.axis =
-        dup_axis(
-          breaks = scales::date_breaks("1 year"), # Add a 1 year marker
-          labels = scales::date_format("%Y")      # Label the year
-        )
+      limits = as.Date(date_limits, tz = "")     # set the date limits
     ) +
     theme(
       # Ugh, legends are annoying
