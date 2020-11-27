@@ -4,7 +4,15 @@ figure_new_cases_change <- function(csv, county, date_limits = c(NA, "2021-03-01
 
   df <-
     read_csv(csv, col_types = cols()) %>%
-    filter(county == this_county, !is.na(count_new_loess_diff))
+    filter(county == this_county) %>%
+    # Calculate estimates
+    arrange(date) %>%
+    mutate(
+      count_new_roll  = slide_dbl(count_new, median, .before = 7L, .after = 7L),
+      count_new_loess = predict_loess(date, count_new, span = 0.25),
+      count_new_loess_diff = count_new_loess - lag(count_new_loess)
+    ) %>%
+    filter(!is.na(count_new_loess_diff))
 
   df %>%
     ggplot(aes(x = date, y = count_new_loess_diff, color = count_new_loess_diff)) +

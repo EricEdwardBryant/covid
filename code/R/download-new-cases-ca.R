@@ -3,12 +3,10 @@
 #' @param save_as Where to save the resulting CSV.
 #' @param force Whether to force a download even if the data were downloaded
 #' today. Defaults to `FALSE` to prevent from accidentally spamming the API.
-#' @param smooth_span The smoothing parameter passed to the [stats::loess]
 #' `span` argument.
 
 download_new_cases_ca <- function(save_as = "data/new-cases-ca.csv",
-                                  force = FALSE,
-                                  smooth_span = 0.25) {
+                                  force = FALSE) {
   # Download if not yet downloaded today, unless force = TRUE
   json_file <-
     download_data_ca(
@@ -36,15 +34,7 @@ download_new_cases_ca <- function(save_as = "data/new-cases-ca.csv",
     type_convert(
       col_types = cols(date = col_datetime(), county = "c", .default = "i")
     ) %>%
-    mutate(date = as.Date(date, tz = "")) %>%
-    # Calculate estimates for each county
-    arrange(county, date) %>%
-    group_by(county) %>%
-    mutate(
-      count_new_roll  = slide_dbl(count_new, median, .before = 7L, .after = 7L),
-      count_new_loess = predict_loess(date, count_new, span = smooth_span),
-      count_new_loess_diff = count_new_loess - lag(count_new_loess)
-    )
+    mutate(date = as.Date(date, tz = ""))
 
   write_csv(df, save_as)
 }

@@ -5,7 +5,14 @@ figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-
 
   df <-
     read_csv(csv, col_types = cols()) %>%
-    filter(county == this_county)
+    filter(county == this_county) %>%
+    # Calculate estimates
+    arrange(date) %>%
+    mutate(
+      count_new_roll  = slide_dbl(count_new, median, .before = 7L, .after = 7L),
+      count_new_loess = predict_loess(date, count_new, span = 0.25),
+      count_new_loess_diff = count_new_loess - lag(count_new_loess)
+    )
 
   # Observations to directly annotate
   df_text <-
