@@ -48,7 +48,7 @@ Santa Clara
 --------------------------------------------------------------------------------
 
 For the most recent information, I recommend reading the
-[Santa Clara county public health press releases](https://www.sccgov.org/sites/covid19/Pages/archives.aspx)
+[Santa Clara county public health press releases](https://www.sccgov.org/sites/covid19/Pages/archives.aspx).
 
 ```{r covid-santa-clara, fig.height = 7}
 county <- "Santa Clara"
