@@ -1,4 +1,6 @@
-figure_hospitalization <- function(csv, county, date_limits = c("2020-03-17", "2021-03-01")) {
+figure_hospitalization <- function(csv = here("data/hospitalization-ca.csv"),
+                                   county = "Los Angeles",
+                                   date_limits = c("2020-03-17", "2021-03-01")) {
   this_county <- county
   json <- str_c(tools::file_path_sans_ext(csv), ".json")
 
@@ -22,6 +24,12 @@ figure_hospitalization <- function(csv, county, date_limits = c("2020-03-17", "2
         factor(type, levels = c("hsp", "icu"), labels = c("Inpatient", "ICU"))
     )
 
+  # Since we stack inpatient and ICU, I want the annotated number to match
+  df_text <-
+    df %>%
+    filter(date == max(date)) %>%
+    mutate(count = if_else(type == "Inpatient", sum(count), count))
+
   # Plot date vs count and color by ICU/inpatient
   gg_hsp_icu <-
     ggplot(df, aes(date, count, color = type, fill = type)) +
@@ -31,6 +39,14 @@ figure_hospitalization <- function(csv, county, date_limits = c("2020-03-17", "2
   gg_hsp_icu +
     # Add a line to mark the new year
     geom_vline(xintercept = as.Date("2021-01-01", tz = ""), linetype = "dotted") +
+    geom_label(
+      aes(label = scales::comma(count)),
+      fill = "white",
+      vjust = 0.5, # Place label just above the point on the plot
+      hjust = -0.1,
+      show.legend = FALSE,
+      data = df_text
+    ) +
     labs(
       # be clear about the numbers in the figure caption
       caption = str_c(
