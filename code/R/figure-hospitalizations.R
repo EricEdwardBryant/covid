@@ -60,7 +60,10 @@ figure_hospitalization <- function(csv = here("data/hospitalization-ca.csv"),
     ) +
     scale_fill_brewer(palette = "Dark2") +       # Pick different colors
     scale_color_brewer(palette = "Dark2") +
-    scale_y_continuous(labels = scales::comma) + # Add commas to the numbers
+    scale_y_continuous(
+      labels = scales::comma, # Add commas to the numbers
+      expand = expansion(c(0.05, 0.20))
+    ) +
     scale_x_date(
       date_breaks = "2 month",       # Label the date every two months
       date_labels = "%b",            # Label with just the month abbreviation

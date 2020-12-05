@@ -16,7 +16,7 @@ figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-
 
   # Observations to directly annotate
   df_text <-
-    filter(df, date == max(date) | count_new_loess == max(count_new_loess))
+    filter(df, date == max(date))
 
   df %>%
     ggplot(aes(date, count_new)) +
@@ -34,13 +34,36 @@ figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-
     geom_line(alpha = 0.25) +
     geom_line(aes(y = count_new_roll), color = "red") +
     geom_line(aes(y = count_new_loess), color = "blue") +
-    geom_text(
+    geom_label(
       aes(
         y     = round(count_new_loess),
         # Round the direct annotation to nearest 10
         label = scales::comma(round(count_new_loess, digits = -1))
       ),
+      color = "blue",
+      hjust = -0.1,
+      vjust = 0.5, # Place label just above the point on the plot
+      data = df_text
+    ) +
+    geom_label(
+      aes(
+        y     = round(count_new_loess),
+        label = scales::comma(count_new)
+      ),
+      color = "black",
+      hjust = -0.1,
       vjust = -0.5, # Place label just above the point on the plot
+      data = df_text
+    ) +
+    geom_label(
+      aes(
+        y     = round(count_new_loess),
+        # Round the direct annotation to nearest 10
+        label = scales::comma(round(count_new_roll, digits = -1))
+      ),
+      color = "red",
+      hjust = -0.1,
+      vjust = 1.5, # Place label just above the point on the plot
       data = df_text
     ) +
     scale_y_continuous(
@@ -49,7 +72,8 @@ figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-
         sec_axis(
           ~ . / (population / 1e4),
           name = "Per 10K people"
-        )
+        ),
+      expand = expansion(c(0.05, 0.20))
     ) +
     scale_x_date(
       date_breaks = "2 month",
