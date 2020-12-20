@@ -2,7 +2,7 @@ figure_hospitalization <- function(csv = here("data/hospitalization-ca.csv"),
                                    county = "Los Angeles",
                                    date_limits = c("2020-03-17", "2021-03-01")) {
   this_county <- county
-  json <- str_c(tools::file_path_sans_ext(csv), ".json")
+  #json <- str_c(tools::file_path_sans_ext(csv), ".json")
 
   # Prepare the data for plotting
   df <-
@@ -52,7 +52,7 @@ figure_hospitalization <- function(csv = here("data/hospitalization-ca.csv"),
       caption = str_c(
         "COVID confirmed + suspected",
         "Numbers do not include ER, overflow, or outpatient",
-        str_c('Data from _data.ca.gov_ (', file.mtime(json), ")"),
+        str_c('Data from _data.ca.gov_ (', file.mtime(csv), ")"),
         str_c("Latest numbers are from ", format(max(df$date), "%A, %b %e %Y")),
         sep = "<br>"
       ),

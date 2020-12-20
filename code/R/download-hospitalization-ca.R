@@ -45,3 +45,37 @@ download_hospitalization_ca <- function(save_as = "data/hospitalization-ca.csv",
   write_csv(df, save_as)
 
 }
+
+download_hospitalization_ca_csv <- function(save_as = "data/hospitalization-ca.csv",
+                                            force = FALSE) {
+  if (!(force | !file.exists(save_as) | Sys.Date() != as.Date(file.mtime(save_as), tz = ""))) {
+    return(invisible())
+  }
+
+  url <-
+    "https://data.ca.gov/dataset/529ac907-6ba1-4cb7-9aae-8966fc96aeef/resource/42d33765-20fd-44b8-a978-b083b7542225/download/hospitals_by_county.csv"
+
+  message("Updating hospitalization:\n  ", url)
+
+  df <-
+    read_csv(url, col_types = cols()) %>%
+    select(
+      date = todays_date,
+      county,
+      icu_covid_confirmed = icu_covid_confirmed_patients,
+      icu_covid_suspected = icu_suspected_covid_patients,
+      hsp_covid_confirmed = hospitalized_covid_confirmed_patients,   # Includes ICU patients
+      hsp_covid_suspected = hospitalized_suspected_covid_patients,
+      icu_available_beds,
+      hsp_all_beds = all_hospital_beds
+    ) %>%
+    # Convert columns to appropriate type
+    type_convert(
+      col_types = cols(date = col_datetime(), county = "c", .default = "i")
+    ) %>%
+    mutate(date = as.Date(date, tz = "")) %>%
+    # Calculate estimates for each county
+    arrange(county, date)
+
+  write_csv(df, save_as)
+}

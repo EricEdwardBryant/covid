@@ -1,6 +1,6 @@
 figure_new_cases_change <- function(csv, county, date_limits = c(NA, "2021-03-01")) {
   this_county <- county
-  json <- str_c(tools::file_path_sans_ext(csv), ".json")
+  #json <- str_c(tools::file_path_sans_ext(csv), ".json")
 
   df <-
     read_csv(csv, col_types = cols()) %>%
@@ -21,7 +21,7 @@ figure_new_cases_change <- function(csv, county, date_limits = c(NA, "2021-03-01
       color = NULL,
       caption = str_c(
         "Daily change in loess estimate of new cases",
-        str_c('Data from _data.ca.gov_ (', file.mtime(json), ")"),
+        str_c('Data from _data.ca.gov_ (', file.mtime(csv), ")"),
         str_c("Latest numbers are from ", format(max(df$date), "%A, %b %e %Y")),
         sep = "<br>"
       )

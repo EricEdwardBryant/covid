@@ -38,3 +38,33 @@ download_new_cases_ca <- function(save_as = "data/new-cases-ca.csv",
 
   write_csv(df, save_as)
 }
+
+
+download_new_cases_ca_csv <- function(save_as = "data/new-cases-ca.csv",
+                                      force = FALSE) {
+  if (!(force | !file.exists(save_as) | Sys.Date() != as.Date(file.mtime(save_as), tz = ""))) {
+    return(invisible())
+  }
+
+  url <-
+    "https://data.ca.gov/dataset/590188d5-8545-4c93-a9a0-e230f0db7290/resource/926fd08f-cc91-4828-af38-bd45de97f8c3/download/statewide_cases.csv"
+
+  message("Updating new cases from:\n  ", url)
+
+  df <-
+    read_csv(url, col_types = cols()) %>%
+    select(
+      date, county,
+      count_new   = newcountconfirmed,
+      count_total = totalcountconfirmed,
+      death_new   = newcountdeaths,
+      death_total = totalcountdeaths
+    ) %>%
+    # Convert columns to appropriate type
+    type_convert(
+      col_types = cols(date = col_datetime(), county = "c", .default = "i")
+    ) %>%
+    mutate(date = as.Date(date, tz = ""))
+
+  write_csv(df, save_as)
+}

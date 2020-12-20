@@ -27,8 +27,8 @@ dates <- lubridate::today("UTC") + c(NA, 110)
 
 # Download data from https://data.ca.gov
 # Only downloads once a day unless force = TRUE
-download_new_cases_ca(csv_cases)
-download_hospitalization_ca(csv_hsp)
+download_new_cases_ca_csv(csv_cases)
+download_hospitalization_ca_csv(csv_hsp)
 ```
 
 
