@@ -23,7 +23,7 @@ la_population <- 10079000
 sc_population <- 1945940
 
 # Range of dates
-dates <- lubridate::today("UTC") + c(NA, 110)
+dates <- lubridate::today("UTC") + c(-255, 110)
 
 # Download data from https://data.ca.gov
 # Only downloads once a day unless force = TRUE

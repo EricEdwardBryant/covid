@@ -1,6 +1,4 @@
-figure_hospitalization <- function(csv = here("data/hospitalization-ca.csv"),
-                                   county = "Los Angeles",
-                                   date_limits = c("2020-03-17", "2021-03-01")) {
+figure_hospitalization <- function(csv, county, date_limits) {
   this_county <- county
   #json <- str_c(tools::file_path_sans_ext(csv), ".json")
 
@@ -68,7 +66,9 @@ figure_hospitalization <- function(csv = here("data/hospitalization-ca.csv"),
       date_breaks = "2 month",       # Label the date every two months
       date_labels = "%b",            # Label with just the month abbreviation
       date_minor_breaks = "1 month", # add vertical lines for every month
-      limits = as.Date(date_limits, tz = "")     # set the date limits
+    ) +
+    coord_cartesian(
+      xlim = as.Date(date_limits, tz = "")
     ) +
     theme(
       # Ugh, legends are annoying

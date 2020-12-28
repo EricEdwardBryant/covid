@@ -1,4 +1,4 @@
-figure_new_cases_change <- function(csv, county, date_limits = c(NA, "2021-03-01")) {
+figure_new_cases_change <- function(csv, county, date_limits) {
   this_county <- county
   #json <- str_c(tools::file_path_sans_ext(csv), ".json")
 
@@ -33,10 +33,10 @@ figure_new_cases_change <- function(csv, county, date_limits = c(NA, "2021-03-01
       date_breaks = "2 month",
       date_labels = "%b",
       date_minor_breaks = "1 month",
-      limits = as.Date(date_limits, tz = "")
     ) +
     scale_y_continuous(
-      labels = scales::comma
+      labels = scales::comma,
+      expand = expansion(c(0.05, 0.20))
     ) +
     scale_color_steps2(
       n.breaks = 5,
@@ -46,7 +46,10 @@ figure_new_cases_change <- function(csv, county, date_limits = c(NA, "2021-03-01
       oob = scales::squish,
       low = "green", mid = "black", high = "#fe0099", midpoint = 0
     ) +
-    coord_cartesian(ylim = c(-1, 1) * max(df$count_new_loess_diff)) +
+    coord_cartesian(
+      ylim = c(-1, 1) * max(df$count_new_loess_diff),
+      xlim = as.Date(date_limits, tz = "")
+    ) +
     theme(
       legend.key.height = unit(3, "points"),
       legend.key.width  = unit(25, "points"),

@@ -79,12 +79,14 @@ figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-
       date_breaks = "2 month",
       date_labels = "%b",
       date_minor_breaks = "1 month",
-      limits = as.Date(date_limits, tz = ""),
       sec.axis =
         dup_axis(
           breaks = scales::date_breaks("1 year"),
           labels = scales::date_format("%Y")
         )
+    ) +
+    coord_cartesian(
+      xlim = as.Date(date_limits, tz = "")
     ) +
     theme(
       plot.caption = ggtext::element_markdown(hjust = 0, size = 7),
