@@ -31,6 +31,7 @@ figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-
         )
     ) +
     geom_vline(xintercept = as.Date("2021-01-01", tz = ""), linetype = "dotted") +
+    geom_hline(yintercept = 0) +
     geom_line(alpha = 0.25) +
     geom_line(aes(y = count_new_roll), color = "red") +
     geom_line(aes(y = count_new_loess), color = "blue") +
@@ -67,13 +68,14 @@ figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-
       data = df_text
     ) +
     scale_y_continuous(
+      breaks = function(x) labeling::extended(0, max(x, na.rm = TRUE), 5),
       labels = scales::comma,
       sec.axis =
         sec_axis(
           ~ . / (population / 1e4),
           name = "Per 10K people"
         ),
-      expand = expansion(c(0.05, 0.30))
+      expand = expansion(c(0.30, 0.05))
     ) +
     scale_x_date(
       date_breaks = "2 month",
