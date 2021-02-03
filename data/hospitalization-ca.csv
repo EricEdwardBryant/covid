@@ -307,6 +307,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Alameda,107,8,353,46,63,NA
 2021-01-29,Alameda,106,5,347,39,65,NA
 2021-01-30,Alameda,99,6,330,38,70,NA
+2021-01-31,Alameda,97,5,318,31,68,NA
+2021-02-01,Alameda,100,3,314,39,67,NA
 2020-03-29,Amador,0,0,1,0,2,NA
 2020-03-30,Amador,0,0,0,1,4,NA
 2020-03-31,Amador,0,0,0,0,4,NA
@@ -615,6 +617,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Amador,6,0,12,0,0,NA
 2021-01-29,Amador,5,0,12,2,0,NA
 2021-01-30,Amador,5,0,9,0,0,NA
+2021-01-31,Amador,5,0,8,0,1,NA
+2021-02-01,Amador,4,0,8,0,2,NA
 2020-03-29,Butte,NA,NA,NA,NA,NA,NA
 2020-03-30,Butte,2,1,4,12,5,NA
 2020-03-31,Butte,2,3,4,20,2,NA
@@ -923,6 +927,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Butte,8,0,41,1,7,NA
 2021-01-29,Butte,12,0,43,0,4,NA
 2021-01-30,Butte,8,0,43,0,9,NA
+2021-01-31,Butte,9,0,43,0,4,NA
+2021-02-01,Butte,8,0,37,0,11,NA
 2020-03-29,Calaveras,NA,NA,NA,NA,NA,NA
 2020-03-30,Calaveras,0,1,0,3,5,NA
 2020-03-31,Calaveras,0,0,0,1,4,NA
@@ -1231,6 +1237,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Calaveras,1,0,3,0,5,NA
 2021-01-29,Calaveras,1,0,3,0,5,NA
 2021-01-30,Calaveras,1,0,1,0,5,NA
+2021-01-31,Calaveras,1,0,2,0,5,NA
+2021-02-01,Calaveras,2,0,2,0,5,NA
 2020-03-29,Colusa,NA,NA,NA,NA,NA,NA
 2020-03-30,Colusa,0,1,0,1,5,NA
 2020-03-31,Colusa,0,1,0,1,5,NA
@@ -1539,6 +1547,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Colusa,0,0,7,0,5,NA
 2021-01-29,Colusa,0,0,9,0,5,NA
 2021-01-30,Colusa,0,0,5,0,5,NA
+2021-01-31,Colusa,0,0,5,0,5,NA
+2021-02-01,Colusa,0,0,4,0,5,NA
 2020-03-29,Contra Costa,8,15,23,62,62,NA
 2020-03-30,Contra Costa,11,6,25,54,90,NA
 2020-03-31,Contra Costa,11,10,27,54,68,NA
@@ -1847,6 +1857,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Contra Costa,50,3,189,14,33,NA
 2021-01-29,Contra Costa,49,2,187,18,28,NA
 2021-01-30,Contra Costa,49,2,182,18,22,NA
+2021-01-31,Contra Costa,37,2,172,16,38,NA
+2021-02-01,Contra Costa,45,2,181,18,33,NA
 2020-03-29,Del Norte,0,0,1,2,3,NA
 2020-03-30,Del Norte,0,0,0,2,5,NA
 2020-03-31,Del Norte,0,0,0,4,3,NA
@@ -2155,6 +2167,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Del Norte,0,1,0,1,1,NA
 2021-01-29,Del Norte,0,1,0,1,1,NA
 2021-01-30,Del Norte,0,0,0,0,3,NA
+2021-01-31,Del Norte,0,0,0,0,2,NA
+2021-02-01,Del Norte,0,0,0,0,1,NA
 2020-03-29,El Dorado,0,3,0,6,3,NA
 2020-03-30,El Dorado,0,6,0,9,9,NA
 2020-03-31,El Dorado,0,6,10,9,12,NA
@@ -2463,6 +2477,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,El Dorado,3,0,15,3,9,NA
 2021-01-29,El Dorado,3,0,15,0,12,NA
 2021-01-30,El Dorado,3,0,17,1,7,NA
+2021-01-31,El Dorado,3,0,12,0,9,NA
+2021-02-01,El Dorado,3,0,11,0,7,NA
 2020-03-29,Fresno,3,14,8,116,22,NA
 2020-03-30,Fresno,3,14,10,88,24,NA
 2020-03-31,Fresno,4,19,30,274,23,NA
@@ -2771,6 +2787,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Fresno,92,0,472,28,12,NA
 2021-01-29,Fresno,72,2,475,27,8,NA
 2021-01-30,Fresno,75,2,460,34,5,NA
+2021-01-31,Fresno,72,1,452,29,9,NA
+2021-02-01,Fresno,96,0,480,28,13,NA
 2020-03-29,Glenn,NA,NA,NA,NA,NA,NA
 2020-03-30,Glenn,0,0,0,0,NA,NA
 2020-03-31,Glenn,0,0,0,0,NA,NA
@@ -3079,6 +3097,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Glenn,0,0,3,2,0,NA
 2021-01-29,Glenn,0,0,3,2,0,NA
 2021-01-30,Glenn,0,0,3,2,0,NA
+2021-01-31,Glenn,0,0,3,2,0,NA
+2021-02-01,Glenn,0,0,0,0,0,NA
 2020-03-29,Humboldt,0,0,1,10,18,NA
 2020-03-30,Humboldt,0,0,1,8,10,NA
 2020-03-31,Humboldt,0,4,1,11,8,NA
@@ -3387,6 +3407,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Humboldt,2,0,13,4,7,NA
 2021-01-29,Humboldt,0,0,8,3,8,NA
 2021-01-30,Humboldt,1,3,8,7,4,NA
+2021-01-31,Humboldt,2,1,10,2,10,NA
+2021-02-01,Humboldt,3,1,7,3,5,NA
 2020-03-29,Imperial,1,2,5,100,2,NA
 2020-03-30,Imperial,3,3,19,109,4,NA
 2020-03-31,Imperial,3,4,12,100,4,NA
@@ -3695,6 +3717,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Imperial,36,0,75,0,1,NA
 2021-01-29,Imperial,34,0,80,0,0,NA
 2021-01-30,Imperial,30,0,76,2,4,NA
+2021-01-31,Imperial,31,0,72,0,3,NA
+2021-02-01,Imperial,30,0,73,0,1,NA
 2020-03-29,Inyo,NA,NA,NA,NA,NA,NA
 2020-03-30,Inyo,NA,NA,NA,NA,NA,NA
 2020-03-31,Inyo,0,0,NA,83,6,NA
@@ -4003,6 +4027,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Inyo,0,0,4,0,2,NA
 2021-01-29,Inyo,0,0,4,0,2,NA
 2021-01-30,Inyo,0,0,3,0,2,NA
+2021-01-31,Inyo,1,0,4,0,1,NA
+2021-02-01,Inyo,0,0,3,0,2,NA
 2020-03-29,Kern,8,8,16,57,39,NA
 2020-03-30,Kern,6,8,18,123,51,NA
 2020-03-31,Kern,6,6,14,63,46,NA
@@ -4311,6 +4337,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Kern,92,0,317,9,24,NA
 2021-01-29,Kern,77,0,298,10,28,NA
 2021-01-30,Kern,79,1,298,8,28,NA
+2021-01-31,Kern,75,0,293,6,27,NA
+2021-02-01,Kern,75,0,287,5,33,NA
 2020-03-29,Kings,1,0,2,5,2,NA
 2020-03-30,Kings,1,2,2,12,0,NA
 2020-03-31,Kings,1,2,1,3,4,NA
@@ -4619,6 +4647,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Kings,10,0,81,0,1,NA
 2021-01-29,Kings,9,0,75,0,5,NA
 2021-01-30,Kings,7,0,64,0,5,NA
+2021-01-31,Kings,9,0,84,0,2,NA
+2021-02-01,Kings,10,0,90,2,3,NA
 2020-03-29,Lake,0,1,0,1,2,NA
 2020-03-30,Lake,0,1,0,1,3,NA
 2020-03-31,Lake,0,2,0,4,3,NA
@@ -4927,6 +4957,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Lake,4,1,7,1,1,NA
 2021-01-29,Lake,3,0,8,0,2,NA
 2021-01-30,Lake,3,0,7,0,2,NA
+2021-01-31,Lake,2,0,7,0,2,NA
+2021-02-01,Lake,3,0,5,0,1,NA
 2020-03-29,Lassen,0,0,0,2,NA,NA
 2020-03-30,Lassen,0,0,0,4,NA,NA
 2020-03-31,Lassen,0,0,0,7,NA,NA
@@ -5235,6 +5267,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Lassen,0,0,3,0,0,NA
 2021-01-29,Lassen,0,0,2,0,0,NA
 2021-01-30,Lassen,0,0,2,0,0,NA
+2021-01-31,Lassen,0,0,4,0,0,NA
+2021-02-01,Lassen,0,0,5,0,0,NA
 2020-03-29,Los Angeles,191,182,489,1132,345,NA
 2020-03-30,Los Angeles,245,244,601,1277,456,NA
 2020-03-31,Los Angeles,315,239,713,1239,445,NA
@@ -5543,6 +5577,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Los Angeles,1498,29,5669,372,272,NA
 2021-01-29,Los Angeles,1479,35,5511,325,282,NA
 2021-01-30,Los Angeles,1461,41,5398,320,299,NA
+2021-01-31,Los Angeles,1415,36,5259,300,327,NA
+2021-02-01,Los Angeles,1371,38,5165,278,340,NA
 2020-03-29,Madera,1,1,1,6,8,NA
 2020-03-30,Madera,1,3,1,5,4,NA
 2020-03-31,Madera,1,0,1,3,5,NA
@@ -5851,6 +5887,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Madera,19,1,67,6,0,NA
 2021-01-29,Madera,17,0,59,9,0,NA
 2021-01-30,Madera,15,0,51,6,0,NA
+2021-01-31,Madera,14,2,51,10,0,NA
+2021-02-01,Madera,14,0,44,2,1,NA
 2020-03-29,Marin,2,6,7,13,11,NA
 2020-03-30,Marin,4,2,10,9,16,NA
 2020-03-31,Marin,4,2,9,14,15,NA
@@ -6159,6 +6197,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Marin,6,0,27,2,9,NA
 2021-01-29,Marin,7,0,27,3,11,NA
 2021-01-30,Marin,7,0,27,4,13,NA
+2021-01-31,Marin,6,0,29,3,13,NA
+2021-02-01,Marin,6,0,28,4,11,NA
 2020-04-01,Mariposa,0,0,0,0,NA,NA
 2020-04-02,Mariposa,0,0,0,1,NA,NA
 2020-04-03,Mariposa,0,0,0,2,NA,NA
@@ -6464,6 +6504,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Mariposa,0,0,0,0,0,NA
 2021-01-29,Mariposa,0,0,0,0,0,NA
 2021-01-30,Mariposa,0,0,0,0,0,NA
+2021-01-31,Mariposa,0,0,0,0,0,NA
+2021-02-01,Mariposa,0,0,0,0,0,NA
 2020-03-29,Mendocino,0,0,1,11,1,NA
 2020-03-30,Mendocino,0,1,2,11,8,NA
 2020-03-31,Mendocino,0,0,0,1,7,NA
@@ -6772,6 +6814,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Mendocino,3,0,15,2,26,NA
 2021-01-29,Mendocino,3,0,13,1,26,NA
 2021-01-30,Mendocino,2,0,12,1,3,NA
+2021-01-31,Mendocino,1,0,10,1,5,NA
+2021-02-01,Mendocino,1,0,9,1,3,NA
 2020-03-29,Merced,0,0,1,7,3,NA
 2020-03-30,Merced,0,2,1,9,11,NA
 2020-03-31,Merced,0,2,3,11,10,NA
@@ -7080,6 +7124,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Merced,21,0,52,0,0,NA
 2021-01-29,Merced,19,0,43,0,1,NA
 2021-01-30,Merced,8,10,41,0,1,NA
+2021-01-31,Merced,19,0,39,0,4,NA
+2021-02-01,Merced,18,0,38,0,5,NA
 2020-03-29,Modoc,0,0,0,0,NA,NA
 2020-03-30,Modoc,0,0,0,31,NA,NA
 2020-03-31,Modoc,0,0,0,19,NA,NA
@@ -7388,6 +7434,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Modoc,0,0,0,0,0,NA
 2021-01-29,Modoc,0,0,1,0,0,NA
 2021-01-30,Modoc,0,0,1,0,0,NA
+2021-01-31,Modoc,0,0,1,0,0,NA
+2021-02-01,Modoc,0,0,1,0,0,NA
 2020-03-29,Mono,0,0,0,1,2,NA
 2020-03-30,Mono,0,0,0,1,2,NA
 2020-03-31,Mono,0,0,0,1,2,NA
@@ -7696,6 +7744,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Mono,0,0,0,0,1,NA
 2021-01-29,Mono,0,0,0,0,2,NA
 2021-01-30,Mono,0,0,0,0,2,NA
+2021-01-31,Mono,0,0,0,0,1,NA
+2021-02-01,Mono,0,0,0,0,2,NA
 2020-03-29,Monterey,1,2,2,16,10,NA
 2020-03-30,Monterey,4,0,11,16,17,NA
 2020-03-31,Monterey,4,2,11,15,17,NA
@@ -8004,6 +8054,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Monterey,30,0,149,2,11,NA
 2021-01-29,Monterey,30,0,151,1,13,NA
 2021-01-30,Monterey,30,0,142,2,17,NA
+2021-01-31,Monterey,28,0,128,1,20,NA
+2021-02-01,Monterey,27,0,122,3,18,NA
 2020-03-29,Napa,NA,NA,0,26,5,NA
 2020-03-30,Napa,1,0,3,8,9,NA
 2020-03-31,Napa,1,1,1,5,12,NA
@@ -8312,6 +8364,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Napa,4,0,21,0,2,NA
 2021-01-29,Napa,5,0,18,0,3,NA
 2021-01-30,Napa,5,0,18,0,2,NA
+2021-01-31,Napa,4,0,15,0,6,NA
+2021-02-01,Napa,3,0,16,0,2,NA
 2020-03-29,Nevada,1,0,23,NA,3,NA
 2020-03-30,Nevada,2,5,26,17,3,NA
 2020-03-31,Nevada,2,1,36,40,6,NA
@@ -8620,6 +8674,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Nevada,2,0,13,0,3,NA
 2021-01-29,Nevada,2,0,13,0,2,NA
 2021-01-30,Nevada,1,0,11,0,1,NA
+2021-01-31,Nevada,0,2,1,11,0,NA
+2021-02-01,Nevada,2,0,10,0,3,NA
 2020-03-29,Orange,31,40,74,167,131,NA
 2020-03-30,Orange,42,58,98,251,131,NA
 2020-03-31,Orange,45,44,105,233,131,NA
@@ -8928,6 +8984,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Orange,426,4,1521,33,117,NA
 2021-01-29,Orange,394,7,1442,36,108,NA
 2021-01-30,Orange,392,4,1412,38,98,NA
+2021-01-31,Orange,384,3,1362,30,120,NA
+2021-02-01,Orange,370,1,1330,22,102,NA
 2020-03-29,Placer,4,1,18,14,10,NA
 2020-03-30,Placer,5,1,19,19,29,NA
 2020-03-31,Placer,6,0,18,27,28,NA
@@ -9236,6 +9294,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Placer,23,3,115,17,8,NA
 2021-01-29,Placer,23,0,118,17,12,NA
 2021-01-30,Placer,20,0,121,16,23,NA
+2021-01-31,Placer,24,1,107,11,13,NA
+2021-02-01,Placer,26,3,102,14,17,NA
 2020-03-29,Plumas,0,1,0,1,NA,NA
 2020-03-30,Plumas,0,0,0,1,NA,NA
 2020-03-31,Plumas,0,0,0,0,NA,NA
@@ -9544,6 +9604,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Plumas,0,0,0,0,0,NA
 2021-01-29,Plumas,0,0,0,0,0,NA
 2021-01-30,Plumas,0,0,0,0,0,NA
+2021-01-31,Plumas,0,0,0,0,0,NA
+2021-02-01,Plumas,0,0,0,0,0,NA
 2020-03-29,Riverside,13,20,44,78,46,NA
 2020-03-30,Riverside,22,33,60,133,77,NA
 2020-03-31,Riverside,28,59,80,155,75,NA
@@ -9852,6 +9914,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Riverside,290,14,1128,124,20,NA
 2021-01-29,Riverside,295,12,1103,122,29,NA
 2021-01-30,Riverside,283,9,1028,109,41,NA
+2021-01-31,Riverside,268,11,979,129,46,NA
+2021-02-01,Riverside,254,9,954,131,41,NA
 2020-03-29,Sacramento,12,18,36,27,50,NA
 2020-03-30,Sacramento,21,23,45,86,58,NA
 2020-03-31,Sacramento,20,31,53,110,66,NA
@@ -10160,6 +10224,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Sacramento,111,4,365,16,48,NA
 2021-01-29,Sacramento,107,3,352,17,49,NA
 2021-01-30,Sacramento,104,2,346,14,54,NA
+2021-01-31,Sacramento,102,4,339,14,67,NA
+2021-02-01,Sacramento,93,6,325,19,68,NA
 2020-03-29,San Benito,1,0,1,1,1,NA
 2020-03-30,San Benito,1,0,1,1,1,NA
 2020-03-31,San Benito,1,0,1,0,1,NA
@@ -10468,6 +10534,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,San Benito,5,0,12,0,0,NA
 2021-01-29,San Benito,5,0,12,0,0,NA
 2021-01-30,San Benito,5,0,12,0,0,NA
+2021-01-31,San Benito,4,0,10,0,0,NA
+2021-02-01,San Benito,3,0,9,0,0,NA
 2020-03-29,San Bernardino,19,20,33,123,65,NA
 2020-03-30,San Bernardino,27,33,67,179,66,NA
 2020-03-31,San Bernardino,33,48,82,231,63,NA
@@ -10776,6 +10844,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,San Bernardino,276,4,1128,51,81,NA
 2021-01-29,San Bernardino,277,7,1100,41,78,NA
 2021-01-30,San Bernardino,265,7,1060,52,73,NA
+2021-01-31,San Bernardino,256,4,1036,39,61,NA
+2021-02-01,San Bernardino,258,7,1017,46,46,NA
 2020-03-29,San Diego,77,39,121,211,205,NA
 2020-03-30,San Diego,72,23,146,446,228,NA
 2020-03-31,San Diego,75,39,158,408,208,NA
@@ -11084,6 +11154,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,San Diego,388,9,1328,55,159,NA
 2021-01-29,San Diego,379,8,1317,58,155,NA
 2021-01-30,San Diego,373,4,1310,42,162,NA
+2021-01-31,San Diego,379,8,1306,41,161,NA
+2021-02-01,San Diego,373,13,1258,76,154,NA
 2020-03-29,San Francisco,24,10,50,73,61,NA
 2020-03-30,San Francisco,18,7,58,92,90,NA
 2020-03-31,San Francisco,30,14,67,69,77,NA
@@ -11392,6 +11464,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,San Francisco,55,0,176,2,55,NA
 2021-01-29,San Francisco,47,0,190,6,55,NA
 2021-01-30,San Francisco,47,0,177,4,50,NA
+2021-01-31,San Francisco,49,0,170,4,61,NA
+2021-02-01,San Francisco,48,0,174,1,72,NA
 2020-03-29,San Joaquin,5,2,34,35,7,NA
 2020-03-30,San Joaquin,8,4,28,30,53,NA
 2020-03-31,San Joaquin,14,5,44,54,28,NA
@@ -11700,6 +11774,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,San Joaquin,73,0,253,16,5,NA
 2021-01-29,San Joaquin,71,0,223,12,4,NA
 2021-01-30,San Joaquin,66,1,207,18,4,NA
+2021-01-31,San Joaquin,69,1,212,15,7,NA
+2021-02-01,San Joaquin,70,1,222,15,7,NA
 2020-03-29,San Luis Obispo,3,4,7,12,948,NA
 2020-03-30,San Luis Obispo,3,4,5,11,957,NA
 2020-03-31,San Luis Obispo,3,6,7,15,955,NA
@@ -12008,6 +12084,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,San Luis Obispo,18,0,43,0,12,NA
 2021-01-29,San Luis Obispo,18,0,46,2,12,NA
 2021-01-30,San Luis Obispo,15,0,46,1,14,NA
+2021-01-31,San Luis Obispo,14,0,45,2,16,NA
+2021-02-01,San Luis Obispo,11,1,47,1,18,NA
 2020-03-29,San Mateo,16,10,46,27,28,NA
 2020-03-30,San Mateo,18,11,56,40,47,NA
 2020-03-31,San Mateo,18,5,60,23,37,NA
@@ -12316,6 +12394,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,San Mateo,35,0,146,10,16,NA
 2021-01-29,San Mateo,28,0,136,12,17,NA
 2021-01-30,San Mateo,35,0,146,10,13,NA
+2021-01-31,San Mateo,31,0,139,5,18,NA
+2021-02-01,San Mateo,32,0,132,3,20,NA
 2020-03-29,Santa Barbara,9,3,15,21,47,NA
 2020-03-30,Santa Barbara,11,7,19,25,48,NA
 2020-03-31,Santa Barbara,14,7,19,29,48,NA
@@ -12624,6 +12704,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Santa Barbara,48,2,180,7,17,NA
 2021-01-29,Santa Barbara,41,1,182,10,18,NA
 2021-01-30,Santa Barbara,48,2,179,7,14,NA
+2021-01-31,Santa Barbara,47,2,170,8,17,NA
+2021-02-01,Santa Barbara,48,3,161,8,18,NA
 2020-03-29,Santa Clara,65,15,141,72,70,NA
 2020-03-30,Santa Clara,74,23,153,93,103,NA
 2020-03-31,Santa Clara,73,17,155,98,92,NA
@@ -12932,6 +13014,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Santa Clara,135,0,487,9,47,NA
 2021-01-29,Santa Clara,133,0,487,8,40,NA
 2021-01-30,Santa Clara,128,2,475,7,48,NA
+2021-01-31,Santa Clara,129,3,454,12,41,NA
+2021-02-01,Santa Clara,130,4,466,12,47,NA
 2020-03-29,Santa Cruz,0,0,0,0,NA,NA
 2020-03-30,Santa Cruz,0,0,0,2,4,NA
 2020-03-31,Santa Cruz,1,2,1,10,7,NA
@@ -13240,6 +13324,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Santa Cruz,6,0,39,1,3,NA
 2021-01-29,Santa Cruz,11,0,45,2,1,NA
 2021-01-30,Santa Cruz,11,0,40,2,1,NA
+2021-01-31,Santa Cruz,12,0,42,2,4,NA
+2021-02-01,Santa Cruz,8,0,41,1,4,NA
 2020-03-29,Shasta,0,0,0,0,NA,NA
 2020-03-30,Shasta,0,0,1,4,13,NA
 2020-03-31,Shasta,1,0,1,5,4,NA
@@ -13548,6 +13634,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Shasta,2,0,32,0,15,NA
 2021-01-29,Shasta,2,0,28,0,15,NA
 2021-01-30,Shasta,2,0,26,0,17,NA
+2021-01-31,Shasta,1,0,25,0,15,NA
+2021-02-01,Shasta,1,0,21,0,14,NA
 2020-03-29,Siskiyou,0,0,0,0,2,NA
 2020-03-30,Siskiyou,0,0,0,0,3,NA
 2020-03-31,Siskiyou,0,0,0,0,4,NA
@@ -13856,6 +13944,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Siskiyou,0,0,2,1,4,NA
 2021-01-29,Siskiyou,0,0,0,0,4,NA
 2021-01-30,Siskiyou,0,0,0,0,4,NA
+2021-01-31,Siskiyou,0,0,0,0,4,NA
+2021-02-01,Siskiyou,0,0,3,0,5,NA
 2020-03-29,Solano,4,1,7,27,28,NA
 2020-03-30,Solano,6,0,15,16,47,NA
 2020-03-31,Solano,6,5,15,15,42,NA
@@ -14164,6 +14254,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Solano,42,0,147,11,8,NA
 2021-01-29,Solano,39,1,149,9,7,NA
 2021-01-30,Solano,38,0,134,9,6,NA
+2021-01-31,Solano,36,0,126,4,10,NA
+2021-02-01,Solano,40,0,139,7,10,NA
 2020-03-29,Sonoma,2,5,7,20,12,NA
 2020-03-30,Sonoma,3,4,7,22,29,NA
 2020-03-31,Sonoma,3,3,8,18,21,NA
@@ -14472,6 +14564,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Sonoma,22,0,89,6,13,NA
 2021-01-29,Sonoma,24,0,86,3,16,NA
 2021-01-30,Sonoma,23,0,85,6,16,NA
+2021-01-31,Sonoma,21,0,78,2,17,NA
+2021-02-01,Sonoma,21,0,81,3,14,NA
 2020-03-29,Stanislaus,9,8,20,48,25,NA
 2020-03-30,Stanislaus,9,5,17,51,29,NA
 2020-03-31,Stanislaus,9,1,20,31,34,NA
@@ -14780,6 +14874,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Stanislaus,61,0,281,10,18,NA
 2021-01-29,Stanislaus,60,0,270,13,13,NA
 2021-01-30,Stanislaus,66,2,262,15,9,NA
+2021-01-31,Stanislaus,61,1,246,11,15,NA
+2021-02-01,Stanislaus,60,1,256,12,15,NA
 2020-03-29,Sutter,0,0,0,0,NA,NA
 2020-03-30,Sutter,0,0,0,0,NA,NA
 2020-03-31,Sutter,0,0,0,0,NA,NA
@@ -15088,6 +15184,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Sutter,0,0,0,0,0,NA
 2021-01-29,Sutter,0,0,0,0,0,NA
 2021-01-30,Sutter,0,0,0,0,0,NA
+2021-01-31,Sutter,0,0,0,0,0,NA
+2021-02-01,Sutter,0,0,0,0,0,NA
 2020-03-29,Tehama,0,0,0,0,2,NA
 2020-03-30,Tehama,0,0,0,2,2,NA
 2020-03-31,Tehama,0,0,0,2,4,NA
@@ -15396,6 +15494,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Tehama,2,0,11,0,1,NA
 2021-01-29,Tehama,2,0,10,0,1,NA
 2021-01-30,Tehama,2,0,9,0,4,NA
+2021-01-31,Tehama,2,0,11,0,1,NA
+2021-02-01,Tehama,2,0,10,0,2,NA
 2020-03-29,Trinity,0,0,0,0,NA,NA
 2020-03-30,Trinity,0,0,0,0,NA,NA
 2020-03-31,Trinity,0,0,0,0,NA,NA
@@ -15704,6 +15804,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Trinity,0,0,0,0,0,NA
 2021-01-29,Trinity,0,0,0,0,0,NA
 2021-01-30,Trinity,0,0,0,0,0,NA
+2021-01-31,Trinity,0,0,0,0,0,NA
+2021-02-01,Trinity,0,0,0,0,0,NA
 2020-03-29,Tulare,5,3,6,13,7,NA
 2020-03-30,Tulare,4,6,5,21,7,NA
 2020-03-31,Tulare,4,5,6,14,9,NA
@@ -16012,6 +16114,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Tulare,22,1,153,7,14,NA
 2021-01-29,Tulare,22,1,154,5,10,NA
 2021-01-30,Tulare,23,1,146,4,7,NA
+2021-01-31,Tulare,24,1,149,5,8,NA
+2021-02-01,Tulare,22,2,142,7,13,NA
 2020-03-29,Tuolumne,0,0,1,5,0,NA
 2020-03-30,Tuolumne,0,0,1,2,3,NA
 2020-03-31,Tuolumne,0,0,0,37,4,NA
@@ -16320,6 +16424,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Tuolumne,2,0,7,0,3,NA
 2021-01-29,Tuolumne,2,0,6,0,0,NA
 2021-01-30,Tuolumne,0,0,5,1,2,NA
+2021-01-31,Tuolumne,2,0,9,0,1,NA
+2021-02-01,Tuolumne,0,0,8,1,0,NA
 2020-03-29,Ventura,5,19,24,85,14,NA
 2020-03-30,Ventura,5,28,25,82,15,NA
 2020-03-31,Ventura,5,24,21,90,12,NA
@@ -16628,6 +16734,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Ventura,89,3,386,7,26,NA
 2021-01-29,Ventura,82,2,376,14,23,NA
 2021-01-30,Ventura,87,4,362,14,23,NA
+2021-01-31,Ventura,90,4,351,16,20,NA
+2021-02-01,Ventura,88,2,330,10,19,NA
 2020-03-29,Yolo,1,1,2,3,0,NA
 2020-03-30,Yolo,1,2,2,2,0,NA
 2020-03-31,Yolo,2,2,3,2,1,NA
@@ -16936,6 +17044,8 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Yolo,8,0,19,0,0,NA
 2021-01-29,Yolo,10,0,17,0,0,NA
 2021-01-30,Yolo,9,0,16,0,0,NA
+2021-01-31,Yolo,8,0,12,0,1,NA
+2021-02-01,Yolo,7,0,14,0,2,NA
 2020-03-29,Yuba,2,4,2,12,2,NA
 2020-03-30,Yuba,2,4,3,17,10,NA
 2020-03-31,Yuba,2,4,2,21,6,NA
@@ -17244,3 +17354,5 @@ date,county,icu_covid_confirmed,icu_covid_suspected,hsp_covid_confirmed,hsp_covi
 2021-01-28,Yuba,12,0,49,0,2,NA
 2021-01-29,Yuba,11,0,42,0,4,NA
 2021-01-30,Yuba,13,0,43,8,2,NA
+2021-01-31,Yuba,13,0,43,7,4,NA
+2021-02-01,Yuba,11,0,39,6,2,NA
