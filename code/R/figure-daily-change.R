@@ -36,7 +36,7 @@ figure_new_cases_change <- function(csv, county, date_limits) {
     ) +
     scale_y_continuous(
       labels = scales::comma,
-      expand = expansion(c(0.05, 0.20))
+      expand = expansion(c(0.10, 0.10))
     ) +
     scale_color_steps2(
       n.breaks = 5,
@@ -47,7 +47,7 @@ figure_new_cases_change <- function(csv, county, date_limits) {
       low = "green", mid = "black", high = "#fe0099", midpoint = 0
     ) +
     coord_cartesian(
-      ylim = c(-1, 1) * max(df$count_new_loess_diff),
+      ylim = c(-1, 1) * max(abs(df$count_new_loess_diff)),
       xlim = as.Date(date_limits, tz = "")
     ) +
     theme(
