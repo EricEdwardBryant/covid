@@ -8,27 +8,38 @@ output:
     toc: yes
 ---
 
+
+**March 13^th^ 2021 note:** CA deprecated the links to the original data sources
+for this tracker. It appears the numbers have been changed (likely some cleaning
+of historical data has occurred because a few anomalies are now gone).
+I will ad a News entry when I get a chance to review the changes in more detail.
+In the meantime, I have migrated to the new source of new case information and
+will migrate to the new source of hospitalization data soon. 
+
+
 ```{r include = FALSE}
 # Load R packages, functions, and settings
 source(here::here("requirements.R"))
 
 # Where to save new cases in CA
-csv_cases <- here("data/new-cases-ca.csv")
+csv_cases <- here("data/new-cases-ca-v2.csv")
 csv_hsp   <- here("data/hospitalization-ca.csv")
 
+# ---- !!! Population data now provided from CA directly as of 2021-03-13 ----
 # Population from: https://worldpopulationreview.com/us-counties/ca/los-angeles-county-population
-la_population <- 10079000
+#la_population <- 10079000
 
 # Population from: https://worldpopulationreview.com/us-counties/ca/santa-clara-county-population
-sc_population <- 1945940
+#sc_population <- 1945940
+# ---- !!! -------------------------------------------------------------------
 
 # Range of dates
 dates <- lubridate::today("UTC") + c(-255, 110)
 
 # Download data from https://data.ca.gov
 # Only downloads once a day unless force = TRUE
-download_new_cases_ca_csv(csv_cases)
-download_hospitalization_ca_csv(csv_hsp)
+download_new_cases_ca_csv_v2(csv_cases)
+#download_hospitalization_ca_csv(csv_hsp)
 ```
 
 
@@ -41,9 +52,15 @@ For the most recent information, I recommend reading the
 ```{r covid-los-angeles, fig.height = 7}
 county <- "Los Angeles"
 
+la_population <-
+  read_csv(csv_cases, col_types = cols()) %>%
+  filter(county == {{ county }}) %>%
+  pull(population) %>%
+  median() # compromise since second scale needs to be a linear transformation
+
 figure_new_cases(csv_cases, county, population = la_population, date_limits = dates) /
-  figure_new_cases_change(csv_cases, county, date_limits = dates) /
-  figure_hospitalization(csv_hsp, county, date_limits = dates)
+  figure_new_cases_change(csv_cases, county, date_limits = dates) #/
+#  figure_hospitalization(csv_hsp, county, date_limits = dates)
 ```
 
 
@@ -56,7 +73,13 @@ For the most recent information, I recommend reading the
 ```{r covid-santa-clara, fig.height = 7}
 county <- "Santa Clara"
 
+sc_population <-
+  read_csv(csv_cases, col_types = cols()) %>%
+  filter(county == {{ county }}) %>%
+  pull(population) %>%
+  median() # compromise since second scale needs to be a linear transformation
+
 figure_new_cases(csv_cases, county, population = sc_population, date_limits = dates) /
-  figure_new_cases_change(csv_cases, county, date_limits = dates) / 
-  figure_hospitalization(csv_hsp, county, date_limits = dates)
+  figure_new_cases_change(csv_cases, county, date_limits = dates) #/ 
+  #figure_hospitalization(csv_hsp, county, date_limits = dates)
 ```

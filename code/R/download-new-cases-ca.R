@@ -68,3 +68,33 @@ download_new_cases_ca_csv <- function(save_as = "data/new-cases-ca.csv",
 
   write_csv(df, save_as)
 }
+
+download_new_cases_ca_csv_v2 <- function(save_as = "data/new-cases-ca-v2.csv",
+                                         force = FALSE) {
+  if (!(force | !file.exists(save_as) | Sys.Date() != as.Date(file.mtime(save_as), tz = ""))) {
+    return(invisible())
+  }
+
+  url <-
+    "https://data.chhs.ca.gov/dataset/f333528b-4d38-4814-bebb-12db1f10f535/resource/046cdd2b-31e5-4d34-9ed3-b48cdbc4be7a/download/covid19cases_test.csv"
+
+  message("Updating new cases from:\n  ", url)
+
+  df_raw <- read_csv(url, col_types = cols())
+
+  df <-
+    df_raw %>%
+    filter(area_type == "County", !is.na(date)) %>%
+    select(
+      date,
+      county      = area,
+      population,
+      count_new   = cases,
+      count_total = reported_cases,
+      death_new   = deaths,
+      death_total = reported_deaths
+    ) %>%
+    mutate_at(vars(population:death_total), as.integer)
+
+  write_csv(df, save_as)
+}

@@ -75,7 +75,7 @@ figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-
           ~ . / (population / 1e4),
           name = "Per 10K people"
         ),
-      expand = expansion(c(0.30, -0.3))
+      expand = expansion(c(0.30, 0))
     ) +
     scale_x_date(
       date_breaks = "2 month",
