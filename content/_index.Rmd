@@ -9,12 +9,11 @@ output:
 ---
 
 
-**March 13^th^ 2021 note:** CA deprecated the links to the original data sources
+**March 14^th^ 2021 note:** CA deprecated the links to the original data sources
 for this tracker. It appears the numbers have been changed (likely some cleaning
 of historical data has occurred because a few anomalies are now gone).
-I will ad a News entry when I get a chance to review the changes in more detail.
-In the meantime, I have migrated to the new source of new case information and
-will migrate to the new source of hospitalization data soon. 
+I will add a News entry when I get a chance to review the changes in more
+detail. In the meantime, I have migrated to the new data sources. 
 
 
 ```{r include = FALSE}
@@ -23,7 +22,7 @@ source(here::here("requirements.R"))
 
 # Where to save new cases in CA
 csv_cases <- here("data/new-cases-ca-v2.csv")
-csv_hsp   <- here("data/hospitalization-ca.csv")
+csv_hsp   <- here("data/hospitalization-ca-v2.csv")
 
 # ---- !!! Population data now provided from CA directly as of 2021-03-13 ----
 # Population from: https://worldpopulationreview.com/us-counties/ca/los-angeles-county-population
@@ -39,7 +38,7 @@ dates <- lubridate::today("UTC") + c(-255, 110)
 # Download data from https://data.ca.gov
 # Only downloads once a day unless force = TRUE
 download_new_cases_ca_csv_v2(csv_cases)
-#download_hospitalization_ca_csv(csv_hsp)
+download_hospitalization_ca_csv_v2(csv_hsp)
 ```
 
 
@@ -59,8 +58,8 @@ la_population <-
   median() # compromise since second scale needs to be a linear transformation
 
 figure_new_cases(csv_cases, county, population = la_population, date_limits = dates) /
-  figure_new_cases_change(csv_cases, county, date_limits = dates) #/
-#  figure_hospitalization(csv_hsp, county, date_limits = dates)
+  figure_new_cases_change(csv_cases, county, date_limits = dates) /
+  figure_hospitalization(csv_hsp, county, date_limits = dates)
 ```
 
 
@@ -80,6 +79,6 @@ sc_population <-
   median() # compromise since second scale needs to be a linear transformation
 
 figure_new_cases(csv_cases, county, population = sc_population, date_limits = dates) /
-  figure_new_cases_change(csv_cases, county, date_limits = dates) #/ 
-  #figure_hospitalization(csv_hsp, county, date_limits = dates)
+  figure_new_cases_change(csv_cases, county, date_limits = dates) / 
+  figure_hospitalization(csv_hsp, county, date_limits = dates)
 ```

@@ -79,3 +79,48 @@ download_hospitalization_ca_csv <- function(save_as = "data/hospitalization-ca.c
 
   write_csv(df, save_as)
 }
+
+
+download_hospitalization_ca_csv_v2 <- function(save_as = "data/hospitalization-ca-v2.csv",
+                                            force = FALSE) {
+  if (!(force | !file.exists(save_as) | Sys.Date() != as.Date(file.mtime(save_as), tz = ""))) {
+    return(invisible())
+  }
+
+  url <-
+    "https://data.chhs.ca.gov/dataset/2df3e19e-9ee4-42a6-a087-9761f82033f6/resource/47af979d-8685-4981-bced-96a6b79d3ed5/download/covid19hospitalbycounty.csv"
+
+  message("Updating hospitalization:\n  ", url)
+
+  df_raw <-
+    read_csv(url, col_types = cols(
+      county                                 = col_character(),
+      todays_date                           = col_date(),
+      hospitalized_covid_confirmed_patients = col_double(),
+      hospitalized_suspected_covid_patients = col_double(),
+      hospitalized_covid_patients           = col_double(),
+      all_hospital_beds                     = col_double(),
+      icu_covid_confirmed_patients          = col_double(),
+      icu_suspected_covid_patients          = col_double(),
+      icu_available_beds                    = col_double()
+    ))
+
+  df <-
+    df_raw %>%
+    select(
+      date                = todays_date,
+      county,
+      icu_covid_confirmed = icu_covid_confirmed_patients,
+      icu_covid_suspected = icu_suspected_covid_patients,
+      hsp_covid_confirmed = hospitalized_covid_confirmed_patients,   # Includes ICU patients
+      hsp_covid_suspected = hospitalized_suspected_covid_patients,
+      icu_available_beds,
+      hsp_all_beds        = all_hospital_beds
+    ) %>%
+    mutate_at(vars(icu_covid_confirmed:hsp_all_beds), as.integer) %>%
+    # Calculate estimates for each county
+    arrange(county, date)
+
+  write_csv(df, save_as)
+}
+
