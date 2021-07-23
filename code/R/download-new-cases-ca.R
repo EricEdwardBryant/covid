@@ -89,10 +89,10 @@ download_new_cases_ca_csv_v2 <- function(save_as = "data/new-cases-ca-v2.csv",
       date,
       county      = area,
       population,
-      count_new   = cases,
-      count_total = reported_cases,
-      death_new   = deaths,
-      death_total = reported_deaths
+      count_new   = reported_cases,
+      count_total = cumulative_reported_cases,
+      death_new   = reported_deaths,
+      death_total = cumulative_reported_deaths
     ) %>%
     mutate_at(vars(population:death_total), as.integer)
 
