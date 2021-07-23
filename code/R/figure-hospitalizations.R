@@ -37,13 +37,40 @@ figure_hospitalization <- function(csv, county, date_limits) {
   gg_hsp_icu +
     # Add a line to mark the new year
     geom_vline(xintercept = as.Date("2021-01-01", tz = ""), linetype = "dotted") +
+    # geom_label(
+    #   aes(label = scales::comma(count)),
+    #   fill = "white",
+    #   vjust = 0.5, # Place label just above the point on the plot
+    #   hjust = -0.1,
+    #   show.legend = FALSE,
+    #   data = df_text,
+    #   position = ggstance::position_dodgev(1)
+    # ) +
+
     geom_label(
-      aes(label = scales::comma(count)),
-      fill = "white",
-      vjust = 0.5, # Place label just above the point on the plot
+      aes(
+        y     = round(count),
+        # Round the direct annotation to nearest 10
+        label = scales::comma(round(count))
+      ),
+      fill = "#0b9e76",
+      alpha = 0,
       hjust = -0.1,
-      show.legend = FALSE,
-      data = df_text
+      vjust = 0, # Place label just above the point on the plot
+      data = df_text %>% filter(type == "Inpatient"),
+      show.legend = FALSE
+    ) +
+    geom_label(
+      aes(
+        y     = round(count),
+        label = scales::comma(round(count))
+      ),
+      fill = "#db5e00",
+      alpha = 0,
+      hjust = -0.1,
+      vjust = 1, # Place label just above the point on the plot
+      data = df_text %>% filter(type == "ICU"),
+      show.legend = FALSE
     ) +
     labs(
       # be clear about the numbers in the figure caption
@@ -60,7 +87,7 @@ figure_hospitalization <- function(csv, county, date_limits) {
     scale_color_brewer(palette = "Dark2") +
     scale_y_continuous(
       labels = scales::comma, # Add commas to the numbers
-      expand = expansion(c(0.05, 0.20))
+      expand = expansion(c(0.50, 0.20))
     ) +
     scale_x_date(
       date_breaks = "2 month",       # Label the date every two months
