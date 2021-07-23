@@ -9,11 +9,7 @@ output:
 ---
 
 
-**March 14^th^ 2021 note:** CA deprecated the links to the original data sources
-for this tracker. It appears the numbers have been changed (likely some cleaning
-of historical data has occurred because a few anomalies are now gone).
-I will add a News entry when I get a chance to review the changes in more
-detail. In the meantime, I have migrated to the new data sources. 
+**July 23^rd^ 2021 note:**  
 
 
 ```{r include = FALSE}
