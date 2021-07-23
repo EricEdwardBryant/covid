@@ -1,6 +1,8 @@
 external.libraries:
-ignored.packages:
+ignored.packages: MASS, Matrix, lattice, mgcv, nlme
 package.dependency.fields: Imports, Depends, LinkingTo
+r.version:
 snapshot.type: implicit
 use.cache: TRUE
 vcs.ignore.library: TRUE
+vcs.ignore.local: TRUE
