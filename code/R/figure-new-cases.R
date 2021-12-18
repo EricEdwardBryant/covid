@@ -30,7 +30,7 @@ figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-
           sep = "<br>"
         )
     ) +
-    geom_vline(xintercept = as.Date("2021-01-01", tz = ""), linetype = "dotted") +
+    geom_vline(xintercept = as.Date(c("2021-01-01", "2022-01-01", "2023-01-01"), tz = ""), linetype = "dotted") +
     geom_hline(yintercept = 0) +
     geom_line(alpha = 0.25) +
     geom_line(aes(y = count_new_roll), color = "red") +
@@ -78,7 +78,7 @@ figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-
       expand = expansion(c(0.30, 0))
     ) +
     scale_x_date(
-      date_breaks = "2 month",
+      date_breaks = "4 month",
       date_labels = "%b",
       date_minor_breaks = "1 month",
       sec.axis =

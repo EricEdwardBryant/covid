@@ -36,7 +36,7 @@ figure_hospitalization <- function(csv, county, date_limits) {
   # All this just makes the plot pretty
   gg_hsp_icu +
     # Add a line to mark the new year
-    geom_vline(xintercept = as.Date("2021-01-01", tz = ""), linetype = "dotted") +
+    geom_vline(xintercept = as.Date(c("2021-01-01", "2022-01-01", "2023-01-01"), tz = ""), linetype = "dotted") +
     # geom_label(
     #   aes(label = scales::comma(count)),
     #   fill = "white",
@@ -90,7 +90,7 @@ figure_hospitalization <- function(csv, county, date_limits) {
       expand = expansion(c(0.50, 0.20))
     ) +
     scale_x_date(
-      date_breaks = "2 month",       # Label the date every two months
+      date_breaks = "4 month",       # Label the date every two months
       date_labels = "%b",            # Label with just the month abbreviation
       date_minor_breaks = "1 month", # add vertical lines for every month
     ) +

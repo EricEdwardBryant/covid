@@ -26,11 +26,11 @@ figure_new_cases_change <- function(csv, county, date_limits) {
         sep = "<br>"
       )
     ) +
-    geom_vline(xintercept = as.Date("2021-01-01", tz = ""), linetype = "dotted") +
+    geom_vline(xintercept = as.Date(c("2021-01-01", "2022-01-01", "2023-01-01"), tz = ""), linetype = "dotted") +
     geom_hline(yintercept = 0, linetype = "solid") +
     geom_line() +
     scale_x_date(
-      date_breaks = "2 month",
+      date_breaks = "4 month",
       date_labels = "%b",
       date_minor_breaks = "1 month",
     ) +

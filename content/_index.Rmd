@@ -9,8 +9,6 @@ output:
 ---
 
 
-**July 23^rd^ 2021 note:**  
-
 
 ```{r include = FALSE}
 # Load R packages, functions, and settings
@@ -29,7 +27,9 @@ csv_hsp   <- here("data/hospitalization-ca-v2.csv")
 # ---- !!! -------------------------------------------------------------------
 
 # Range of dates
-dates <- lubridate::today("UTC") + c(-255, 110)
+#dates <- lubridate::today("UTC") + c(-255, 110)
+#dates <- lubridate::today("UTC") + c(-500, 150)
+dates <- c(as.Date("2020-11-01"), lubridate::today("UTC") + 150)
 
 # Download data from https://data.ca.gov
 # Only downloads once a day unless force = TRUE
