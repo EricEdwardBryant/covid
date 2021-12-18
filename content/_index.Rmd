@@ -37,6 +37,7 @@ download_new_cases_ca_csv_v2(csv_cases)
 download_hospitalization_ca_csv_v2(csv_hsp)
 ```
 
+**UPDATE 2021-12-17:** O.M.I.C.R.O.N REVIVAL. Katrina, do. not. panic... yet!
 
 Los Angeles
 --------------------------------------------------------------------------------
