@@ -60,6 +60,64 @@ figure_new_cases(csv_cases, county, population = la_population, date_limits = da
 ```
 
 
+Adding numbers for last 30 days since there are lots of reporting dips and
+spikes, so it can be usefull to crossreference with recent numbers.
+
+```{r covid,-los-angeles-table-01}
+df_cases <-
+  read_csv(csv_cases, col_types = cols()) %>%
+  filter(.data$county == .env$county) %>%
+  # Calculate estimates
+  arrange(date) %>%
+  mutate(
+    count_new_roll  = slide_dbl(count_new, median, .before = 7L, .after = 7L),
+    count_new_loess = predict_loess(date, count_new, span = 0.11),
+    count_new_loess_diff = count_new_loess - lag(count_new_loess),
+    count_new_loess_fc   = count_new_loess / lag(count_new_loess),
+    count_new_loess_diff_weekly = count_new_loess - lag(count_new_loess, 7L),
+    count_new_loess_fc_weekly = count_new_loess / lag(count_new_loess, 7L)
+  ) %>%
+  top_n(30, date) %>%
+  select(
+    Date = date,
+    "New cases" = count_new,
+    "Smooth estimate" = count_new_loess,
+    "2 week median" = count_new_roll,
+    "Daily change" = count_new_loess_diff,
+    "Weekly change" = count_new_loess_diff_weekly,
+    "Daily fold change" = count_new_loess_fc,
+    "Weekly fold change" = count_new_loess_fc_weekly
+  )
+
+df_hsp <-
+  read_csv(csv_hsp, col_types = cols()) %>%
+  # Date hard censored due to change in reporting criteria
+  filter(.data$county == .env$county, date >= as.Date("2020-05-01")) %>%
+  top_n(30, date) %>%
+  # Combine confirmed and suspected counts (at this point most are confirmed)
+  # In the spring there were more "suspected" probably due to testing backlogs?
+  mutate(
+    hsp = hsp_covid_confirmed + hsp_covid_suspected,
+    icu = icu_covid_confirmed + icu_covid_suspected,
+    hsp = hsp - icu # remove ICU cases from inpatient (the figure will stack)
+  ) %>%
+  select(Date = date, "Hospitalized" = hsp, "ICU" = icu, "Open ICU beds" = icu_available_beds)
+
+df_hsp %>%
+  left_join(df_cases, by = "Date") %>%
+  arrange(desc(Date)) %>%
+  #mutate(across(where(is_double) & !Date, ~as.integer(round(.)))) %>%
+  gt::gt() %>%
+  gt::fmt_number(columns = c(`Smooth estimate`, `2 week median`, `Daily change`, `Weekly change`), decimal = 0) %>%
+  gt::fmt_number(columns = ends_with("fold change"), decimal = 2) %>%
+  gt::cols_width(
+    Date ~ px(100),
+    ICU  ~ px(80)
+  ) %>%
+  gt::gtsave(paste0(tempfile(), ".png"))
+```
+
+
 Santa Clara
 --------------------------------------------------------------------------------
 
