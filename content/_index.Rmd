@@ -63,7 +63,7 @@ figure_new_cases(csv_cases, county, population = la_population, date_limits = da
 Adding numbers for last 30 days since there are lots of reporting dips and
 spikes, so it can be usefull to crossreference with recent numbers.
 
-```{r covid,-los-angeles-table-01}
+```{r covid-los-angeles-table-01}
 df_cases <-
   read_csv(csv_cases, col_types = cols()) %>%
   filter(.data$county == .env$county) %>%
@@ -77,7 +77,6 @@ df_cases <-
     count_new_loess_diff_weekly = count_new_loess - lag(count_new_loess, 7L),
     count_new_loess_fc_weekly = count_new_loess / lag(count_new_loess, 7L)
   ) %>%
-  top_n(30, date) %>%
   select(
     Date = date,
     "New cases" = count_new,
@@ -93,7 +92,6 @@ df_hsp <-
   read_csv(csv_hsp, col_types = cols()) %>%
   # Date hard censored due to change in reporting criteria
   filter(.data$county == .env$county, date >= as.Date("2020-05-01")) %>%
-  top_n(30, date) %>%
   # Combine confirmed and suspected counts (at this point most are confirmed)
   # In the spring there were more "suspected" probably due to testing backlogs?
   mutate(
@@ -103,8 +101,10 @@ df_hsp <-
   ) %>%
   select(Date = date, "Hospitalized" = hsp, "ICU" = icu, "Open ICU beds" = icu_available_beds)
 
-df_hsp %>%
-  left_join(df_cases, by = "Date") %>%
+df_data <- left_join(df_hsp, df_cases, by = "Date")
+
+df_data %>%
+  top_n(30, Date) %>%
   arrange(desc(Date)) %>%
   #mutate(across(where(is_double) & !Date, ~as.integer(round(.)))) %>%
   gt::gt() %>%
@@ -117,6 +117,75 @@ df_hsp %>%
   gt::gtsave(paste0(tempfile(), ".png"))
 ```
 
+
+I was curious to compare prior lags in hospitalizations from cases to see where
+we would be if Omicron is behaving similarly to the previous Delta wave (post
+vaccination effort, and return to normal), and the bigger winter 2021 wave (pre
+vaccination effort, lockdown). The data below are normalized between 1 and 0 for
+comparison purposes. Hospitalization and ICU data have been shifted back 7 days
+which corresponds roughly to the lag seen in the rise of hospitalizations for
+the big winter 2021 wave. I am seeing a rise in hospitalizations for Omicron,
+but it appears to be considerably delayed relative to previous waves. There is
+no evidence yet of a similarly large increase in ICU admission as was typically
+seen in the prior waves. As of this note on Thursday, December 30th, I think
+we are still a couple of weeks out from knowing the trajectory of the LA Omicron
+ICU and hospitalization wave.
+
+```{r covid-los-angeles-figure-02, fig.height = 2.5}
+x <-
+  df_data %>%
+  filter(Date > as.Date("2020-09-01")) %>%
+  mutate(
+    norm_cases = (`Smooth estimate` - min(`Smooth estimate`)) / max(`Smooth estimate` - min(`Smooth estimate`)),
+    norm_hsp   = (Hospitalized - min(`Hospitalized`)) / max(Hospitalized - min(Hospitalized)),
+    norm_icu   = (ICU - min(ICU)) / max(ICU - min(ICU)),
+    lag_adjusted_hsp = lead(norm_hsp, 7),
+    lag_adjusted_icu = lead(norm_icu, 7)
+  )
+
+x %>%
+  select(
+    Date,
+    Cases = norm_cases,
+    `Lag adjusted hospitalizations` = lag_adjusted_hsp,
+    `Lag adjusted ICU` = lag_adjusted_icu
+  ) %>%
+  pivot_longer(cols = -Date, names_to = "group", values_to = "Normalized counts") %>%
+  filter(complete.cases(.)) %>%
+  ggplot(aes(x = Date, y = `Normalized counts`, color = group)) +
+  scale_color_manual(values = c("blue", "maroon2", "olivedrab")) +
+  scale_x_date(
+    date_breaks = "4 month",
+    date_labels = "%b",
+    date_minor_breaks = "1 month",
+    sec.axis =
+      dup_axis(
+        breaks = scales::date_breaks("1 year"),
+        labels = scales::date_format("%Y")
+      )
+  ) +
+  geom_vline(xintercept = as.Date(c("2021-01-01", "2022-01-01", "2023-01-01"), tz = ""), linetype = "dotted") +
+  geom_line() +
+  labs(
+    title = str_c(county, " county"),
+    y = "Normalized counts",
+    caption =
+      str_c(
+        "<span style='color:blue'>Blue line</span>: New cases estimate",
+        "<span style='color:olivedrab'>Green line</span>: ICU, 7 day lag adjusted",
+        "<span style='color:maroon2'>Purple line</span>: Hospitalizations, 7 day lag adjusted",
+        sep = "<br>"
+      )
+  ) +
+  theme(
+    legend.position = "none",
+    plot.caption = ggtext::element_markdown(hjust = 0, size = 7),
+    aspect.ratio = 0.5,
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(hjust = 0)
+  )
+
+```
 
 Santa Clara
 --------------------------------------------------------------------------------
