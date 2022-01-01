@@ -135,10 +135,17 @@ ICU and hospitalization wave.
 x <-
   df_data %>%
   filter(Date > as.Date("2020-09-01")) %>%
+  #filter(complete.cases(.)) %>%
   mutate(
-    norm_cases = (`Smooth estimate` - min(`Smooth estimate`)) / max(`Smooth estimate` - min(`Smooth estimate`)),
-    norm_hsp   = (Hospitalized - min(`Hospitalized`)) / max(Hospitalized - min(Hospitalized)),
-    norm_icu   = (ICU - min(ICU)) / max(ICU - min(ICU)),
+    norm_cases = 
+      (`Smooth estimate` - min(`Smooth estimate`, na.rm = TRUE)) / 
+      max(`Smooth estimate` - min(`Smooth estimate`, na.rm = TRUE), na.rm = TRUE),
+    norm_hsp   =
+      (Hospitalized - min(`Hospitalized`, na.rm = TRUE)) /
+      max(Hospitalized - min(Hospitalized, na.rm = TRUE), na.rm = TRUE),
+    norm_icu   =
+      (ICU - min(ICU, na.rm = TRUE)) /
+      max(ICU - min(ICU, na.rm = TRUE), na.rm = TRUE),
     lag_adjusted_hsp = lead(norm_hsp, 7),
     lag_adjusted_icu = lead(norm_icu, 7)
   )
@@ -165,7 +172,7 @@ x %>%
       )
   ) +
   geom_vline(xintercept = as.Date(c("2021-01-01", "2022-01-01", "2023-01-01"), tz = ""), linetype = "dotted") +
-  geom_line() +
+  geom_line(size = 0.2) +
   labs(
     title = str_c(county, " county"),
     y = "Normalized counts",
