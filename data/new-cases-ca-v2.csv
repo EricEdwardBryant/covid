@@ -702,6 +702,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Alameda,1685886,0,133486,0,1528
 2022-01-02,Alameda,1685886,0,133486,0,1528
 2022-01-03,Alameda,1685886,8604,142090,1,1529
+2022-01-04,Alameda,1685886,1270,143360,3,1532
 2020-02-01,Alpine,1117,0,0,0,0
 2020-02-02,Alpine,1117,0,0,0,0
 2020-02-03,Alpine,1117,0,0,0,0
@@ -1405,6 +1406,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Alpine,1117,0,113,0,0
 2022-01-02,Alpine,1117,0,113,0,0
 2022-01-03,Alpine,1117,0,113,0,0
+2022-01-04,Alpine,1117,0,113,0,0
 2020-02-01,Amador,38531,0,0,0,0
 2020-02-02,Amador,38531,0,0,0,0
 2020-02-03,Amador,38531,0,0,0,0
@@ -2108,6 +2110,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Amador,38531,0,5913,0,70
 2022-01-02,Amador,38531,0,5913,0,70
 2022-01-03,Amador,38531,91,6004,1,71
+2022-01-04,Amador,38531,21,6025,0,71
 2020-02-01,Butte,217769,0,0,0,0
 2020-02-02,Butte,217769,0,0,0,0
 2020-02-03,Butte,217769,0,0,0,0
@@ -2811,6 +2814,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Butte,217769,0,22469,0,341
 2022-01-02,Butte,217769,0,22469,0,341
 2022-01-03,Butte,217769,455,22924,4,345
+2022-01-04,Butte,217769,170,23094,1,346
 2020-02-01,Calaveras,44289,0,0,0,0
 2020-02-02,Calaveras,44289,0,0,0,0
 2020-02-03,Calaveras,44289,0,0,0,0
@@ -3514,6 +3518,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Calaveras,44289,0,4668,0,93
 2022-01-02,Calaveras,44289,0,4668,0,93
 2022-01-03,Calaveras,44289,74,4742,0,93
+2022-01-04,Calaveras,44289,25,4767,0,93
 2020-02-01,Colusa,22593,0,0,0,0
 2020-02-02,Colusa,22593,0,0,0,0
 2020-02-03,Colusa,22593,0,0,0,0
@@ -4217,6 +4222,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Colusa,22593,0,2659,0,21
 2022-01-02,Colusa,22593,0,2659,0,21
 2022-01-03,Colusa,22593,24,2683,0,21
+2022-01-04,Colusa,22593,6,2689,0,21
 2020-02-01,Contra Costa,1160099,0,0,0,0
 2020-02-02,Contra Costa,1160099,0,0,0,0
 2020-02-03,Contra Costa,1160099,0,0,0,0
@@ -4920,6 +4926,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Contra Costa,1160099,0,109593,0,1073
 2022-01-02,Contra Costa,1160099,0,109593,0,1073
 2022-01-03,Contra Costa,1160099,5373,114966,0,1073
+2022-01-04,Contra Costa,1160099,1039,116005,2,1075
 2020-02-01,Del Norte,27558,0,0,0,0
 2020-02-02,Del Norte,27558,0,0,0,0
 2020-02-03,Del Norte,27558,0,0,0,0
@@ -5623,6 +5630,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Del Norte,27558,0,3841,0,43
 2022-01-02,Del Norte,27558,0,3841,0,43
 2022-01-03,Del Norte,27558,32,3873,0,43
+2022-01-04,Del Norte,27558,9,3882,0,43
 2020-02-01,El Dorado,193098,0,0,0,0
 2020-02-02,El Dorado,193098,0,0,0,0
 2020-02-03,El Dorado,193098,0,0,0,0
@@ -6326,6 +6334,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,El Dorado,193098,0,17621,0,172
 2022-01-02,El Dorado,193098,0,17621,0,172
 2022-01-03,El Dorado,193098,562,18183,0,172
+2022-01-04,El Dorado,193098,156,18339,0,172
 2020-02-01,Fresno,1032227,0,0,0,0
 2020-02-02,Fresno,1032227,0,0,0,0
 2020-02-03,Fresno,1032227,0,0,0,0
@@ -7029,6 +7038,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Fresno,1032227,0,149927,0,2379
 2022-01-02,Fresno,1032227,0,149927,0,2379
 2022-01-03,Fresno,1032227,2747,152674,0,2379
+2022-01-04,Fresno,1032227,570,153244,1,2380
 2020-02-01,Glenn,29348,0,0,0,0
 2020-02-02,Glenn,29348,0,0,0,0
 2020-02-03,Glenn,29348,0,0,0,0
@@ -7732,6 +7742,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Glenn,29348,0,3663,0,39
 2022-01-02,Glenn,29348,0,3663,0,39
 2022-01-03,Glenn,29348,40,3703,0,39
+2022-01-04,Glenn,29348,2,3705,0,39
 2020-02-01,Humboldt,134098,0,0,0,0
 2020-02-02,Humboldt,134098,0,0,0,0
 2020-02-03,Humboldt,134098,0,0,0,0
@@ -8435,6 +8446,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Humboldt,134098,0,10381,0,119
 2022-01-02,Humboldt,134098,0,10381,0,119
 2022-01-03,Humboldt,134098,403,10784,0,119
+2022-01-04,Humboldt,134098,81,10865,1,120
 2020-02-01,Imperial,191649,0,0,0,0
 2020-02-02,Imperial,191649,0,0,0,0
 2020-02-03,Imperial,191649,0,0,0,0
@@ -9138,6 +9150,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Imperial,191649,0,37672,0,800
 2022-01-02,Imperial,191649,0,37672,0,800
 2022-01-03,Imperial,191649,739,38411,0,800
+2022-01-04,Imperial,191649,185,38596,0,800
 2020-02-01,Inyo,18453,0,0,0,0
 2020-02-02,Inyo,18453,0,0,0,0
 2020-02-03,Inyo,18453,0,0,0,0
@@ -9841,6 +9854,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Inyo,18453,0,2726,0,49
 2022-01-02,Inyo,18453,0,2726,0,49
 2022-01-03,Inyo,18453,119,2845,0,49
+2022-01-04,Inyo,18453,25,2870,0,49
 2020-02-01,Kern,927251,0,0,0,0
 2020-02-02,Kern,927251,0,0,0,0
 2020-02-03,Kern,927251,0,0,0,0
@@ -10544,6 +10558,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Kern,927251,0,136123,0,1917
 2022-01-02,Kern,927251,0,136123,0,1917
 2022-01-03,Kern,927251,1650,137773,-1,1916
+2022-01-04,Kern,927251,472,138245,0,1916
 2020-02-01,Kings,156444,0,0,0,0
 2020-02-02,Kings,156444,0,0,0,0
 2020-02-03,Kings,156444,0,0,0,0
@@ -11247,6 +11262,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Kings,156444,0,34318,0,386
 2022-01-02,Kings,156444,0,34318,0,386
 2022-01-03,Kings,156444,499,34817,1,387
+2022-01-04,Kings,156444,114,34931,1,388
 2020-02-01,Lake,64871,0,0,0,0
 2020-02-02,Lake,64871,0,0,0,0
 2020-02-03,Lake,64871,0,0,0,0
@@ -11950,6 +11966,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Lake,64871,0,7060,0,117
 2022-01-02,Lake,64871,0,7060,0,117
 2022-01-03,Lake,64871,74,7134,0,117
+2022-01-04,Lake,64871,18,7152,0,117
 2020-02-01,Lassen,30065,0,0,0,0
 2020-02-02,Lassen,30065,0,0,0,0
 2020-02-03,Lassen,30065,0,0,0,0
@@ -12653,6 +12670,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Lassen,30065,0,7089,0,55
 2022-01-02,Lassen,30065,0,7089,0,55
 2022-01-03,Lassen,30065,14,7103,0,55
+2022-01-04,Lassen,30065,8,7111,0,55
 2020-02-01,Los Angeles,10257557,1,1,0,0
 2020-02-02,Los Angeles,10257557,0,1,0,0
 2020-02-03,Los Angeles,10257557,0,1,0,0
@@ -13356,6 +13374,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Los Angeles,10257557,0,1596123,0,27371
 2022-01-02,Los Angeles,10257557,0,1596123,0,27371
 2022-01-03,Los Angeles,10257557,90080,1686203,23,27394
+2022-01-04,Los Angeles,10257557,19050,1705253,25,27419
 2020-02-01,Madera,160089,0,0,0,0
 2020-02-02,Madera,160089,0,0,0,0
 2020-02-03,Madera,160089,0,0,0,0
@@ -14059,6 +14078,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Madera,160089,0,25002,0,320
 2022-01-02,Madera,160089,0,25002,0,320
 2022-01-03,Madera,160089,321,25323,0,320
+2022-01-04,Madera,160089,102,25425,8,328
 2020-02-01,Marin,260800,0,0,0,0
 2020-02-02,Marin,260800,0,0,0,0
 2020-02-03,Marin,260800,0,0,0,0
@@ -14762,6 +14782,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Marin,260800,0,20475,0,249
 2022-01-02,Marin,260800,0,20475,0,249
 2022-01-03,Marin,260800,1057,21532,2,251
+2022-01-04,Marin,260800,143,21675,0,251
 2020-02-01,Mariposa,17795,0,0,0,0
 2020-02-02,Mariposa,17795,0,0,0,0
 2020-02-03,Mariposa,17795,0,0,0,0
@@ -15465,6 +15486,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Mariposa,17795,0,1509,0,6
 2022-01-02,Mariposa,17795,0,1509,0,6
 2022-01-03,Mariposa,17795,50,1559,0,6
+2022-01-04,Mariposa,17795,5,1564,0,6
 2020-02-01,Mendocino,88439,0,0,0,0
 2020-02-02,Mendocino,88439,0,0,0,0
 2020-02-03,Mendocino,88439,0,0,0,0
@@ -16168,6 +16190,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Mendocino,88439,0,8422,0,101
 2022-01-02,Mendocino,88439,0,8422,0,101
 2022-01-03,Mendocino,88439,151,8573,0,101
+2022-01-04,Mendocino,88439,63,8636,0,101
 2020-02-01,Merced,287420,0,0,0,0
 2020-02-02,Merced,287420,0,0,0,0
 2020-02-03,Merced,287420,0,0,0,0
@@ -16871,6 +16894,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Merced,287420,0,44769,0,694
 2022-01-02,Merced,287420,0,44769,0,694
 2022-01-03,Merced,287420,690,45459,2,696
+2022-01-04,Merced,287420,124,45583,4,700
 2020-02-01,Modoc,9475,0,0,0,0
 2020-02-02,Modoc,9475,0,0,0,0
 2020-02-03,Modoc,9475,0,0,0,0
@@ -17574,6 +17598,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Modoc,9475,0,601,0,6
 2022-01-02,Modoc,9475,0,601,0,6
 2022-01-03,Modoc,9475,1,602,0,6
+2022-01-04,Modoc,9475,9,611,0,6
 2020-02-01,Mono,13961,0,0,0,0
 2020-02-02,Mono,13961,0,0,0,0
 2020-02-03,Mono,13961,0,0,0,0
@@ -18277,6 +18302,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Mono,13961,0,2101,0,4
 2022-01-02,Mono,13961,0,2101,0,4
 2022-01-03,Mono,13961,71,2172,0,4
+2022-01-04,Mono,13961,18,2190,0,4
 2020-02-01,Monterey,448732,0,0,0,0
 2020-02-02,Monterey,448732,0,0,0,0
 2020-02-03,Monterey,448732,0,0,0,0
@@ -18980,6 +19006,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Monterey,448732,0,50251,0,643
 2022-01-02,Monterey,448732,0,50251,0,643
 2022-01-03,Monterey,448732,796,51047,1,644
+2022-01-04,Monterey,448732,129,51176,-1,643
 2020-02-01,Napa,139652,0,0,0,0
 2020-02-02,Napa,139652,0,0,0,0
 2020-02-03,Napa,139652,0,0,0,0
@@ -19683,6 +19710,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Napa,139652,0,14439,0,107
 2022-01-02,Napa,139652,0,14439,0,107
 2022-01-03,Napa,139652,821,15260,0,107
+2022-01-04,Napa,139652,110,15370,0,107
 2020-02-01,Nevada,98710,0,0,0,0
 2020-02-02,Nevada,98710,0,0,0,0
 2020-02-03,Nevada,98710,0,0,0,0
@@ -20386,6 +20414,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Nevada,98710,0,10299,0,110
 2022-01-02,Nevada,98710,0,10299,0,110
 2022-01-03,Nevada,98710,273,10572,0,110
+2022-01-04,Nevada,98710,36,10608,0,110
 2020-02-01,Orange,3228519,1,1,0,0
 2020-02-02,Orange,3228519,0,1,0,0
 2020-02-03,Orange,3228519,0,1,0,0
@@ -21089,6 +21118,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Orange,3228519,0,339526,0,5890
 2022-01-02,Orange,3228519,0,339526,0,5890
 2022-01-03,Orange,3228519,18526,358052,4,5894
+2022-01-04,Orange,3228519,3999,362051,3,5897
 2020-02-01,Out of state,NA,NA,NA,NA,NA
 2020-02-02,Out of state,NA,NA,NA,NA,NA
 2020-02-03,Out of state,NA,NA,NA,NA,NA
@@ -21792,6 +21822,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Out of state,NA,NA,NA,NA,NA
 2022-01-02,Out of state,NA,NA,NA,NA,NA
 2022-01-03,Out of state,NA,NA,NA,NA,NA
+2022-01-04,Out of state,NA,NA,NA,NA,NA
 2020-02-01,Placer,400434,0,0,0,0
 2020-02-02,Placer,400434,0,0,0,0
 2020-02-03,Placer,400434,0,0,0,0
@@ -22495,6 +22526,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Placer,400434,0,40857,0,489
 2022-01-02,Placer,400434,0,40857,0,489
 2022-01-03,Placer,400434,1197,42054,0,489
+2022-01-04,Placer,400434,231,42285,5,494
 2020-02-01,Plumas,18997,0,0,0,0
 2020-02-02,Plumas,18997,0,0,0,0
 2020-02-03,Plumas,18997,0,0,0,0
@@ -23198,6 +23230,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Plumas,18997,0,1994,0,12
 2022-01-02,Plumas,18997,0,1994,0,12
 2022-01-03,Plumas,18997,11,2005,0,12
+2022-01-04,Plumas,18997,9,2014,0,12
 2020-02-01,Riverside,2468145,0,0,0,0
 2020-02-02,Riverside,2468145,0,0,0,0
 2020-02-03,Riverside,2468145,0,0,0,0
@@ -23901,6 +23934,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Riverside,2468145,0,397124,0,5501
 2022-01-02,Riverside,2468145,0,397124,0,5501
 2022-01-03,Riverside,2468145,13031,410155,3,5504
+2022-01-04,Riverside,2468145,3211,413366,0,5504
 2020-02-01,Sacramento,1567975,0,0,0,0
 2020-02-02,Sacramento,1567975,0,0,0,0
 2020-02-03,Sacramento,1567975,0,0,0,0
@@ -24604,6 +24638,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Sacramento,1567975,0,173562,0,2448
 2022-01-02,Sacramento,1567975,0,173562,0,2448
 2022-01-03,Sacramento,1567975,6430,179992,4,2452
+2022-01-04,Sacramento,1567975,1279,181271,1,2453
 2020-02-01,San Benito,64022,0,0,0,0
 2020-02-02,San Benito,64022,2,2,0,0
 2020-02-03,San Benito,64022,0,2,0,0
@@ -25307,6 +25342,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,San Benito,64022,0,8320,0,79
 2022-01-02,San Benito,64022,0,8320,0,79
 2022-01-03,San Benito,64022,368,8688,0,79
+2022-01-04,San Benito,64022,75,8763,0,79
 2020-02-01,San Bernardino,2217398,0,0,0,0
 2020-02-02,San Bernardino,2217398,0,0,0,0
 2020-02-03,San Bernardino,2217398,0,0,0,0
@@ -26010,6 +26046,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,San Bernardino,2217398,0,386278,0,6051
 2022-01-02,San Bernardino,2217398,0,386278,0,6051
 2022-01-03,San Bernardino,2217398,15660,401938,5,6056
+2022-01-04,San Bernardino,2217398,2471,404409,4,6060
 2020-02-01,San Diego,3370418,0,0,0,0
 2020-02-02,San Diego,3370418,0,0,0,0
 2020-02-03,San Diego,3370418,0,0,0,0
@@ -26713,6 +26750,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,San Diego,3370418,0,427087,0,4469
 2022-01-02,San Diego,3370418,0,427087,0,4469
 2022-01-03,San Diego,3370418,24067,451154,7,4476
+2022-01-04,San Diego,3370418,7345,458499,11,4487
 2020-02-01,San Francisco,892280,0,0,0,0
 2020-02-02,San Francisco,892280,0,0,0,0
 2020-02-03,San Francisco,892280,0,0,0,0
@@ -27416,6 +27454,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,San Francisco,892280,0,64498,0,682
 2022-01-02,San Francisco,892280,0,64498,0,682
 2022-01-03,San Francisco,892280,4817,69315,4,686
+2022-01-04,San Francisco,892280,1351,70666,2,688
 2020-02-01,San Joaquin,782545,0,0,0,0
 2020-02-02,San Joaquin,782545,0,0,0,0
 2020-02-03,San Joaquin,782545,0,0,0,0
@@ -28119,6 +28158,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,San Joaquin,782545,0,106640,0,1902
 2022-01-02,San Joaquin,782545,0,106640,0,1902
 2022-01-03,San Joaquin,782545,3117,109757,1,1903
+2022-01-04,San Joaquin,782545,617,110374,8,1911
 2020-02-01,San Luis Obispo,278862,0,0,0,0
 2020-02-02,San Luis Obispo,278862,0,0,0,0
 2020-02-03,San Luis Obispo,278862,0,0,0,0
@@ -28822,6 +28862,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,San Luis Obispo,278862,0,32342,0,365
 2022-01-02,San Luis Obispo,278862,0,32342,0,365
 2022-01-03,San Luis Obispo,278862,1325,33667,2,367
+2022-01-04,San Luis Obispo,278862,121,33788,4,371
 2020-02-01,San Mateo,778001,0,0,0,0
 2020-02-02,San Mateo,778001,0,0,0,0
 2020-02-03,San Mateo,778001,0,0,0,0
@@ -29525,6 +29566,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,San Mateo,778001,0,60504,0,581
 2022-01-02,San Mateo,778001,0,60504,0,581
 2022-01-03,San Mateo,778001,3966,64470,1,582
+2022-01-04,San Mateo,778001,687,65157,0,582
 2020-02-01,Santa Barbara,456373,0,0,0,0
 2020-02-02,Santa Barbara,456373,0,0,0,0
 2020-02-03,Santa Barbara,456373,0,0,0,0
@@ -30228,6 +30270,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Santa Barbara,456373,0,49555,0,568
 2022-01-02,Santa Barbara,456373,0,49555,0,568
 2022-01-03,Santa Barbara,456373,2357,51912,3,571
+2022-01-04,Santa Barbara,456373,537,52449,3,574
 2020-02-01,Santa Clara,1967585,1,1,0,0
 2020-02-02,Santa Clara,1967585,1,2,0,0
 2020-02-03,Santa Clara,1967585,0,2,0,0
@@ -30931,6 +30974,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Santa Clara,1967585,0,164547,0,1969
 2022-01-02,Santa Clara,1967585,0,164547,0,1969
 2022-01-03,Santa Clara,1967585,9668,174215,-6,1963
+2022-01-04,Santa Clara,1967585,2639,176854,1,1964
 2020-02-01,Santa Cruz,273999,0,0,0,0
 2020-02-02,Santa Cruz,273999,0,0,0,0
 2020-02-03,Santa Cruz,273999,0,0,0,0
@@ -31634,6 +31678,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Santa Cruz,273999,0,22980,0,228
 2022-01-02,Santa Cruz,273999,0,22980,0,228
 2022-01-03,Santa Cruz,273999,785,23765,0,228
+2022-01-04,Santa Cruz,273999,139,23904,0,228
 2020-02-01,Shasta,177925,0,0,0,0
 2020-02-02,Shasta,177925,0,0,0,0
 2020-02-03,Shasta,177925,0,0,0,0
@@ -32337,6 +32382,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Shasta,177925,0,23161,0,435
 2022-01-02,Shasta,177925,0,23161,0,435
 2022-01-03,Shasta,177925,140,23301,5,440
+2022-01-04,Shasta,177925,65,23366,2,442
 2020-02-01,Sierra,3115,0,0,0,0
 2020-02-02,Sierra,3115,0,0,0,0
 2020-02-03,Sierra,3115,0,0,0,0
@@ -33040,6 +33086,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Sierra,3115,0,206,0,0
 2022-01-02,Sierra,3115,0,206,0,0
 2022-01-03,Sierra,3115,7,213,0,0
+2022-01-04,Sierra,3115,1,214,0,0
 2020-02-01,Siskiyou,43956,0,0,0,0
 2020-02-02,Siskiyou,43956,0,0,0,0
 2020-02-03,Siskiyou,43956,0,0,0,0
@@ -33743,6 +33790,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Siskiyou,43956,0,3474,0,61
 2022-01-02,Siskiyou,43956,0,3474,0,61
 2022-01-03,Siskiyou,43956,26,3500,0,61
+2022-01-04,Siskiyou,43956,9,3509,0,61
 2020-02-01,Solano,444255,0,0,0,0
 2020-02-02,Solano,444255,0,0,0,0
 2020-02-03,Solano,444255,0,0,0,0
@@ -34446,6 +34494,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Solano,444255,0,48957,0,379
 2022-01-02,Solano,444255,0,48957,0,379
 2022-01-03,Solano,444255,2073,51030,1,380
+2022-01-04,Solano,444255,270,51300,3,383
 2020-02-01,Sonoma,496668,0,0,0,0
 2020-02-02,Sonoma,496668,0,0,0,0
 2020-02-03,Sonoma,496668,0,0,0,0
@@ -35149,6 +35198,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Sonoma,496668,0,46040,0,410
 2022-01-02,Sonoma,496668,0,46040,0,410
 2022-01-03,Sonoma,496668,2351,48391,0,410
+2022-01-04,Sonoma,496668,262,48653,0,410
 2020-02-01,Stanislaus,562303,0,0,0,0
 2020-02-02,Stanislaus,562303,0,0,0,0
 2020-02-03,Stanislaus,562303,0,0,0,0
@@ -35852,6 +35902,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Stanislaus,562303,0,84367,0,1332
 2022-01-02,Stanislaus,562303,0,84367,0,1332
 2022-01-03,Stanislaus,562303,1426,85793,0,1332
+2022-01-04,Stanislaus,562303,314,86107,29,1361
 2020-02-01,Sutter,105747,0,0,0,0
 2020-02-02,Sutter,105747,0,0,0,0
 2020-02-03,Sutter,105747,0,0,0,0
@@ -36555,6 +36606,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Sutter,105747,0,14741,0,193
 2022-01-02,Sutter,105747,0,14741,0,193
 2022-01-03,Sutter,105747,232,14973,0,193
+2022-01-04,Sutter,105747,59,15032,0,193
 2020-02-01,Tehama,65885,0,0,0,0
 2020-02-02,Tehama,65885,0,0,0,0
 2020-02-03,Tehama,65885,0,0,0,0
@@ -37258,6 +37310,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Tehama,65885,0,8944,0,139
 2022-01-02,Tehama,65885,0,8944,0,139
 2022-01-03,Tehama,65885,61,9005,1,140
+2022-01-04,Tehama,65885,15,9020,0,140
 2020-02-01,Trinity,13354,0,0,0,0
 2020-02-02,Trinity,13354,0,0,0,0
 2020-02-03,Trinity,13354,0,0,0,0
@@ -37961,6 +38014,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Trinity,13354,0,832,0,17
 2022-01-02,Trinity,13354,0,832,0,17
 2022-01-03,Trinity,13354,1,833,1,18
+2022-01-04,Trinity,13354,0,833,0,18
 2020-02-01,Tulare,484423,0,0,0,0
 2020-02-02,Tulare,484423,0,0,0,0
 2020-02-03,Tulare,484423,0,0,0,0
@@ -38664,6 +38718,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Tulare,484423,0,71941,0,1160
 2022-01-02,Tulare,484423,0,71941,0,1160
 2022-01-03,Tulare,484423,723,72664,7,1167
+2022-01-04,Tulare,484423,229,72893,5,1172
 2020-02-01,Tuolumne,52351,0,0,0,0
 2020-02-02,Tuolumne,52351,0,0,0,0
 2020-02-03,Tuolumne,52351,0,0,0,0
@@ -39367,6 +39422,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Tuolumne,52351,0,8044,0,91
 2022-01-02,Tuolumne,52351,0,8044,0,91
 2022-01-03,Tuolumne,52351,135,8179,0,91
+2022-01-04,Tuolumne,52351,56,8235,0,91
 2020-02-01,Unknown,NA,0,0,0,0
 2020-02-02,Unknown,NA,0,0,0,0
 2020-02-03,Unknown,NA,0,0,0,0
@@ -40070,6 +40126,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Unknown,NA,0,1021,0,3
 2022-01-02,Unknown,NA,0,1021,0,3
 2022-01-03,Unknown,NA,2994,4015,0,3
+2022-01-04,Unknown,NA,33,4048,0,3
 2020-02-01,Ventura,852747,0,0,0,0
 2020-02-02,Ventura,852747,0,0,0,0
 2020-02-03,Ventura,852747,0,0,0,0
@@ -40773,6 +40830,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Ventura,852747,0,107992,0,1211
 2022-01-02,Ventura,852747,0,107992,0,1211
 2022-01-03,Ventura,852747,4770,112762,0,1211
+2022-01-04,Ventura,852747,1317,114079,2,1213
 2020-02-01,Yolo,223612,0,0,0,0
 2020-02-02,Yolo,223612,0,0,0,0
 2020-02-03,Yolo,223612,0,0,0,0
@@ -41476,6 +41534,7 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Yolo,223612,0,21747,0,270
 2022-01-02,Yolo,223612,0,21747,0,270
 2022-01-03,Yolo,223612,816,22563,0,270
+2022-01-04,Yolo,223612,375,22938,0,270
 2020-02-01,Yuba,79290,0,0,0,0
 2020-02-02,Yuba,79290,0,0,0,0
 2020-02-03,Yuba,79290,0,0,0,0
@@ -42179,3 +42238,4 @@ date,county,population,count_new,count_total,death_new,death_total
 2022-01-01,Yuba,79290,0,10844,0,99
 2022-01-02,Yuba,79290,0,10844,0,99
 2022-01-03,Yuba,79290,193,11037,0,99
+2022-01-04,Yuba,79290,67,11104,2,101
