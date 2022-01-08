@@ -9,10 +9,8 @@ local({
     blogdown::install_hugo(hugo, force = TRUE)
   }
 
-  # PhantomJS is required to generate PNGs of gt generated html tables
+  # PhantomJS is required to generate .png of {gt} generated .html tables
   if (!webshot::is_phantomjs_installed()) {
     webshot::install_phantomjs()
   }
 })
-
-
