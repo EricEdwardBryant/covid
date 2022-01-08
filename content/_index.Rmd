@@ -1,11 +1,9 @@
 ---
 title: Homepage
 author: Eric Bryant, PhD
-include-before: >
-  First time here? Check out the [FAQ](/faq/)! Otherwise, jump to:
 output:
   blogdown::html_page:
-    toc: yes
+    toc: no
 ---
 
 
@@ -37,10 +35,6 @@ download_new_cases_ca_csv_v2(csv_cases)
 download_hospitalization_ca_csv_v2(csv_hsp)
 ```
 
-**UPDATE 2021-12-17:** O.M.I.C.R.O.N REVIVAL. Katrina, do. not. panic... yet!
-
-Los Angeles
---------------------------------------------------------------------------------
 
 For the most recent information, I recommend reading the
 [LA county public health press releases](http://publichealth.lacounty.gov/media/coronavirus/#news).
@@ -118,6 +112,8 @@ df_data %>%
 ```
 
 
+## Playground
+
 I was curious to compare prior lags in hospitalizations from cases to see where
 we would be if Omicron is behaving similarly to the previous Delta wave (post
 vaccination effort, and return to normal), and the bigger winter 2021 wave (pre
@@ -194,22 +190,48 @@ x %>%
 
 ```
 
-Santa Clara
---------------------------------------------------------------------------------
 
-For the most recent information, I recommend reading the
-[Santa Clara county public health press releases](https://www.sccgov.org/sites/covid19/Pages/archives.aspx).
+Saw some chatter on Twitter about the circular plot of cases published by the
+NYT
+[here behind a paywall](https://www.nytimes.com/2022/01/06/opinion/omicron-covid-us.html).
+My personal take is that I think the NYT makes some great visualizations and if
+you just want to follow along with case numbers, sure the circle plot is,
+unnecessary. But, if that is you, you're probably best served by the standard
+NYT covid case tracking page
+[here](https://www.nytimes.com/interactive/2021/us/covid-cases.html)!
+Anyhow, I thought it might be fun to try to reproduce the figure with LA data
 
-```{r covid-santa-clara, fig.height = 7}
-county <- "Santa Clara"
-
-sc_population <-
-  read_csv(csv_cases, col_types = cols()) %>%
-  filter(county == {{ county }}) %>%
-  pull(population) %>%
-  median() # compromise since second scale needs to be a linear transformation
-
-figure_new_cases(csv_cases, county, population = sc_population, date_limits = dates) /
-  figure_new_cases_change(csv_cases, county, date_limits = dates) / 
-  figure_hospitalization(csv_hsp, county, date_limits = dates)
+```{r covid-los-angeles-figure-03}
+df_cases %>%
+  arrange(Date) %>%
+  mutate(
+    cases_half = (ifelse(`Smooth estimate` < 0, 0, `Smooth estimate`) / 2) / 70,
+    day_of_year = (lubridate::yday(Date) - 0.5) * 0.9875,
+    year = as.factor(lubridate::year(Date)),
+    test = 1:n()
+  ) %>%
+  ggplot(aes(day_of_year, group = year)) +
+  geom_ribbon(
+    aes(y = test, ymax = test + cases_half, ymin = test - cases_half),
+    alpha = 1,
+    color = "#ce0f10",
+    fill = "#f9e0df"
+  ) +
+  #geom_vline(xintercept = 0) +
+  scale_x_continuous(
+    breaks = seq(0, 330, by = 30),
+    labels = month.abb,
+    limits = c(0, 360),
+    expand = c(0, 0)
+  ) +
+  coord_polar() +
+  labs(title = "New Covid-19 cases,\nLos Angeles County") +
+  theme(
+    axis.title = element_blank(),
+    panel.grid.minor.x = element_blank(),
+    panel.grid.major.y = element_blank(),
+    axis.text.y = element_blank()
+  )
 ```
+
+
