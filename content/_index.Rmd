@@ -118,7 +118,7 @@ I was curious to compare prior lags in hospitalizations from cases to see where
 we would be if Omicron is behaving similarly to the previous Delta wave (post
 vaccination effort, and return to normal), and the bigger winter 2021 wave (pre
 vaccination effort, lockdown). The data below are normalized between 1 and 0 for
-comparison purposes. Hospitalization and ICU data have been shifted back 7 days
+comparison purposes. Hospitalization and ICU data have been shifted back 9 days
 which corresponds roughly to the lag seen in the rise of hospitalizations for
 the big winter 2021 wave. I am seeing a rise in hospitalizations for Omicron,
 but it appears to be considerably delayed relative to previous waves. There is
@@ -135,15 +135,15 @@ x <-
   mutate(
     norm_cases = 
       (`Smooth estimate` - min(`Smooth estimate`, na.rm = TRUE)) / 
-      max(`Smooth estimate` - min(`Smooth estimate`, na.rm = TRUE), na.rm = TRUE),
+      max(`Smooth estimate`[Date < as.Date("2021-04-01")] - min(`Smooth estimate`, na.rm = TRUE), na.rm = TRUE),
     norm_hsp   =
       (Hospitalized - min(`Hospitalized`, na.rm = TRUE)) /
-      max(Hospitalized - min(Hospitalized, na.rm = TRUE), na.rm = TRUE),
+      max(Hospitalized[Date < as.Date("2021-04-01")] - min(Hospitalized, na.rm = TRUE), na.rm = TRUE),
     norm_icu   =
       (ICU - min(ICU, na.rm = TRUE)) /
-      max(ICU - min(ICU, na.rm = TRUE), na.rm = TRUE),
-    lag_adjusted_hsp = lead(norm_hsp, 7),
-    lag_adjusted_icu = lead(norm_icu, 7)
+      max(ICU[Date < as.Date("2021-04-01")] - min(ICU, na.rm = TRUE), na.rm = TRUE),
+    lag_adjusted_hsp = lead(norm_hsp, 9),
+    lag_adjusted_icu = lead(norm_icu, 9)
   )
 
 x %>%
@@ -175,8 +175,8 @@ x %>%
     caption =
       str_c(
         "<span style='color:blue'>Blue line</span>: New cases estimate",
-        "<span style='color:olivedrab'>Green line</span>: ICU, 7 day lag adjusted",
-        "<span style='color:maroon2'>Purple line</span>: Hospitalizations, 7 day lag adjusted",
+        "<span style='color:olivedrab'>Green line</span>: ICU, 9 day lag adjusted",
+        "<span style='color:maroon2'>Purple line</span>: Hospitalizations, 9 day lag adjusted",
         sep = "<br>"
       )
   ) +
