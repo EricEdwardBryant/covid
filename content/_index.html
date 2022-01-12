@@ -9,35 +9,105 @@ output:
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<p>For the most recent information, I recommend reading the
+<p>For the most recent information, read the
 <a href="http://publichealth.lacounty.gov/media/coronavirus/#news">LA county public health press releases</a>.</p>
 <p><img src="/_index_files/figure-html/covid-los-angeles-1.png" width="350px" style="display: block; margin: auto;" /></p>
-<p>Adding numbers for last 30 days since there are lots of reporting dips and
-spikes, so it can be usefull to crossreference with recent numbers.</p>
+<p>Below are the reported numbers for the last 30 days. Use this to check for
+reporting weirdness and to get a more precise feel of LA numbers over time.</p>
 <p><img src="/_index_files/figure-html/covid-los-angeles-table-01-1.png" width="350px" style="display: block; margin: auto;" /></p>
 <div id="playground" class="section level2">
 <h2>Playground</h2>
-<p>I was curious to compare prior lags in hospitalizations from cases to see where
-we would be if Omicron is behaving similarly to the previous Delta wave (post
-vaccination effort, and return to normal), and the bigger winter 2021 wave (pre
-vaccination effort, lockdown). The data below are normalized between 1 and 0 for
-comparison purposes. Hospitalization and ICU data have been shifted back 9 days
-which corresponds roughly to the lag seen in the rise of hospitalizations for
-the big winter 2021 wave. I am seeing a rise in hospitalizations for Omicron,
-but it appears to be considerably delayed relative to previous waves. There is
-no evidence yet of a similarly large increase in ICU admission as was typically
-seen in the prior waves. As of this note on Thursday, December 30th, I think
-we are still a couple of weeks out from knowing the trajectory of the LA Omicron
-ICU and hospitalization wave.</p>
+<p>Below is a comparison of cases, hospitalizations, ICU and deaths relative to the
+peak in winter 2021. Hospitalizations and ICU admissions have been shifted back
+9 days, and Deaths have been shifted back 22 days as this was the approximate
+lag for the winter 2021 wave.</p>
 <p><img src="/_index_files/figure-html/covid-los-angeles-figure-02-1.png" width="350px" style="display: block; margin: auto;" /></p>
 <p>Saw some chatter on Twitter about the circular plot of cases published by the
 NYT
 <a href="https://www.nytimes.com/2022/01/06/opinion/omicron-covid-us.html">here behind a paywall</a>.
-My personal take is that I think the NYT makes some great visualizations and if
-you just want to follow along with case numbers, sure the circle plot is,
-unnecessary. But, if that is you, you’re probably best served by the standard
-NYT covid case tracking page
-<a href="https://www.nytimes.com/interactive/2021/us/covid-cases.html">here</a>!
-Anyhow, I thought it might be fun to try to reproduce the figure with LA data</p>
+My personal take is that the figure evokes more emotion than it provides useful
+information, which I think is the point since this is a NYT Opinion piece.
+Anyhow, I thought it might be fun to try to reproduce the figure with LA data.
+(now with code!)</p>
+<pre class="r"><code># All of this just to have grid lines that vary in length for each month!
+df_segments &lt;-
+  tibble(
+    x = seq(0, 360, by = 364 / 12),
+    yend = c(1000, seq(500, 950, by = 500 / 12)),
+    month = month.abb,
+    hjust = c(0.5, -0.1, -0.1, -0.1, -0.1, -0.1, 0.5, 1.1, 1.1, 1.1, 1.1, 1.1),
+    vjust = c(-0.1, -0.1, -0.1, 0.5, 1.1, 1.1, 1.1, 1.1, 1.1, 0.5, -0.1, -0.1)
+  )
+
+# Prepare the plot data
+df_plot &lt;-
+  df_cases |&gt;
+  # Only need date and cases
+  select(
+    Date,
+    Cases = `Smooth estimate` # Using smooth estimate, cause smooth is nice
+  ) |&gt;
+  # Remove the one day in the leap year that makes things too hard *sadface*
+  filter(as.character(Date) != &quot;2020-02-29&quot;) |&gt;
+  # Going to put the dates in order so I can enumerate them to create a spiral
+  # (i.e. increasing radius as we go around the circle)
+  arrange(Date) |&gt;
+  mutate(
+    # Sometimes the smoother goes below 0, we&#39;ll just say those are 0
+    cases = ifelse(Cases &lt; 0, 0, Cases),
+    # To mimic the times choice of blobbing out, I&#39;ll divide by 2
+    cases_half = cases / 2,
+    # I then rescale everything so that they, well, fit without overlapping
+    cases_half = cases_half / 85, # trial and error to get this number
+    #day_of_year = (lubridate::yday(Date) - 0.5),  * 0.9875,
+    day_of_year = lubridate::yday(Date) - 0.5,
+    year = as.factor(lubridate::year(Date)),
+    spiral = 1:n()
+  )
+
+# Given or plot data
+df_plot |&gt;
+  # I plot the day of the year (1 to 365), and I group cases by year to 
+  # allow for plotting one ribbon multiple times to a given x value
+  ggplot(aes(x = day_of_year, group = year)) +
+  # I add my ribbon
+  geom_ribbon(
+    # With a base at the spiral and the ribon spanning equally above and below
+    # the spiral
+    aes(y = spiral, ymax = spiral + cases_half, ymin = spiral - cases_half),
+    # I make it pretty and try to match the color scheme from NYT
+    alpha = 1,
+    color = &quot;#ce0f10&quot;,
+    fill = &quot;#f9e0df&quot;
+  ) +
+  # I manually add grid lines to allow them to vary in length
+  geom_segment(
+    aes(x = x, xend = x, y = 0, yend = yend),
+    linetype = &quot;dashed&quot;,
+    color = &quot;grey&quot;,
+    alpha = 0.5,
+    data = df_segments,
+    inherit.aes = FALSE
+  ) +
+  # Add manually add the month labels since they vary in position
+  geom_text(
+    aes(x = x, y = yend, label = month,  hjust = hjust, vjust = vjust),
+    inherit.aes = FALSE,
+    data = df_segments
+  ) +
+  # I make some adjustments so the yearly period lines up to the circle
+  scale_x_continuous(
+    limits = c(0, 365),
+    expand = c(0, 0)
+  ) +
+  # I make the plot a circle
+  coord_polar() +
+  # Give it a title and remove theme elements I no longer need
+  labs(title = &quot;New Covid-19 cases,\nLos Angeles County&quot;) +
+  theme(
+    axis.title = element_blank(),
+    panel.grid = element_blank(),
+    axis.text = element_blank()
+  )</code></pre>
 <p><img src="/_index_files/figure-html/covid-los-angeles-figure-03-1.png" width="350px" style="display: block; margin: auto;" /></p>
 </div>

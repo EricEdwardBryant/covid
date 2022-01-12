@@ -36,7 +36,7 @@ download_hospitalization_ca_csv_v2(csv_hsp)
 ```
 
 
-For the most recent information, I recommend reading the
+For the most recent information, read the
 [LA county public health press releases](http://publichealth.lacounty.gov/media/coronavirus/#news).
 
 ```{r covid-los-angeles, fig.height = 7}
@@ -54,12 +54,12 @@ figure_new_cases(csv_cases, county, population = la_population, date_limits = da
 ```
 
 
-Adding numbers for last 30 days since there are lots of reporting dips and
-spikes, so it can be usefull to crossreference with recent numbers.
+Below are the reported numbers for the last 30 days. Use this to check for
+reporting weirdness and to get a more precise feel of LA numbers over time.
 
 ```{r covid-los-angeles-table-01}
 df_cases <-
-  read_csv(csv_cases, col_types = cols()) %>%
+  read_csv(csv_cases, col_types = cols()) %>% 
   filter(.data$county == .env$county) %>%
   # Calculate estimates
   arrange(date) %>%
@@ -69,7 +69,8 @@ df_cases <-
     count_new_loess_diff = count_new_loess - lag(count_new_loess),
     count_new_loess_fc   = count_new_loess / lag(count_new_loess),
     count_new_loess_diff_weekly = count_new_loess - lag(count_new_loess, 7L),
-    count_new_loess_fc_weekly = count_new_loess / lag(count_new_loess, 7L)
+    count_new_loess_fc_weekly = count_new_loess / lag(count_new_loess, 7L),
+    death_new_loess = predict_loess(date, death_new, span = 0.1)
   ) %>%
   select(
     Date = date,
@@ -79,7 +80,9 @@ df_cases <-
     "Daily change" = count_new_loess_diff,
     "Weekly change" = count_new_loess_diff_weekly,
     "Daily fold change" = count_new_loess_fc,
-    "Weekly fold change" = count_new_loess_fc_weekly
+    "Weekly fold change" = count_new_loess_fc_weekly,
+    "New deaths" = death_new,
+    "Death estimate" = death_new_loess
   )
 
 df_hsp <-
@@ -102,7 +105,7 @@ df_data %>%
   arrange(desc(Date)) %>%
   #mutate(across(where(is_double) & !Date, ~as.integer(round(.)))) %>%
   gt::gt() %>%
-  gt::fmt_number(columns = c(`Smooth estimate`, `2 week median`, `Daily change`, `Weekly change`), decimal = 0) %>%
+  gt::fmt_number(columns = c(`Hospitalized`, ICU, `New deaths`, `New cases`, `Death estimate`, `Smooth estimate`, `2 week median`, `Daily change`, `Weekly change`), decimal = 0) %>%
   gt::fmt_number(columns = ends_with("fold change"), decimal = 2) %>%
   gt::cols_width(
     Date ~ px(100),
@@ -114,18 +117,10 @@ df_data %>%
 
 ## Playground
 
-I was curious to compare prior lags in hospitalizations from cases to see where
-we would be if Omicron is behaving similarly to the previous Delta wave (post
-vaccination effort, and return to normal), and the bigger winter 2021 wave (pre
-vaccination effort, lockdown). The data below are normalized between 1 and 0 for
-comparison purposes. Hospitalization and ICU data have been shifted back 9 days
-which corresponds roughly to the lag seen in the rise of hospitalizations for
-the big winter 2021 wave. I am seeing a rise in hospitalizations for Omicron,
-but it appears to be considerably delayed relative to previous waves. There is
-no evidence yet of a similarly large increase in ICU admission as was typically
-seen in the prior waves. As of this note on Thursday, December 30th, I think
-we are still a couple of weeks out from knowing the trajectory of the LA Omicron
-ICU and hospitalization wave.
+Below is a comparison of cases, hospitalizations, ICU and deaths relative to the
+peak in winter 2021. Hospitalizations and ICU admissions have been shifted back
+9 days, and Deaths have been shifted back 22 days as this was the approximate
+lag for the winter 2021 wave.
 
 ```{r covid-los-angeles-figure-02, fig.height = 2.5}
 x <-
@@ -142,8 +137,12 @@ x <-
     norm_icu   =
       (ICU - min(ICU, na.rm = TRUE)) /
       max(ICU[Date < as.Date("2021-04-01")] - min(ICU, na.rm = TRUE), na.rm = TRUE),
+    norm_deaths =
+      (`Death estimate` - min(`Death estimate`, na.rm = TRUE)) /
+      max(`Death estimate`[Date < as.Date("2021-08-01")] - min(`Death estimate`, na.rm = TRUE), na.rm = TRUE),
     lag_adjusted_hsp = lead(norm_hsp, 9),
-    lag_adjusted_icu = lead(norm_icu, 9)
+    lag_adjusted_icu = lead(norm_icu, 9),
+    lag_adjusted_deaths = lead(norm_deaths, 22)
   )
 
 x %>%
@@ -151,12 +150,13 @@ x %>%
     Date,
     Cases = norm_cases,
     `Lag adjusted hospitalizations` = lag_adjusted_hsp,
-    `Lag adjusted ICU` = lag_adjusted_icu
+    `Lag adjusted ICU` = lag_adjusted_icu,
+    `Lag adjusted Deaths` = lag_adjusted_deaths
   ) %>%
   pivot_longer(cols = -Date, names_to = "group", values_to = "Normalized counts") %>%
   filter(complete.cases(.)) %>%
   ggplot(aes(x = Date, y = `Normalized counts`, color = group)) +
-  scale_color_manual(values = c("blue", "maroon2", "olivedrab")) +
+  scale_color_manual(values = c("blue", "gold2", "maroon2", "olivedrab")) +
   scale_x_date(
     date_breaks = "4 month",
     date_labels = "%b",
@@ -167,6 +167,7 @@ x %>%
         labels = scales::date_format("%Y")
       )
   ) +
+  scale_y_continuous(breaks = c(0, 0.25, 0.5, 0.75, 1, 2, 3, 4), labels = scales::percent) +
   geom_vline(xintercept = as.Date(c("2021-01-01", "2022-01-01", "2023-01-01"), tz = ""), linetype = "dotted") +
   geom_line(size = 0.2) +
   labs(
@@ -175,8 +176,9 @@ x %>%
     caption =
       str_c(
         "<span style='color:blue'>Blue line</span>: New cases estimate",
-        "<span style='color:olivedrab'>Green line</span>: ICU, 9 day lag adjusted",
         "<span style='color:maroon2'>Purple line</span>: Hospitalizations, 9 day lag adjusted",
+        "<span style='color:olivedrab'>Green line</span>: ICU, 9 day lag adjusted",
+        "<span style='color:gold2'>Yellow line</span>: Deaths estimate, 22 day lag adjusted",
         sep = "<br>"
       )
   ) +
@@ -194,43 +196,91 @@ x %>%
 Saw some chatter on Twitter about the circular plot of cases published by the
 NYT
 [here behind a paywall](https://www.nytimes.com/2022/01/06/opinion/omicron-covid-us.html).
-My personal take is that I think the NYT makes some great visualizations and if
-you just want to follow along with case numbers, sure the circle plot is,
-unnecessary. But, if that is you, you're probably best served by the standard
-NYT covid case tracking page
-[here](https://www.nytimes.com/interactive/2021/us/covid-cases.html)!
-Anyhow, I thought it might be fun to try to reproduce the figure with LA data
+My personal take is that the figure evokes more emotion than it provides useful
+information, which I think is the point since this is a NYT Opinion piece. 
+Anyhow, I thought it might be fun to try to reproduce the figure with LA data.
+(now with code!)
 
-```{r covid-los-angeles-figure-03}
-df_cases %>%
-  arrange(Date) %>%
+```{r covid-los-angeles-figure-03, echo = TRUE}
+# All of this just to have grid lines that vary in length for each month!
+df_segments <-
+  tibble(
+    x = seq(0, 360, by = 364 / 12),
+    yend = c(1000, seq(500, 950, by = 500 / 12)),
+    month = month.abb,
+    hjust = c(0.5, -0.1, -0.1, -0.1, -0.1, -0.1, 0.5, 1.1, 1.1, 1.1, 1.1, 1.1),
+    vjust = c(-0.1, -0.1, -0.1, 0.5, 1.1, 1.1, 1.1, 1.1, 1.1, 0.5, -0.1, -0.1)
+  )
+
+# Prepare the plot data
+df_plot <-
+  df_cases |>
+  # Only need date and cases
+  select(
+    Date,
+    Cases = `Smooth estimate` # Using smooth estimate, cause smooth is nice
+  ) |>
+  # Remove the one day in the leap year that makes things too hard *sadface*
+  filter(as.character(Date) != "2020-02-29") |>
+  # Going to put the dates in order so I can enumerate them to create a spiral
+  # (i.e. increasing radius as we go around the circle)
+  arrange(Date) |>
   mutate(
-    cases_half = (ifelse(`Smooth estimate` < 0, 0, `Smooth estimate`) / 2) / 70,
-    day_of_year = (lubridate::yday(Date) - 0.5) * 0.9875,
+    # Sometimes the smoother goes below 0, we'll just say those are 0
+    cases = ifelse(Cases < 0, 0, Cases),
+    # To mimic the times choice of blobbing out, I'll divide by 2
+    cases_half = cases / 2,
+    # I then rescale everything so that they, well, fit without overlapping
+    cases_half = cases_half / 85, # trial and error to get this number
+    #day_of_year = (lubridate::yday(Date) - 0.5),  * 0.9875,
+    day_of_year = lubridate::yday(Date) - 0.5,
     year = as.factor(lubridate::year(Date)),
-    test = 1:n()
-  ) %>%
-  ggplot(aes(day_of_year, group = year)) +
+    spiral = 1:n()
+  )
+
+# Given or plot data
+df_plot |>
+  # I plot the day of the year (1 to 365), and I group cases by year to 
+  # allow for plotting one ribbon multiple times to a given x value
+  ggplot(aes(x = day_of_year, group = year)) +
+  # I add my ribbon
   geom_ribbon(
-    aes(y = test, ymax = test + cases_half, ymin = test - cases_half),
+    # With a base at the spiral and the ribon spanning equally above and below
+    # the spiral
+    aes(y = spiral, ymax = spiral + cases_half, ymin = spiral - cases_half),
+    # I make it pretty and try to match the color scheme from NYT
     alpha = 1,
     color = "#ce0f10",
     fill = "#f9e0df"
   ) +
-  #geom_vline(xintercept = 0) +
+  # I manually add grid lines to allow them to vary in length
+  geom_segment(
+    aes(x = x, xend = x, y = 0, yend = yend),
+    linetype = "dashed",
+    color = "grey",
+    alpha = 0.5,
+    data = df_segments,
+    inherit.aes = FALSE
+  ) +
+  # Add manually add the month labels since they vary in position
+  geom_text(
+    aes(x = x, y = yend, label = month,  hjust = hjust, vjust = vjust),
+    inherit.aes = FALSE,
+    data = df_segments
+  ) +
+  # I make some adjustments so the yearly period lines up to the circle
   scale_x_continuous(
-    breaks = seq(0, 330, by = 30),
-    labels = month.abb,
-    limits = c(0, 360),
+    limits = c(0, 365),
     expand = c(0, 0)
   ) +
+  # I make the plot a circle
   coord_polar() +
+  # Give it a title and remove theme elements I no longer need
   labs(title = "New Covid-19 cases,\nLos Angeles County") +
   theme(
     axis.title = element_blank(),
-    panel.grid.minor.x = element_blank(),
-    panel.grid.major.y = element_blank(),
-    axis.text.y = element_blank()
+    panel.grid = element_blank(),
+    axis.text = element_blank()
   )
 ```
 
