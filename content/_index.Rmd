@@ -192,6 +192,24 @@ x %>%
 
 ```
 
+```{r echo = FALSE}
+n_omicron_cases <-
+  df_cases %>%
+  filter(Date >= as.Date("2021-12-01")) %>%
+  pull(`New cases`) %>%
+  sum()
+
+frac_omicron_cases <- n_omicron_cases / la_population
+
+chr_n_omicron_cases <- scales::number(n_omicron_cases, big.mark = ",")
+chr_pct_omicron_cases <- scales::percent(frac_omicron_cases, accuracy = 0.1)
+```
+
+With so many new cases in recent days, I was curious what fraction of LA
+county's population has gotten covid during the omicron wave. Without
+considering duplicates, and assuming that December 2021 was the start of this
+wave, there have been `r chr_n_omicron_cases` confirmed cases, which is roughly
+`r chr_pct_omicron_cases` of the population.
 
 Saw some chatter on Twitter about the circular plot of cases published by the
 NYT
