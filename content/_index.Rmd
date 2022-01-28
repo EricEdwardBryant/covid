@@ -76,7 +76,7 @@ df_cases <-
     Date = date,
     "New cases" = count_new,
     "Smooth estimate" = count_new_loess,
-    "2 week median" = count_new_roll,
+    "2 week mean" = count_new_roll,
     "Daily change" = count_new_loess_diff,
     "Weekly change" = count_new_loess_diff_weekly,
     "Daily fold change" = count_new_loess_fc,
@@ -105,7 +105,7 @@ df_data %>%
   arrange(desc(Date)) %>%
   #mutate(across(where(is_double) & !Date, ~as.integer(round(.)))) %>%
   gt::gt() %>%
-  gt::fmt_number(columns = c(`Hospitalized`, ICU, `New deaths`, `New cases`, `Death estimate`, `Smooth estimate`, `2 week median`, `Daily change`, `Weekly change`), decimal = 0) %>%
+  gt::fmt_number(columns = c(`Hospitalized`, ICU, `New deaths`, `New cases`, `Death estimate`, `Smooth estimate`, `2 week mean`, `Daily change`, `Weekly change`), decimal = 0) %>%
   gt::fmt_number(columns = ends_with("fold change"), decimal = 2) %>%
   gt::cols_width(
     Date ~ px(100),
@@ -129,8 +129,8 @@ x <-
   #filter(complete.cases(.)) %>%
   mutate(
     norm_cases = 
-      (`Smooth estimate` - min(`Smooth estimate`, na.rm = TRUE)) / 
-      max(`Smooth estimate`[Date < as.Date("2021-04-01")] - min(`Smooth estimate`, na.rm = TRUE), na.rm = TRUE),
+      (`2 week mean` - min(`2 week mean`, na.rm = TRUE)) / 
+      max(`2 week mean`[Date < as.Date("2021-04-01")] - min(`2 week mean`, na.rm = TRUE), na.rm = TRUE),
     norm_hsp   =
       (Hospitalized - min(`Hospitalized`, na.rm = TRUE)) /
       max(Hospitalized[Date < as.Date("2021-04-01")] - min(Hospitalized, na.rm = TRUE), na.rm = TRUE),
@@ -156,7 +156,7 @@ x %>%
   pivot_longer(cols = -Date, names_to = "group", values_to = "Normalized counts") %>%
   filter(complete.cases(.)) %>%
   ggplot(aes(x = Date, y = `Normalized counts`, color = group)) +
-  scale_color_manual(values = c("blue", "gold2", "maroon2", "olivedrab")) +
+  scale_color_manual(values = c("red", "gold2", "#00a174", "#ec5500")) +
   scale_x_date(
     date_breaks = "4 month",
     date_labels = "%b",
@@ -175,9 +175,9 @@ x %>%
     y = "Normalized counts",
     caption =
       str_c(
-        "<span style='color:blue'>Blue line</span>: New cases estimate",
-        "<span style='color:maroon2'>Purple line</span>: Hospitalizations, 9 day lag adjusted",
-        "<span style='color:olivedrab'>Green line</span>: ICU, 9 day lag adjusted",
+        "<span style='color:red'>Red line</span>: New cases (2 week rolling average)",
+        "<span style='color:#00a174'>Green line</span>: Hospitalizations, 9 day lag adjusted",
+        "<span style='color:#ec5500'>Orange line</span>: ICU, 9 day lag adjusted",
         "<span style='color:gold2'>Yellow line</span>: Deaths estimate, 22 day lag adjusted",
         sep = "<br>"
       )

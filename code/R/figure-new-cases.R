@@ -9,7 +9,7 @@ figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-
     # Calculate estimates
     arrange(date) %>%
     mutate(
-      count_new_roll  = slide_dbl(count_new, median, .before = 7L, .after = 7L),
+      count_new_roll  = slide_dbl(count_new, mean, .before = 7L, .after = 7L),
       count_new_loess = predict_loess(date, count_new, span = 0.11),
       count_new_loess_diff = count_new_loess - lag(count_new_loess)
     )
@@ -25,7 +25,7 @@ figure_new_cases <- function(csv, county, population, date_limits = c(NA, "2021-
       y = "New cases",
       caption =
         str_c(
-          "<span style='color:red'>Red line</span>: 2 week rolling median",
+          "<span style='color:red'>Red line</span>: 2 week rolling mean",
           "<span style='color:blue'>Blue line</span>: loess estimate",
           sep = "<br>"
         )
