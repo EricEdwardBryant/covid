@@ -9,7 +9,7 @@ figure_new_cases_change <- function(csv, county, date_limits) {
     arrange(date) %>%
     mutate(
       count_new_roll  = slide_dbl(count_new, median, .before = 7L, .after = 7L),
-      count_new_loess = predict_loess(date, count_new, span = 0.25),
+      count_new_loess = predict_loess(date, count_new, span = 0.11),
       count_new_loess_diff = count_new_loess - lag(count_new_loess)
     ) %>%
     filter(!is.na(count_new_loess_diff))
